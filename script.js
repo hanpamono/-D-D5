@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function initializeListView() {
         populateFilters(allMonsters);
-        filterMonsters(); // 初回表示
+        filterMonsters();
         speciesFilter.addEventListener('change', filterMonsters);
         crFilter.addEventListener('change', filterMonsters);
     }
@@ -140,12 +140,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>移動速度:</strong> ${monster.speed}</p>
                 <div class="separator"></div>
                 <ul class="ability-scores">
-                    <li><strong>筋力</strong><br>${monster.ability_scores.strength}</li>
-                    <li><strong>敏捷力</strong><br>${monster.ability_scores.dexterity}</li>
-                    <li><strong>耐久力</strong><br>${monster.ability_scores.constitution}</li>
-                    <li><strong>知力</strong><br>${monster.ability_scores.intelligence}</li>
-                    <li><strong>判断力</strong><br>${monster.ability_scores.wisdom}</li>
-                    <li><strong>魅力</strong><br>${monster.ability_scores.charisma}</li>
+                    <li><h4>筋力</h4><p>${monster.ability_scores.strength}</p></li>
+                    <li><h4>敏捷力</h4><p>${monster.ability_scores.dexterity}</p></li>
+                    <li><h4>耐久力</h4><p>${monster.ability_scores.constitution}</p></li>
+                    <li><h4>知力</h4><p>${monster.ability_scores.intelligence}</p></li>
+                    <li><h4>判断力</h4><p>${monster.ability_scores.wisdom}</p></li>
+                    <li><h4>魅力</h4><p>${monster.ability_scores.charisma}</p></li>
                 </ul>
                 <div class="separator"></div>
                 ${monster.saving_throws ? `<p><strong>セーヴィングスロー:</strong> ${monster.saving_throws}</p>` : ''}
@@ -157,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>感覚:</strong> ${monster.senses}</p>
                 <p><strong>言語:</strong> ${monster.languages}</p>
                 <p><strong>脅威度:</strong> ${monster.challenge_rating}</p>
-                <div class="separator"></div>
                 
                 ${renderSection('特殊能力', monster.special_traits)}
                 ${renderSection('アクション', monster.actions)}
@@ -175,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const sectionClass = title.toLowerCase().replace(/ /g, '-');
         return `
             <div class="${sectionClass}">
+                <div class="separator"></div>
                 <h3>${title}</h3>
                 ${items.map(item => `
                     <div class="trait-item">
@@ -195,10 +195,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function crToNumber(cr) {
-        if (cr.includes('/')) {
-            const parts = cr.split('/');
+        if (!cr) return -1;
+        const crString = cr.split(' ')[0];
+        if (crString.includes('/')) {
+            const parts = crString.split('/');
             return parseInt(parts[0], 10) / parseInt(parts[1], 10);
         }
-        return parseInt(cr, 10);
+        return parseInt(crString, 10);
     }
 });
