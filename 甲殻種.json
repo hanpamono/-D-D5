@@ -1,0 +1,216 @@
+[
+  {
+    "name_jp": "ギザミ",
+    "name_en": "Ceanataur",
+    "size_type_alignment": "中型の monstrosity、無属性",
+    "armor_class": "15 (外皮)",
+    "hit_points": {
+      "average": 45,
+      "dice": "6d8 + 18"
+    },
+    "speed": "30フィート、巣穴20フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "13 (+1)",
+      "constitution": "16 (+3)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "skills": "知覚+3",
+    "senses": "暗視60フィート、受動知覚13",
+    "languages": "―",
+    "challenge_rating": "2 (450 XP)",
+    "special_traits": [
+      {
+        "name": "集団戦術 (Pack Tactics)",
+        "description": "ギザミは、目標クリーチャーの5フィート以内に、無力状態でない味方が少なくとも1体いれば、そのクリーチャーに対する攻撃ロールに有利を得ます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 10 (2d6 + 3) の斬撃ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ショウグンギザミ",
+    "name_en": "Shogun Ceanataur",
+    "size_type_alignment": "大型の monstrosity、無属性",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 102,
+      "dice": "12d10 + 36"
+    },
+    "speed": "40フィート、登攀40フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "16 (+3)",
+      "constitution": "16 (+3)",
+      "intelligence": "6 (-2)",
+      "wisdom": "12 (+1)",
+      "charisma": "7 (-2)"
+    },
+    "saving_throws": "筋力+7、敏捷力+6",
+    "skills": "運動+7、知覚+4",
+    "senses": "暗視60フィート、受動知覚14",
+    "languages": "―",
+    "challenge_rating": "6 (2,300 XP)",
+    "special_traits": [
+      {
+        "name": "スパイダー・クライム (Spider Climb)",
+        "description": "ショウグンギザミは、逆さまの天井を含め、困難な地形を速度を犠牲にすることなく登ることができます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ショウグンギザミは2回の「爪」攻撃を行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+7、リーチ10フィート、単一ターゲット。ヒット: 16 (2d10 + 4) の斬撃ダメージ。"
+      },
+      {
+        "name": "ウォータージェット (Water Jet)",
+        "description": "（リチャージ 5-6）ショウグンギザミは幅5フィート、長さ60フィートの直線状に高圧の水流を噴射します。その線上にいる各クリーチャーはDC14の敏捷力セーヴィングスローを行わなければならず、失敗すると27 (6d8) の酸ダメージを受け、成功した場合はその半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ヤオザミ",
+    "name_en": "Hermitaur",
+    "size_type_alignment": "中型の monstrosity、無属性",
+    "armor_class": "14 (外皮)",
+    "hit_points": {
+      "average": 39,
+      "dice": "6d8 + 12"
+    },
+    "speed": "20フィート、巣穴20フィート",
+    "ability_scores": {
+      "strength": "15 (+2)",
+      "dexterity": "10 (+0)",
+      "constitution": "14 (+2)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "skills": "知覚+3",
+    "senses": "暗視60フィート、受動知覚13",
+    "languages": "―",
+    "challenge_rating": "1 (200 XP)",
+    "actions": [
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 9 (2d6 + 2) の斬撃ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ダイミョウザザミ",
+    "name_en": "Daimyo Hermitaur",
+    "size_type_alignment": "大型の monstrosity、無属性",
+    "armor_class": "17 (外皮)",
+    "hit_points": {
+      "average": 114,
+      "dice": "12d10 + 48"
+    },
+    "speed": "30フィート、巣穴30フィート",
+    "ability_scores": {
+      "strength": "19 (+4)",
+      "dexterity": "10 (+0)",
+      "constitution": "18 (+4)",
+      "intelligence": "6 (-2)",
+      "wisdom": "12 (+1)",
+      "charisma": "7 (-2)"
+    },
+    "saving_throws": "筋力+7、耐久力+7",
+    "skills": "運動+7、知覚+4",
+    "damage_resistances": "非魔法攻撃による殴打、刺突、斬撃",
+    "senses": "暗視60フィート、受動知覚14",
+    "languages": "―",
+    "challenge_rating": "7 (2,900 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ダイミョウザザミは2回の「爪」攻撃を行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+7、リーチ5フィート、単一ターゲット。ヒット: 17 (3d8 + 4) の斬撃ダメージ。"
+      },
+      {
+        "name": "ウォータージェット (Water Jet)",
+        "description": "（リチャージ 5-6）ダイミョウザザミは幅5フィート、長さ60フィートの直線状に高圧の水流を噴射します。その線上にいる各クリーチャーはDC15の敏捷力セーヴィングスローを行わなければならず、失敗すると31 (7d8) の酸ダメージを受け、成功した場合はその半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "シェンガオレン",
+    "name_en": "Shen Gaoren",
+    "size_type_alignment": "超巨大な monstrosity、無属性",
+    "armor_class": "20 (外皮)",
+    "hit_points": {
+      "average": 287,
+      "dice": "15d20 + 130"
+    },
+    "speed": "40フィート、登攀40フィート",
+    "ability_scores": {
+      "strength": "30 (+10)",
+      "dexterity": "10 (+0)",
+      "constitution": "29 (+9)",
+      "intelligence": "3 (-4)",
+      "wisdom": "11 (+0)",
+      "charisma": "10 (+0)"
+    },
+    "saving_throws": "筋力+16、耐久力+15、判断力+6",
+    "damage_immunities": "酸、毒",
+    "condition_immunities": "魅了、疲労、恐怖、麻痺、石化、毒",
+    "senses": "暗視120フィート、振動感知120フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "20 (25,000 XP)",
+    "special_traits": [
+      {
+        "name": "伝説的抵抗 (Legendary Resistance)",
+        "description": "（3回/日）シェンガオレンがセーヴィングスローに失敗した場合、代わりに成功することを選ぶことができます。"
+      },
+      {
+        "name": "攻城兵器 (Siege Monster)",
+        "description": "シェンガオレンはオブジェクトや建造物に対して2倍のダメージを与えます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "シェンガオレンは「踏みつけ」攻撃と「爪」攻撃を1回ずつ行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+16、リーチ15フィート、単一ターゲット。ヒット: 24 (4d6 + 10) の斬撃ダメージ。"
+      },
+      {
+        "name": "踏みつけ (Stomp)",
+        "description": "近接武器攻撃: ヒット+16、リーチ20フィート、単一ターゲット。ヒット: 28 (4d8 + 10) の殴打ダメージ。ターゲットがクリーチャーの場合、DC24の筋力セーヴィングスローに成功しなければならず、失敗すると伏せ状態になります。"
+      },
+      {
+        "name": "酸の塊 (Acid Glob)",
+        "description": "（リチャージ 5-6）遠隔武器攻撃: ヒット+16、射程120フィート、単一ターゲット。ヒット: 66 (12d10) の酸ダメージ。"
+      }
+    ],
+    "legendary_actions": [
+      {
+        "name": "移動",
+        "description": "シェンガオレンは速度の半分まで移動します。"
+      },
+      {
+        "name": "爪攻撃",
+        "description": "シェンガオレンは「爪」攻撃を行います。"
+      },
+      {
+        "name": "踏みつけ (Stomp)",
+        "description": "（コスト2アクション）シェンガオレンは「踏みつけ」攻撃を行います。"
+      }
+    ]
+  }
+]

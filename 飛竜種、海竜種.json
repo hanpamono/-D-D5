@@ -1,0 +1,1583 @@
+[
+  {
+    "name_jp": "アカムトルム",
+    "name_en": "Akantor",
+    "size_type_alignment": "超巨大な竜、混沌にして悪",
+    "armor_class": "20 (外皮)",
+    "hit_points": {
+      "average": 471,
+      "dice": "27d20 + 187"
+    },
+    "speed": "50フィート、巣穴30フィート",
+    "ability_scores": {
+      "strength": "28 (+9)",
+      "dexterity": "10 (+0)",
+      "constitution": "25 (+7)",
+      "intelligence": "12 (+1)",
+      "wisdom": "16 (+3)",
+      "charisma": "18 (+4)"
+    },
+    "saving_throws": "筋力+16、耐久力+14",
+    "skills": "知覚+10",
+    "damage_immunities": "火",
+    "senses": "暗視120フィート、振動感知120フィート、受動知覚20",
+    "languages": "竜語",
+    "challenge_rating": "25 (75,000 XP)",
+    "special_traits": [
+      {
+        "name": "伝説的抵抗 (Legendary Resistance)",
+        "description": "（3回/日）アカムトルムがセーヴィングスローに失敗した場合、代わりに成功することを選ぶことができます。"
+      },
+      {
+        "name": "攻城兵器 (Siege Monster)",
+        "description": "アカムトルムはオブジェクトや建造物に対して2倍のダメージを与えます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "アカムトルムは「噛みつき」1回と「牙」攻撃1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+16、リーチ15フィート、単一ターゲット。ヒット: 31 (4d10 + 9) の刺突ダメージ。"
+      },
+      {
+        "name": "牙 (Tusks)",
+        "description": "近接武器攻撃: ヒット+16、リーチ10フィート、単一ターゲット。ヒット: 35 (4d12 + 9) の刺突ダメージ。"
+      },
+      {
+        "name": "ソニックブラスト (Sonic Blast)",
+        "description": "（リチャージ 5-6）アカムトルムは90フィートの円錐状に強力な音波を放ちます。範囲内の各クリーチャーはDC22の耐久力セーヴィングスローを行い、失敗すると77 (22d6) の音波ダメージを受け、気絶します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ライゼクス",
+    "name_en": "Astalos",
+    "size_type_alignment": "大型の竜、混沌にして中立",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 199,
+      "dice": "19d10 + 95"
+    },
+    "speed": "40フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "20 (+5)",
+      "constitution": "20 (+5)",
+      "intelligence": "14 (+2)",
+      "wisdom": "16 (+3)",
+      "charisma": "18 (+4)"
+    },
+    "saving_throws": "敏捷力+11、耐久力+11",
+    "skills": "知覚+9",
+    "damage_immunities": "雷",
+    "senses": "暗視120フィート、受動知覚19",
+    "languages": "竜語",
+    "challenge_rating": "17 (18,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ライゼクスは「噛みつき」1回と「翼」攻撃2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+12、リーチ10フィート、単一ターゲット。ヒット: 19 (2d12 + 6) の刺突ダメージ。"
+      },
+      {
+        "name": "翼 (Wing)",
+        "description": "近接武器攻撃: ヒット+12、リーチ15フィート、単一ターゲット。ヒット: 18 (2d10 + 6) の斬撃ダメージと7 (2d6) の雷ダメージ。"
+      },
+      {
+        "name": "ライトニングブレード (Lightning Blade)",
+        "description": "（リチャージ 5-6）ライゼクスは翼から幅5フィート、長さ90フィートの直線状に電撃の刃を放ちます。範囲内の各クリーチャーはDC19の敏捷力セーヴィングスローを行い、失敗すると66 (12d10) の雷ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ベリオロス",
+    "name_en": "Barioth",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "17 (外皮)",
+    "hit_points": {
+      "average": 184,
+      "dice": "16d10 + 96"
+    },
+    "speed": "40フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "18 (+4)",
+      "constitution": "22 (+6)",
+      "intelligence": "8 (-1)",
+      "wisdom": "14 (+2)",
+      "charisma": "10 (+0)"
+    },
+    "skills": "知覚+7",
+    "damage_immunities": "氷",
+    "senses": "暗視120フィート、受動知覚17",
+    "languages": "―",
+    "challenge_rating": "13 (10,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ベリオロスは「噛みつき」1回と「爪」攻撃2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+10、リーチ10フィート、単一ターゲット。ヒット: 18 (2d12 + 5) の刺突ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+10、リーチ5フィート、単一ターゲット。ヒット: 14 (2d8 + 5) の斬撃ダメージ。"
+      },
+      {
+        "name": "アイスブレス (Ice Breath)",
+        "description": "（リチャージ 5-6）ベリオロスは60フィートの円錐状に氷の竜巻を吐き出します。範囲内の各クリーチャーはDC18の耐久力セーヴィングスローを行い、失敗すると45 (10d8) の氷ダメージを受け、移動速度が半分になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "氷刃佩くベリオロス",
+    "name_en": "Frostfang Barioth",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "19 (外皮)",
+    "hit_points": {
+      "average": 230,
+      "dice": "20d10 + 120"
+    },
+    "speed": "40フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "20 (+5)",
+      "constitution": "23 (+6)",
+      "intelligence": "10 (+0)",
+      "wisdom": "16 (+3)",
+      "charisma": "12 (+1)"
+    },
+    "skills": "知覚+8",
+    "damage_immunities": "氷",
+    "senses": "暗視120フィート、受動知覚18",
+    "languages": "―",
+    "challenge_rating": "16 (15,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ベリオロスは「噛みつき」1回と「爪」攻撃2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+11、リーチ10フィート、単一ターゲット。ヒット: 22 (3d10 + 6) の刺突ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+11、リーチ5フィート、単一ターゲット。ヒット: 16 (3d6 + 6) の斬撃ダメージ。"
+      },
+      {
+        "name": "フロストブレス (Frost Breath)",
+        "description": "（リチャージ 5-6）ベリオロスは90フィートの円錐状に氷の竜巻を吐き出します。範囲内の各クリーチャーはDC19の耐久力セーヴィングスローを行い、失敗すると54 (12d8) の氷ダメージを受け、移動速度が0になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "バサルモス",
+    "name_en": "Basarios",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "18 (岩の鎧)",
+    "hit_points": {
+      "average": 136,
+      "dice": "13d10 + 65"
+    },
+    "speed": "30フィート、巣穴20フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "8 (-1)",
+      "constitution": "20 (+5)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "damage_immunities": "火、毒",
+    "senses": "暗視120フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "7 (2,900 XP)",
+    "special_traits": [
+      {
+        "name": "岩のカモフラージュ (Rock Camouflage)",
+        "description": "バサルモスは岩の地形で隠密チェックに有利を得ます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "ボディスラム (Body Slam)",
+        "description": "近接武器攻撃: ヒット+8、リーチ5フィート、単一ターゲット。ヒット: 18 (3d8 + 5) の殴打ダメージ。"
+      },
+      {
+        "name": "ファイアガス (Fire Gas)",
+        "description": "（リチャージ 5-6）バサルモスは15フィートの円錐状に炎のガスを放出します。範囲内の各クリーチャーはDC16の敏捷力セーヴィングスローを行い、失敗すると22 (4d10) の火ダメージを受け、成功した場合は半分のダメージを受けます。"
+      },
+      {
+        "name": "毒ガス (Poison Gas)",
+        "description": "（リチャージ 5-6）バサルモスは15フィートの円錐状に毒ガスを放出します。範囲内の各クリーチャーはDC16の耐久力セーヴィングスローを行い、失敗すると22 (4d10) の毒ダメージを受け、1分間毒状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "バゼルギウス",
+    "name_en": "Bazelgeuse",
+    "size_type_alignment": "大型の竜、混沌にして悪",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 207,
+      "dice": "18d10 + 108"
+    },
+    "speed": "40フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "24 (+7)",
+      "dexterity": "14 (+2)",
+      "constitution": "22 (+6)",
+      "intelligence": "10 (+0)",
+      "wisdom": "16 (+3)",
+      "charisma": "14 (+2)"
+    },
+    "damage_immunities": "火",
+    "senses": "暗視120フィート、受動知覚13",
+    "languages": "竜語",
+    "challenge_rating": "15 (13,000 XP)",
+    "special_traits": [
+      {
+        "name": "爆発性の鱗 (Explosive Scales)",
+        "description": "バゼルギウスがダメージを受けると、5フィート以内の各クリーチャーはDC18の敏捷力セーヴィングスローを行い、失敗すると7 (2d6) の火ダメージを受けます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "バゼルギウスは「噛みつき」1回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+12、リーチ10フィート、単一ターゲット。ヒット: 18 (2d10 + 7) の刺突ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+12、リーチ15フィート、単一ターゲット。ヒット: 20 (2d12 + 7) の殴打ダメージ。"
+      },
+      {
+        "name": "爆撃 (Bombing Run)",
+        "description": "（リチャージ 5-6）バゼルギウスは飛行中に爆発性の鱗を落とします。飛行経路の下の幅10フィート、長さ60フィートの直線状のエリア内の各クリーチャーはDC18の敏捷力セーヴィングスローを行い、失敗すると45 (10d8) の火ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "紅蓮滾るバゼルギウス",
+    "name_en": "Seething Bazelgeuse",
+    "size_type_alignment": "大型の竜、混沌にして悪",
+    "armor_class": "20 (外皮)",
+    "hit_points": {
+      "average": 253,
+      "dice": "22d10 + 132"
+    },
+    "speed": "40フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "26 (+8)",
+      "dexterity": "16 (+3)",
+      "constitution": "23 (+6)",
+      "intelligence": "12 (+1)",
+      "wisdom": "18 (+4)",
+      "charisma": "16 (+3)"
+    },
+    "damage_immunities": "火",
+    "senses": "暗視120フィート、受動知覚14",
+    "languages": "竜語",
+    "challenge_rating": "18 (20,000 XP)",
+    "special_traits": [
+      {
+        "name": "臨界状態 (Critical State)",
+        "description": "バゼルギウスがHPの半分以下になると、鱗が紫色に輝き始めます。「爆発性の鱗」のダメージは14 (4d6) に増加し、セーヴDCは20になります。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "バゼルギウスは「噛みつき」1回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+14、リーチ10フィート、単一ターゲット。ヒット: 21 (2d12 + 8) の刺突ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+14、リーチ15フィート、単一ターゲット。ヒット: 24 (3d10 + 8) の殴打ダメージ。"
+      },
+      {
+        "name": "爆撃 (Bombing Run)",
+        "description": "（リチャージ 5-6）バゼルギウスは飛行中に爆発性の鱗を落とします。飛行経路の下の幅15フィート、長さ90フィートの直線状のエリア内の各クリーチャーはDC20の敏捷力セーヴィングスローを行い、失敗すると54 (12d8) の火ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ディアブロス",
+    "name_en": "Diablos",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "19 (外皮)",
+    "hit_points": {
+      "average": 220,
+      "dice": "20d10 + 110"
+    },
+    "speed": "40フィート、巣穴40フィート",
+    "ability_scores": {
+      "strength": "26 (+8)",
+      "dexterity": "12 (+1)",
+      "constitution": "21 (+5)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "10 (+0)"
+    },
+    "senses": "暗視120フィート、振動感知120フィート、受動知覚12",
+    "languages": "―",
+    "challenge_rating": "14 (11,500 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ディアブロスは「角」攻撃1回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "角 (Horns)",
+        "description": "近接武器攻撃: ヒット+13、リーチ10フィート、単一ターゲット。ヒット: 26 (4d8 + 8) の刺突ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+13、リーチ15フィート、単一ターゲット。ヒット: 21 (2d12 + 8) の殴打ダメージ。"
+      },
+      {
+        "name": "突進 (Burrowing Charge)",
+        "description": "ディアブロスは地中に潜り、120フィート以内の地点に現れます。その地点から10フィート以内の各クリーチャーはDC21の敏捷力セーヴィングスローを行い、失敗すると44 (8d10) の刺突ダメージを受け、伏せ状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "エスピナス",
+    "name_en": "Espinas",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "20 (外皮)",
+    "hit_points": {
+      "average": 232,
+      "dice": "19d10 + 128"
+    },
+    "speed": "40フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "24 (+7)",
+      "dexterity": "12 (+1)",
+      "constitution": "24 (+7)",
+      "intelligence": "8 (-1)",
+      "wisdom": "16 (+3)",
+      "charisma": "12 (+1)"
+    },
+    "damage_immunities": "火、毒",
+    "condition_immunities": "毒、麻痺",
+    "senses": "暗視120フィート、受動知覚13",
+    "languages": "―",
+    "challenge_rating": "17 (18,000 XP)",
+    "special_traits": [
+      {
+        "name": "毒の棘 (Poisonous Spines)",
+        "description": "エスピナスへの近接攻撃がヒットした場合、攻撃者はDC19の耐久力セーヴィングスローを行い、失敗すると1分間毒状態になります。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "エスピナスは「角」攻撃1回と「ボディスラム」1回を行います。"
+      },
+      {
+        "name": "角 (Horn)",
+        "description": "近接武器攻撃: ヒット+12、リーチ10フィート、単一ターゲット。ヒット: 21 (3d8 + 7) の刺突ダメージと7 (2d6) の毒ダメージ。"
+      },
+      {
+        "name": "ボディスラム (Body Slam)",
+        "description": "近接武器攻撃: ヒット+12、リーチ5フィート、単一ターゲット。ヒット: 25 (4d8 + 7) の殴打ダメージ。ターゲットはDC20の筋力セーヴィングスローを行い、失敗すると伏せ状態になります。"
+      },
+      {
+        "name": "ファイアボール (Fireball)",
+        "description": "（リチャージ 5-6）エスピナスは3つの火球を吐き出します。各火球は120フィート以内のクリーチャーをターゲットにできます。遠隔呪文攻撃: ヒット+12。ヒット: 22 (4d10) の火ダメージと11 (2d10) の毒ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "エスピナス亜種",
+    "name_en": "Flaming Espinas",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "22 (外皮)",
+    "hit_points": {
+      "average": 287,
+      "dice": "23d10 + 161"
+    },
+    "speed": "40フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "26 (+8)",
+      "dexterity": "14 (+2)",
+      "constitution": "25 (+7)",
+      "intelligence": "10 (+0)",
+      "wisdom": "18 (+4)",
+      "charisma": "14 (+2)"
+    },
+    "damage_immunities": "火、毒、酸",
+    "condition_immunities": "毒、麻痺",
+    "senses": "暗視120フィート、受動知覚14",
+    "languages": "―",
+    "challenge_rating": "20 (25,000 XP)",
+    "special_traits": [
+      {
+        "name": "毒の棘 (Poisonous Spines)",
+        "description": "エスピナスへの近接攻撃がヒットした場合、攻撃者はDC20の耐久力セーヴィングスローを行い、失敗すると1分間毒状態になり、さらに1分間酸による火傷を受けます（ターンの開始時に1d10の酸ダメージ）。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "エスピナスは「角」攻撃1回と「ボディスラム」1回を行います。"
+      },
+      {
+        "name": "角 (Horn)",
+        "description": "近接武器攻撃: ヒット+14、リーチ10フィート、単一ターゲット。ヒット: 26 (4d8 + 8) の刺突ダメージと11 (2d10) の毒ダメージ。"
+      },
+      {
+        "name": "ボディスラム (Body Slam)",
+        "description": "近接武器攻撃: ヒット+14、リーチ5フィート、単一ターゲット。ヒット: 30 (4d10 + 8) の殴打ダメージ。ターゲットはDC22の筋力セーヴィングスローを行い、失敗すると伏せ状態になります。"
+      },
+      {
+        "name": "メガフレア (Mega Flare)",
+        "description": "（リチャージ 5-6）エスピナスは巨大な火球を吐き出します。120フィート以内の地点を中心とする半径30フィートの球体内の各クリーチャーはDC20の敏捷力セーヴィングスローを行い、失敗すると66 (12d10) の火ダメージと22 (4d10) の毒ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ギギネブラ",
+    "name_en": "Gigginox",
+    "size_type_alignment": "大型の monstrosity、混沌にして悪",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 150,
+      "dice": "16d10 + 62"
+    },
+    "speed": "30フィート、登攀30フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "16 (+3)",
+      "constitution": "19 (+4)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "8 (-1)"
+    },
+    "damage_immunities": "毒",
+    "senses": "盲視60フィート、受動知覚12",
+    "languages": "―",
+    "challenge_rating": "8 (3,900 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ギギネブラは「噛みつき」1回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+7、リーチ10フィート、単一ターゲット。ヒット: 15 (2d10 + 4) の刺突ダメージと11 (2d10) の毒ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+7、リーチ10フィート、単一ターゲット。ヒット: 13 (2d8 + 4) の殴打ダメージ。"
+      },
+      {
+        "name": "毒の卵 (Poison Egg)",
+        "description": "ギギネブラは5フィート以内の空きスペースに毒の卵を産みます。卵は次のギギネブラのターンの開始時に孵化し、1d4体のギィギ（GM's Guide参照）を放出するか、HPが10以上減少すると爆発します。爆発した場合、10フィート以内の各クリーチャーはDC15の耐久力セーヴィングスローを行い、失敗すると22 (4d10) の毒ダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "混沌のギギネブラ",
+    "name_en": "Chaotic Gigginox",
+    "size_type_alignment": "大型の monstrosity、混沌にして悪",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 195,
+      "dice": "20d10 + 85"
+    },
+    "speed": "30フィート、登攀30フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "18 (+4)",
+      "constitution": "21 (+5)",
+      "intelligence": "8 (-1)",
+      "wisdom": "16 (+3)",
+      "charisma": "10 (+0)"
+    },
+    "damage_immunities": "毒、雷",
+    "senses": "盲視60フィート、受動知覚13",
+    "languages": "―",
+    "challenge_rating": "11 (7,200 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ギギネブラは「噛みつき」1回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+9、リーチ10フィート、単一ターゲット。ヒット: 18 (2d12 + 5) の刺突ダメージと11 (2d10) の毒ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+9、リーチ10フィート、単一ターゲット。ヒット: 16 (2d10 + 5) の殴打ダメージと7 (2d6) の雷ダメージ。"
+      },
+      {
+        "name": "混合の卵 (Mixed Egg)",
+        "description": "ギギネブラは5フィート以内の空きスペースに卵を産みます。卵は次のギギネブラのターンの開始時に孵化し、1d4体のギィギを放出するか、HPが15以上減少すると爆発します。爆発した場合、10フィート以内の各クリーチャーはDC17の耐久力セーヴィングスローを行い、失敗すると22 (4d10) の毒ダメージと11 (2d10) の雷ダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "グラビモス",
+    "name_en": "Gravios",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "20 (岩の鎧)",
+    "hit_points": {
+      "average": 210,
+      "dice": "17d10 + 117"
+    },
+    "speed": "30フィート、飛行60フィート",
+    "ability_scores": {
+      "strength": "24 (+7)",
+      "dexterity": "8 (-1)",
+      "constitution": "23 (+6)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "10 (+0)"
+    },
+    "damage_immunities": "火",
+    "senses": "暗視120フィート、受動知覚12",
+    "languages": "―",
+    "challenge_rating": "13 (10,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "グラビモスは「尻尾なぎ払い」1回と「ボディスラム」1回を行います。"
+      },
+      {
+        "name": "ボディスラム (Body Slam)",
+        "description": "近接武器攻撃: ヒット+12、リーチ5フィート、単一ターゲット。ヒット: 25 (4d8 + 7) の殴打ダメージ。"
+      },
+      {
+        "name": "尻尾なぎ払い (Tail Sweep)",
+        "description": "グラビモスは尻尾でなぎ払います。15フィート以内の各クリーチャーはDC20の敏捷力セーヴィングスローを行い、失敗すると18 (2d10 + 7) の殴打ダメージを受け、伏せ状態になります。"
+      },
+      {
+        "name": "ファイアビーム (Fire Beam)",
+        "description": "（リチャージ 5-6）グラビモスは幅5フィート、長さ120フィートの直線状に炎のビームを放ちます。範囲内の各クリーチャーはDC19の敏捷力セーヴィングスローを行い、失敗すると66 (12d10) の火ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "フルフル",
+    "name_en": "Khezu",
+    "size_type_alignment": "大型の monstrosity、無属性",
+    "armor_class": "15 (外皮)",
+    "hit_points": {
+      "average": 133,
+      "dice": "14d10 + 56"
+    },
+    "speed": "30フィート、登攀30フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "14 (+2)",
+      "constitution": "18 (+4)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "damage_immunities": "雷",
+    "senses": "盲視60フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "7 (2,900 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "フルフルは「噛みつき」1回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+7、リーチ10フィート、単一ターゲット。ヒット: 15 (2d10 + 4) の刺突ダメージと7 (2d6) の雷ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+7、リーチ10フィート、単一ターゲット。ヒット: 13 (2d8 + 4) の殴打ダメージ。"
+      },
+      {
+        "name": "サンダーボール (Thunderball)",
+        "description": "（リチャージ 5-6）フルフルは3つの雷の球を吐き出します。各球は120フィート以内のクリーチャーをターゲットにできます。遠隔呪文攻撃: ヒット+7。ヒット: 22 (4d10) の雷ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "レイギエナ",
+    "name_en": "Legiana",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 157,
+      "dice": "15d10 + 75"
+    },
+    "speed": "30フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "20 (+5)",
+      "constitution": "20 (+5)",
+      "intelligence": "6 (-2)",
+      "wisdom": "16 (+3)",
+      "charisma": "12 (+1)"
+    },
+    "skills": "知覚+8",
+    "damage_immunities": "氷",
+    "senses": "暗視120フィート、受動知覚18",
+    "languages": "―",
+    "challenge_rating": "10 (5,900 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "レイギエナは「噛みつき」1回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+9、リーチ10フィート、単一ターゲット。ヒット: 17 (2d12 + 4) の刺突ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+9、リーチ15フィート、単一ターゲット。ヒット: 15 (2d10 + 4) の斬撃ダメージ。"
+      },
+      {
+        "name": "アイスブレス (Ice Breath)",
+        "description": "（リチャージ 5-6）レイギエナは60フィートの円錐状に氷の空気を吐き出します。範囲内の各クリーチャーはDC17の耐久力セーヴィングスローを行い、失敗すると45 (10d8) の氷ダメージを受け、移動速度が半分になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "凍て刺すレイギエナ",
+    "name_en": "Shrieking Legiana",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 202,
+      "dice": "18d10 + 103"
+    },
+    "speed": "30フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "22 (+6)",
+      "constitution": "22 (+6)",
+      "intelligence": "8 (-1)",
+      "wisdom": "18 (+4)",
+      "charisma": "14 (+2)"
+    },
+    "skills": "知覚+9",
+    "damage_immunities": "氷",
+    "senses": "暗視120フィート、受動知覚19",
+    "languages": "―",
+    "challenge_rating": "14 (11,500 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "レイギエナは「噛みつき」1回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+10、リーチ10フィート、単一ターゲット。ヒット: 21 (3d10 + 5) の刺突ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+10、リーチ15フィート、単一ターゲット。ヒット: 18 (3d8 + 5) の斬撃ダメージ。"
+      },
+      {
+        "name": "ブリザード (Blizzard)",
+        "description": "（リチャージ 5-6）レイギエナは自身を中心とする半径30フィートに吹雪を巻き起こします。範囲内の各クリーチャーはDC18の耐久力セーヴィングスローを行い、失敗すると54 (12d8) の氷ダメージを受け、移動速度が0になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "モノブロス",
+    "name_en": "Monoblos",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 200,
+      "dice": "18d10 + 101"
+    },
+    "speed": "40フィート、巣穴40フィート",
+    "ability_scores": {
+      "strength": "24 (+7)",
+      "dexterity": "12 (+1)",
+      "constitution": "21 (+5)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "8 (-1)"
+    },
+    "senses": "暗視120フィート、振動感知120フィート、受動知覚12",
+    "languages": "―",
+    "challenge_rating": "12 (8,400 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "モノブロスは「角」攻撃1回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "角 (Horn)",
+        "description": "近接武器攻撃: ヒット+11、リーチ10フィート、単一ターゲット。ヒット: 25 (4d8 + 7) の刺突ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+11、リーチ15フィート、単一ターゲット。ヒット: 20 (2d12 + 7) の殴打ダメージ。"
+      },
+      {
+        "name": "突進 (Burrowing Charge)",
+        "description": "モノブロスは地中に潜り、120フィート以内の地点に現れます。その地点から10フィート以内の各クリーチャーはDC19の敏捷力セーヴィングスローを行い、失敗すると40 (7d10) の刺突ダメージを受け、伏せ状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ナルガクルガ",
+    "name_en": "Nargacuga",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "17 (外皮)",
+    "hit_points": {
+      "average": 171,
+      "dice": "18d10 + 72"
+    },
+    "speed": "50フィート、登攀50フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "22 (+6)",
+      "constitution": "18 (+4)",
+      "intelligence": "8 (-1)",
+      "wisdom": "16 (+3)",
+      "charisma": "10 (+0)"
+    },
+    "skills": "軽業+11、隠密+11、知覚+8",
+    "senses": "暗視120フィート、受動知覚18",
+    "languages": "―",
+    "challenge_rating": "11 (7,200 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ナルガクルガは「噛みつき」1回と「翼」攻撃2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+10、リーチ5フィート、単一ターゲット。ヒット: 16 (2d10 + 5) の刺突ダメージ。"
+      },
+      {
+        "name": "翼 (Wing)",
+        "description": "近接武器攻撃: ヒット+11、リーチ10フィート、単一ターゲット。ヒット: 15 (2d8 + 6) の斬撃ダメージ。"
+      },
+      {
+        "name": "尻尾スラム (Tail Slam)",
+        "description": "近接武器攻撃: ヒット+10、リーチ15フィート、単一ターゲット。ヒット: 18 (2d12 + 5) の殴打ダメージ。ターゲットはDC18の筋力セーヴィングスローを行い、失敗すると伏せ状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "白疾風ナルガクルガ",
+    "name_en": "Silverwind Nargacuga",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "19 (外皮)",
+    "hit_points": {
+      "average": 225,
+      "dice": "22d10 + 104"
+    },
+    "speed": "60フィート、登攀60フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "24 (+7)",
+      "constitution": "20 (+5)",
+      "intelligence": "10 (+0)",
+      "wisdom": "18 (+4)",
+      "charisma": "12 (+1)"
+    },
+    "skills": "軽業+13、隠密+13、知覚+10",
+    "senses": "暗視120フィート、受動知覚20",
+    "languages": "―",
+    "challenge_rating": "15 (13,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ナルガクルガは「噛みつき」1回と「翼」攻撃2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+12、リーチ5フィート、単一ターゲット。ヒット: 19 (2d12 + 6) の刺突ダメージ。"
+      },
+      {
+        "name": "翼 (Wing)",
+        "description": "近接武器攻撃: ヒット+13、リーチ10フィート、単一ターゲット。ヒット: 18 (2d10 + 7) の斬撃ダメージ。"
+      },
+      {
+        "name": "尻尾の棘 (Tail Spikes)",
+        "description": "遠隔武器攻撃: ヒット+13、射程60/240フィート、単一ターゲット。ヒット: 21 (3d8 + 7) の刺突ダメージ。ヒットした場合、ターゲットはDC18の耐久力セーヴィングスローを行い、失敗すると1分間出血状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "月迅竜ナルガクルガ",
+    "name_en": "Lucent Nargacuga",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "20 (外皮)",
+    "hit_points": {
+      "average": 256,
+      "dice": "24d10 + 124"
+    },
+    "speed": "60フィート、登攀60フィート",
+    "ability_scores": {
+      "strength": "24 (+7)",
+      "dexterity": "26 (+8)",
+      "constitution": "21 (+5)",
+      "intelligence": "12 (+1)",
+      "wisdom": "20 (+5)",
+      "charisma": "14 (+2)"
+    },
+    "skills": "軽業+15、隠密+15、知覚+11",
+    "senses": "暗視120フィート、受動知覚21",
+    "languages": "―",
+    "challenge_rating": "18 (20,000 XP)",
+    "special_traits": [
+      {
+        "name": "透明化 (Invisibility)",
+        "description": "ナルガクルガはボーナスアクションで透明になることができます。この透明状態は、ナルガクルガが攻撃するか、ダメージを受けるか、またはボーナスアクションで終了するまで続きます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ナルガクルガは「噛みつき」1回と「翼」攻撃2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+14、リーチ5フィート、単一ターゲット。ヒット: 22 (3d10 + 7) の刺突ダメージ。"
+      },
+      {
+        "name": "翼 (Wing)",
+        "description": "近接武器攻撃: ヒット+15、リーチ10フィート、単一ターゲット。ヒット: 21 (3d8 + 8) の斬撃ダメージ。"
+      },
+      {
+        "name": "毒の棘 (Poisonous Spikes)",
+        "description": "遠隔武器攻撃: ヒット+15、射程80/320フィート、単一ターゲット。ヒット: 26 (4d8 + 8) の刺突ダメージ。ターゲットはDC18の耐久力セーヴィングスローを行い、失敗すると1分間毒状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "パオウルムー",
+    "name_en": "Paolumu",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "14 (外皮)",
+    "hit_points": {
+      "average": 114,
+      "dice": "12d10 + 48"
+    },
+    "speed": "20フィート、飛行60フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "18 (+4)",
+      "constitution": "18 (+4)",
+      "intelligence": "4 (-3)",
+      "wisdom": "14 (+2)",
+      "charisma": "10 (+0)"
+    },
+    "senses": "受動知覚12",
+    "languages": "―",
+    "challenge_rating": "5 (1,800 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "パオウルムーは「尻尾スラム」2回を行います。"
+      },
+      {
+        "name": "尻尾スラム (Tail Slam)",
+        "description": "近接武器攻撃: ヒット+6、リーチ10フィート、単一ターゲット。ヒット: 12 (2d8 + 3) の殴打ダメージ。"
+      },
+      {
+        "name": "ウィンドブラスト (Wind Blast)",
+        "description": "（リチャージ 5-6）パオウルムーは30フィートの円錐状に強力な風を吐き出します。範囲内の各クリーチャーはDC15の筋力セーヴィングスローを行い、失敗すると20フィート押しやられ、伏せ状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "パオウルムー亜種",
+    "name_en": "Nightshade Paolumu",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "15 (外皮)",
+    "hit_points": {
+      "average": 142,
+      "dice": "15d10 + 60"
+    },
+    "speed": "20フィート、飛行60フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "20 (+5)",
+      "constitution": "19 (+4)",
+      "intelligence": "6 (-2)",
+      "wisdom": "16 (+3)",
+      "charisma": "12 (+1)"
+    },
+    "senses": "受動知覚13",
+    "languages": "―",
+    "challenge_rating": "8 (3,900 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "パオウルムーは「尻尾スラム」2回を行います。"
+      },
+      {
+        "name": "尻尾スラム (Tail Slam)",
+        "description": "近接武器攻撃: ヒット+7、リーチ10フィート、単一ターゲット。ヒット: 15 (2d10 + 4) の殴打ダメージ。"
+      },
+      {
+        "name": "睡眠ガス (Sleep Gas)",
+        "description": "（リチャージ 5-6）パオウルムーは30フィートの円錐状に睡眠ガスを吐き出します。範囲内の各クリーチャーはDC16の耐久力セーヴィングスローを行い、失敗すると1分間、ダメージを受けるか誰かがアクションを使って揺り起こすまで無意識状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "リオレウス",
+    "name_en": "Rathalos",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 195,
+      "dice": "17d10 + 102"
+    },
+    "speed": "40フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "14 (+2)",
+      "constitution": "22 (+6)",
+      "intelligence": "8 (-1)",
+      "wisdom": "14 (+2)",
+      "charisma": "12 (+1)"
+    },
+    "skills": "知覚+7",
+    "damage_immunities": "火",
+    "senses": "暗視120フィート、受動知覚17",
+    "languages": "―",
+    "challenge_rating": "12 (8,400 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "リオレウスは「噛みつき」1回と「爪」2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+11、リーチ10フィート、単一ターゲット。ヒット: 19 (2d12 + 6) の刺突ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+11、リーチ5フィート、単一ターゲット。ヒット: 16 (2d10 + 6) の斬撃ダメージ。ヒットした場合、ターゲットはDC18の耐久力セーヴィングスローを行い、失敗すると1分間毒状態になります。"
+      },
+      {
+        "name": "ファイアボール (Fireball)",
+        "description": "（リチャージ 5-6）リオレウスは120フィート以内の地点に火球を吐き出します。その地点から20フィート半径の球体内にいる各クリーチャーはDC18の敏捷力セーヴィングスローを行い、失敗すると49 (14d6) の火ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "セルレギオス",
+    "name_en": "Seregios",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 184,
+      "dice": "16d10 + 96"
+    },
+    "speed": "40フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "20 (+5)",
+      "constitution": "22 (+6)",
+      "intelligence": "10 (+0)",
+      "wisdom": "16 (+3)",
+      "charisma": "12 (+1)"
+    },
+    "skills": "知覚+8",
+    "senses": "暗視120フィート、受動知覚18",
+    "languages": "―",
+    "challenge_rating": "13 (10,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "セルレギオスは「爪」攻撃2回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+10、リーチ5フィート、単一ターゲット。ヒット: 14 (2d8 + 5) の斬撃ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+10、リーチ10フィート、単一ターゲット。ヒット: 16 (2d10 + 5) の刺突ダメージ。"
+      },
+      {
+        "name": "刃の鱗 (Blade Scales)",
+        "description": "遠隔武器攻撃: ヒット+10、射程60/240フィート、単一ターゲット。ヒット: 18 (4d8) の斬撃ダメージ。ヒットした場合、ターゲットはDC17の耐久力セーヴィングスローを行い、失敗すると1分間出血状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ティガレックス",
+    "name_en": "Tigrex",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "17 (外皮)",
+    "hit_points": {
+      "average": 190,
+      "dice": "17d10 + 97"
+    },
+    "speed": "50フィート、登攀40フィート",
+    "ability_scores": {
+      "strength": "24 (+7)",
+      "dexterity": "16 (+3)",
+      "constitution": "21 (+5)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "8 (-1)"
+    },
+    "senses": "暗視120フィート、受動知覚12",
+    "languages": "―",
+    "challenge_rating": "11 (7,200 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ティガレックスは「噛みつき」1回と「爪」2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+11、リーチ10フィート、単一ターゲット。ヒット: 21 (3d8 + 7) の刺突ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+11、リーチ5フィート、単一ターゲット。ヒット: 17 (2d10 + 7) の斬撃ダメージ。"
+      },
+      {
+        "name": "突進 (Charge)",
+        "description": "ティガレックスがクリーチャーに向かって少なくとも20フィート直進し、同じターンに「噛みつき」攻撃でヒットした場合、そのターゲットは追加で13 (3d8) の刺突ダメージを受け、DC19の筋力セーヴィングスローに成功しなければならず、失敗すると伏せ状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ティガレックス亜種",
+    "name_en": "Brute Tigrex",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "19 (外皮)",
+    "hit_points": {
+      "average": 232,
+      "dice": "20d10 + 122"
+    },
+    "speed": "60フィート、登攀40フィート",
+    "ability_scores": {
+      "strength": "26 (+8)",
+      "dexterity": "18 (+4)",
+      "constitution": "23 (+6)",
+      "intelligence": "8 (-1)",
+      "wisdom": "16 (+3)",
+      "charisma": "10 (+0)"
+    },
+    "senses": "暗視120フィート、受動知覚13",
+    "languages": "―",
+    "challenge_rating": "15 (13,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ティガレックスは「噛みつき」1回と「爪」2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+13、リーチ10フィート、単一ターゲット。ヒット: 24 (3d10 + 8) の刺突ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+13、リーチ5フィート、単一ターゲット。ヒット: 20 (3d8 + 8) の斬撃ダメージ。"
+      },
+      {
+        "name": "咆哮 (Roar)",
+        "description": "（リチャージ 5-6）ティガレックスは30フィート以内の全てのクリーチャーに聞こえる咆哮をあげます。範囲内の各クリーチャーはDC19の耐久力セーヴィングスローを行い、失敗すると44 (8d10) の音波ダメージを受け、気絶します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ウカムルバス",
+    "name_en": "Ukanlos",
+    "size_type_alignment": "超巨大な竜、混沌にして悪",
+    "armor_class": "21 (外皮)",
+    "hit_points": {
+      "average": 518,
+      "dice": "28d20 + 224"
+    },
+    "speed": "50フィート、巣穴40フィート",
+    "ability_scores": {
+      "strength": "30 (+10)",
+      "dexterity": "8 (-1)",
+      "constitution": "27 (+8)",
+      "intelligence": "12 (+1)",
+      "wisdom": "16 (+3)",
+      "charisma": "18 (+4)"
+    },
+    "saving_throws": "筋力+17、耐久力+15",
+    "skills": "知覚+10",
+    "damage_immunities": "氷",
+    "senses": "暗視120フィート、振動感知120フィート、受動知覚20",
+    "languages": "竜語",
+    "challenge_rating": "26 (90,000 XP)",
+    "special_traits": [
+      {
+        "name": "伝説的抵抗 (Legendary Resistance)",
+        "description": "（3回/日）ウカムルバスがセーヴィングスローに失敗した場合、代わりに成功することを選ぶことができます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ウカムルバスは「噛みつき」1回と「シャベルジョー」1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+17、リーチ15フィート、単一ターゲット。ヒット: 32 (4d10 + 10) の刺突ダメージ。"
+      },
+      {
+        "name": "シャベルジョー (Shovel Jaw)",
+        "description": "近接武器攻撃: ヒット+17、リーチ10フィート、単一ターゲット。ヒット: 36 (4d12 + 10) の殴打ダメージ。ターゲットはDC25の筋力セーヴィングスローを行い、失敗すると伏せ状態になります。"
+      },
+      {
+        "name": "アイスビーム (Ice Beam)",
+        "description": "（リチャージ 5-6）ウカムルバスは幅10フィート、長さ120フィートの直線状に氷のビームを放ちます。範囲内の各クリーチャーはDC23の敏捷力セーヴィングスローを行い、失敗すると88 (16d10) の氷ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "オロミドロ",
+    "name_en": "Almudron",
+    "size_type_alignment": "大型の海竜、無属性",
+    "armor_class": "17 (外皮)",
+    "hit_points": {
+      "average": 195,
+      "dice": "17d10 + 102"
+    },
+    "speed": "40フィート、巣穴40フィート、水泳60フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "14 (+2)",
+      "constitution": "22 (+6)",
+      "intelligence": "10 (+0)",
+      "wisdom": "16 (+3)",
+      "charisma": "12 (+1)"
+    },
+    "skills": "知覚+8",
+    "senses": "暗視120フィート、受動知覚18",
+    "languages": "―",
+    "challenge_rating": "12 (8,400 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "オロミドロは「尻尾スラム」2回を行います。"
+      },
+      {
+        "name": "尻尾スラム (Tail Slam)",
+        "description": "近接武器攻撃: ヒット+10、リーチ15フィート、単一ターゲット。ヒット: 19 (2d12 + 6) の殴打ダメージ。"
+      },
+      {
+        "name": "マッドウェーブ (Mud Wave)",
+        "description": "（リチャージ 5-6）オロミドロは尻尾で巨大な泥の波を作り出します。60フィートの円錐状のエリア内の各クリーチャーはDC18の筋力セーヴィングスローを行い、失敗すると44 (8d10) の殴打ダメージを受け、拘束されます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "オロミドロ亜種",
+    "name_en": "Magma Almudron",
+    "size_type_alignment": "大型の海竜、無属性",
+    "armor_class": "19 (外皮)",
+    "hit_points": {
+      "average": 231,
+      "dice": "20d10 + 121"
+    },
+    "speed": "40フィート、巣穴40フィート（溶岩中のみ）",
+    "ability_scores": {
+      "strength": "24 (+7)",
+      "dexterity": "16 (+3)",
+      "constitution": "23 (+6)",
+      "intelligence": "12 (+1)",
+      "wisdom": "18 (+4)",
+      "charisma": "14 (+2)"
+    },
+    "skills": "知覚+9",
+    "damage_immunities": "火",
+    "senses": "暗視120フィート、受動知覚19",
+    "languages": "―",
+    "challenge_rating": "15 (13,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "オロミドロは「尻尾スラム」2回を行います。"
+      },
+      {
+        "name": "尻尾スラム (Tail Slam)",
+        "description": "近接武器攻撃: ヒット+12、リーチ15フィート、単一ターゲット。ヒット: 23 (3d10 + 7) の殴打ダメージと7 (2d6) の火ダメージ。"
+      },
+      {
+        "name": "マグマウェーブ (Magma Wave)",
+        "description": "（リチャージ 5-6）オロミドロは尻尾で巨大な溶岩の波を作り出します。60フィートの円錐状のエリア内の各クリーチャーはDC19の敏捷力セーヴィングスローを行い、失敗すると55 (10d10) の火ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "チャナガブル",
+    "name_en": "Gobul",
+    "size_type_alignment": "大型の monstrosity、無属性",
+    "armor_class": "15 (外皮)",
+    "hit_points": {
+      "average": 133,
+      "dice": "14d10 + 56"
+    },
+    "speed": "20フィート、水泳50フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "10 (+0)",
+      "constitution": "18 (+4)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "skills": "隠密+6",
+    "senses": "暗視120フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "6 (2,300 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+8、リーチ10フィート、単一ターゲット。ヒット: 18 (2d12 + 5) の刺突ダメージ。"
+      },
+      {
+        "name": "ランタンフラッシュ (Lantern Flash)",
+        "description": "（リチャージ 5-6）チャナガブルはランタンから強力な光を放ちます。30フィート以内の各クリーチャーはDC15の耐久力セーヴィングスローを行い、失敗すると1分間盲目状態になります。"
+      },
+      {
+        "name": "吸い込み (Inhale)",
+        "description": "チャナガブルは30フィートの円錐状に強力な吸引を作り出します。範囲内の各クリーチャーはDC16の筋力セーヴィングスローを行い、失敗するとチャナガブルの口元まで20フィート引き寄せられます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ラギアクルス",
+    "name_en": "Lagiacrus",
+    "size_type_alignment": "大型の海竜、無属性",
+    "armor_class": "17 (外皮)",
+    "hit_points": {
+      "average": 184,
+      "dice": "16d10 + 96"
+    },
+    "speed": "30フィート、水泳60フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "14 (+2)",
+      "constitution": "22 (+6)",
+      "intelligence": "8 (-1)",
+      "wisdom": "14 (+2)",
+      "charisma": "10 (+0)"
+    },
+    "damage_immunities": "雷",
+    "senses": "暗視120フィート、受動知覚12",
+    "languages": "―",
+    "challenge_rating": "11 (7,200 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ラギアクルスは「噛みつき」1回と「ボディスラム」1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+10、リーチ10フィート、単一ターゲット。ヒット: 19 (2d12 + 6) の刺突ダメージ。"
+      },
+      {
+        "name": "ボディスラム (Body Slam)",
+        "description": "近接武器攻撃: ヒット+10、リーチ5フィート、単一ターゲット。ヒット: 22 (3d10 + 6) の殴打ダメージ。"
+      },
+      {
+        "name": "サンダーボール (Thunderball)",
+        "description": "（リチャージ 5-6）ラギアクルスは3つの雷の球を吐き出します。各球は120フィート以内のクリーチャーをターゲットにできます。遠隔呪文攻撃: ヒット+10。ヒット: 33 (6d10) の雷ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ロアルドロス",
+    "name_en": "Royal Ludroth",
+    "size_type_alignment": "大型の海竜、無属性",
+    "armor_class": "15 (外皮)",
+    "hit_points": {
+      "average": 126,
+      "dice": "12d10 + 60"
+    },
+    "speed": "30フィート、水泳50フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "14 (+2)",
+      "constitution": "20 (+5)",
+      "intelligence": "6 (-2)",
+      "wisdom": "12 (+1)",
+      "charisma": "8 (-1)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "5 (1,800 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ロアルドロスは「噛みつき」1回と「ボディスラム」1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+7、リーチ5フィート、単一ターゲット。ヒット: 13 (2d8 + 4) の刺突ダメージ。"
+      },
+      {
+        "name": "ボディスラム (Body Slam)",
+        "description": "近接武器攻撃: ヒット+7、リーチ5フィート、単一ターゲット。ヒット: 15 (2d10 + 4) の殴打ダメージ。"
+      },
+      {
+        "name": "ウォーターボール (Water Ball)",
+        "description": "（リチャージ 5-6）ロアルドロスは水の球を吐き出します。60フィート以内のターゲットに遠隔呪文攻撃: ヒット+7。ヒット: 22 (4d10) の酸ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "タマミツネ",
+    "name_en": "Mizutsune",
+    "size_type_alignment": "大型の海竜、混沌にして善",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 171,
+      "dice": "18d10 + 72"
+    },
+    "speed": "40フィート、水泳60フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "18 (+4)",
+      "constitution": "18 (+4)",
+      "intelligence": "12 (+1)",
+      "wisdom": "16 (+3)",
+      "charisma": "18 (+4)"
+    },
+    "senses": "暗視120フィート、受動知覚13",
+    "languages": "―",
+    "challenge_rating": "10 (5,900 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "タマミツネは「噛みつき」1回と「尻尾スラム」1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+9、リーチ10フィート、単一ターゲット。ヒット: 18 (2d12 + 5) の刺突ダメージ。"
+      },
+      {
+        "name": "尻尾スラム (Tail Slam)",
+        "description": "近接武器攻撃: ヒット+9、リーチ15フィート、単一ターゲット。ヒット: 16 (2d10 + 5) の殴打ダメージ。"
+      },
+      {
+        "name": "バブルビーム (Bubble Beam)",
+        "description": "（リチャージ 5-6）タマミツネは泡のビームを吐き出します。60フィートの円錐状のエリア内の各クリーチャーはDC16の敏捷力セーヴィングスローを行い、失敗すると33 (6d10) の酸ダメージを受け、滑りやすい泡で覆われます（次のターンの終了時まで移動速度が半分になる）。"
+      }
+    ]
+  },
+  {
+    "name_jp": "タマミツネ希少種",
+    "name_en": "Violet Mizutsune",
+    "size_type_alignment": "大型の海竜、混沌にして善",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 225,
+      "dice": "22d10 + 104"
+    },
+    "speed": "40フィート、水泳60フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "20 (+5)",
+      "constitution": "20 (+5)",
+      "intelligence": "14 (+2)",
+      "wisdom": "18 (+4)",
+      "charisma": "20 (+5)"
+    },
+    "senses": "暗視120フィート、受動知覚14",
+    "languages": "―",
+    "challenge_rating": "14 (11,500 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "タマミツネは「噛みつき」1回と「尻尾スラム」1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+11、リーチ10フィート、単一ターゲット。ヒット: 22 (3d10 + 6) の刺突ダメージ。"
+      },
+      {
+        "name": "尻尾スラム (Tail Slam)",
+        "description": "近接武器攻撃: ヒット+11、リーチ15フィート、単一ターゲット。ヒット: 20 (3d8 + 6) の殴打ダメージと7 (2d6) の火ダメージ。"
+      },
+      {
+        "name": "フレイムバブル (Flame Bubble)",
+        "description": "（リチャージ 5-6）タマミツネは燃える泡のビームを吐き出します。60フィートの円錐状のエリア内の各クリーチャーはDC18の敏捷力セーヴィングスローを行い、失敗すると44 (8d10) の火ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ハプルボッカ",
+    "name_en": "Nibelsnarf",
+    "size_type_alignment": "大型の monstrosity、無属性",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 150,
+      "dice": "15d10 + 68"
+    },
+    "speed": "30フィート、巣穴50フィート（砂中のみ）",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "10 (+0)",
+      "constitution": "19 (+4)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "振動感知120フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "7 (2,900 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+8、リーチ10フィート、単一ターゲット。ヒット: 21 (3d10 + 5) の刺突ダメージ。"
+      },
+      {
+        "name": "サンドブラスト (Sandblast)",
+        "description": "（リチャージ 5-6）ハプルボッカは口から砂の爆風を吐き出します。30フィートの円錐状のエリア内の各クリーチャーはDC16の敏捷力セーヴィングスローを行い、失敗すると33 (6d10) の殴打ダメージを受け、1分間盲目状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "イソネミクニ",
+    "name_en": "Somnacanth",
+    "size_type_alignment": "大型の海竜、無属性",
+    "armor_class": "15 (外皮)",
+    "hit_points": {
+      "average": 142,
+      "dice": "15d10 + 60"
+    },
+    "speed": "30フィート、水泳50フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "16 (+3)",
+      "constitution": "18 (+4)",
+      "intelligence": "10 (+0)",
+      "wisdom": "16 (+3)",
+      "charisma": "14 (+2)"
+    },
+    "senses": "暗視120フィート、受動知覚13",
+    "languages": "―",
+    "challenge_rating": "7 (2,900 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "イソネミクニは「爪」攻撃2回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+7、リーチ5フィート、単一ターゲット。ヒット: 11 (2d6 + 4) の斬撃ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+7、リーチ10フィート、単一ターゲット。ヒット: 13 (2d8 + 4) の殴打ダメージ。"
+      },
+      {
+        "name": "睡眠の粉 (Sleep Powder)",
+        "description": "（リチャージ 5-6）イソネミクニは自身を中心とする半径20フィートに睡眠の粉を撒き散らします。範囲内の各クリーチャーはDC15の耐久力セーヴィングスローを行い、失敗すると1分間、ダメージを受けるか誰かがアクションを使って揺り起こすまで無意識状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "イソネミクニ亜種",
+    "name_en": "Aurora Somnacanth",
+    "size_type_alignment": "大型の海竜、無属性",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 178,
+      "dice": "18d10 + 79"
+    },
+    "speed": "30フィート、水泳50フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "18 (+4)",
+      "constitution": "19 (+4)",
+      "intelligence": "12 (+1)",
+      "wisdom": "18 (+4)",
+      "charisma": "16 (+3)"
+    },
+    "damage_immunities": "氷",
+    "senses": "暗視120フィート、受動知覚14",
+    "languages": "―",
+    "challenge_rating": "10 (5,900 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "イソネミクニは「爪」攻撃2回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+9、リーチ5フィート、単一ターゲット。ヒット: 14 (2d8 + 5) の斬撃ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+9、リーチ10フィート、単一ターゲット。ヒット: 16 (2d10 + 5) の殴打ダメージ。"
+      },
+      {
+        "name": "アイスブレス (Ice Breath)",
+        "description": "（リチャージ 5-6）イソネミクニは60フィートの円錐状に氷の空気を吐き出します。範囲内の各クリーチャーはDC16の耐久力セーヴィングスローを行い、失敗すると45 (10d8) の氷ダメージを受け、移動速度が半分になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "アグナコトル",
+    "name_en": "Agnaktor",
+    "size_type_alignment": "大型の海竜、無属性",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 184,
+      "dice": "16d10 + 96"
+    },
+    "speed": "40フィート、巣穴50フィート（溶岩中のみ）",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "14 (+2)",
+      "constitution": "22 (+6)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "10 (+0)"
+    },
+    "damage_immunities": "火",
+    "senses": "暗視120フィート、振動感知120フィート、受動知覚12",
+    "languages": "―",
+    "challenge_rating": "12 (8,400 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "アグナコトルは「噛みつき」1回と「ボディスラム」1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+10、リーチ10フィート、単一ターゲット。ヒット: 19 (2d12 + 6) の刺突ダメージと7 (2d6) の火ダメージ。"
+      },
+      {
+        "name": "ボディスラム (Body Slam)",
+        "description": "近接武器攻撃: ヒット+10、リーチ5フィート、単一ターゲット。ヒット: 22 (3d10 + 6) の殴打ダメージ。"
+      },
+      {
+        "name": "ファイアビーム (Fire Beam)",
+        "description": "（リチャージ 5-6）アグナコトルは幅5フィート、長さ120フィートの直線状に炎のビームを放ちます。範囲内の各クリーチャーはDC18の敏捷力セーヴィングスローを行い、失敗すると55 (10d10) の火ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1279 @@
+[
+  {
+    "name_jp": "アンテカ",
+    "name_en": "Anteka",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "11",
+    "hit_points": {
+      "average": 13,
+      "dice": "2d8 + 4"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "12 (+1)",
+      "constitution": "14 (+2)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "角 (Antlers)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "アプケロス",
+    "name_en": "Apceros",
+    "size_type_alignment": "大型の獣、無属性",
+    "armor_class": "12 (天然の鎧)",
+    "hit_points": {
+      "average": 26,
+      "dice": "3d10 + 9"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "8 (-1)",
+      "constitution": "16 (+3)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/2 (100 XP)",
+    "actions": [
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+5、リーチ10フィート、単一ターゲット。ヒット: 10 (2d6 + 3) の殴打ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "アプトノス",
+    "name_en": "Aptonoth",
+    "size_type_alignment": "大型の獣、無属性",
+    "armor_class": "11 (天然の鎧)",
+    "hit_points": {
+      "average": 19,
+      "dice": "2d10 + 8"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "8 (-1)",
+      "constitution": "14 (+2)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+5、リーチ10フィート、単一ターゲット。ヒット: 8 (1d10 + 3) の殴打ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "バギィ",
+    "name_en": "Baggi",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ボギィ",
+    "name_en": "Boggi",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ボンバドギ",
+    "name_en": "Bombadgy",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 10,
+      "dice": "3d6"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "special_traits": [
+      {
+        "name": "死の爆発 (Death Burst)",
+        "description": "ボンバドギが0ヒットポイントに減少した時、10フィート以内の各クリーチャーはDC10の敏捷力セーヴィングスローを行い、失敗すると3 (1d6) の火ダメージを受けます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "体当たり (Ram)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の殴打ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ガレオス",
+    "name_en": "Cephalos",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d8 + 2"
+    },
+    "speed": "0フィート、巣穴30フィート（砂中のみ）",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "14 (+2)",
+      "constitution": "12 (+1)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "振動感知60フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "デルクス",
+    "name_en": "Delex",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d8 + 2"
+    },
+    "speed": "0フィート、巣穴40フィート（砂中のみ）",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "14 (+2)",
+      "constitution": "12 (+1)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "振動感知60フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "エピオス",
+    "name_en": "Epioth",
+    "size_type_alignment": "大型の獣、無属性",
+    "armor_class": "12 (天然の鎧)",
+    "hit_points": {
+      "average": 22,
+      "dice": "3d10 + 6"
+    },
+    "speed": "0フィート、水泳30フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "10 (+0)",
+      "constitution": "14 (+2)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 7 (1d10 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ガジャウ",
+    "name_en": "Gajau",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d8 + 2"
+    },
+    "speed": "0フィート、水泳30フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "14 (+2)",
+      "constitution": "12 (+1)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ガーグァ",
+    "name_en": "Gargwa",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "11",
+    "hit_points": {
+      "average": 9,
+      "dice": "2d8"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "12 (+1)",
+      "constitution": "10 (+0)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "0 (10 XP)",
+    "actions": [
+      {
+        "name": "つつき (Peck)",
+        "description": "近接武器攻撃: ヒット+3、リーチ5フィート、単一ターゲット。ヒット: 3 (1d4 + 1) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ガストドン",
+    "name_en": "Gastodon",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13 (天然の鎧)",
+    "hit_points": {
+      "average": 13,
+      "dice": "2d8 + 4"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "12 (+1)",
+      "constitution": "14 (+2)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "角 (Horn)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ゲネポス",
+    "name_en": "Genprey",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。ターゲットはDC10の耐久力セーヴィングスローを行い、失敗すると1分間麻痺します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ギアノス",
+    "name_en": "Giaprey",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "damage_resistances": "氷",
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ギルオス",
+    "name_en": "Girros",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。ターゲットはDC10の耐久力セーヴィングスローを行い、失敗すると1分間麻痺します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ゴウコト",
+    "name_en": "Gowngoat",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "11",
+    "hit_points": {
+      "average": 13,
+      "dice": "2d8 + 4"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "12 (+1)",
+      "constitution": "14 (+2)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "角 (Horns)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "イーオス",
+    "name_en": "Ioprey",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "damage_resistances": "毒",
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "イズチ",
+    "name_en": "Izuchi",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の斬撃ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ジャギィ",
+    "name_en": "Jaggi",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ジャギィノス",
+    "name_en": "Jaggia",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "12 (天然の鎧)",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d8 + 2"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "12 (+1)",
+      "constitution": "12 (+1)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+3、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 1) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ジャグラス",
+    "name_en": "Jagras",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ケルビ",
+    "name_en": "Kelbi",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 10,
+      "dice": "2d8"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "2 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "0 (10 XP)",
+    "actions": [
+      {
+        "name": "角 (Antlers)",
+        "description": "近接武器攻撃: ヒット+3、リーチ5フィート、単一ターゲット。ヒット: 4 (1d6 + 1) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ケストドン",
+    "name_en": "Kestodon",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13 (天然の鎧)",
+    "hit_points": {
+      "average": 13,
+      "dice": "2d8 + 4"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "12 (+1)",
+      "constitution": "14 (+2)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "頭突き (Headbutt)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の殴打ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "リモケロス",
+    "name_en": "Larinoth",
+    "size_type_alignment": "大型の獣、無属性",
+    "armor_class": "12 (天然の鎧)",
+    "hit_points": {
+      "average": 26,
+      "dice": "3d10 + 9"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "8 (-1)",
+      "constitution": "16 (+3)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/2 (100 XP)",
+    "actions": [
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+5、リーチ10フィート、単一ターゲット。ヒット: 10 (2d6 + 3) の殴打ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ルドロス",
+    "name_en": "Ludroth",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d8 + 2"
+    },
+    "speed": "20フィート、水泳40フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "14 (+2)",
+      "constitution": "12 (+1)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "マッカォ",
+    "name_en": "Maccao",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の斬撃ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "モス",
+    "name_en": "Mosswine",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "11",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d8 + 2"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "10 (+0)",
+      "constitution": "12 (+1)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "0 (10 XP)",
+    "actions": [
+      {
+        "name": "牙 (Tusk)",
+        "description": "近接武器攻撃: ヒット+3、リーチ5フィート、単一ターゲット。ヒット: 4 (1d6 + 1) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "メーフィ",
+    "name_en": "Moofah",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "10",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d8 + 2"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "10 (+0)",
+      "constitution": "12 (+1)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "0 (10 XP)",
+    "actions": [
+      {
+        "name": "角 (Horns)",
+        "description": "近接武器攻撃: ヒット+3、リーチ5フィート、単一ターゲット。ヒット: 4 (1d6 + 1) の殴打ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "オトモガルク",
+    "name_en": "Palamute",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13",
+    "hit_points": {
+      "average": 13,
+      "dice": "2d8 + 4"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "16 (+3)",
+      "constitution": "14 (+2)",
+      "intelligence": "8 (-1)",
+      "wisdom": "12 (+1)",
+      "charisma": "10 (+0)"
+    },
+    "skills": "知覚+3",
+    "senses": "受動知覚13",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 6 (1d6 + 3) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ポポ",
+    "name_en": "Popo",
+    "size_type_alignment": "大型の獣、無属性",
+    "armor_class": "12 (天然の鎧)",
+    "hit_points": {
+      "average": 26,
+      "dice": "3d10 + 9"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "8 (-1)",
+      "constitution": "16 (+3)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/2 (100 XP)",
+    "actions": [
+      {
+        "name": "牙 (Tusk)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 8 (1d10 + 3) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ツケヒバキ",
+    "name_en": "Rachnoid",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "20フィート、登攀20フィート",
+    "ability_scores": {
+      "strength": "8 (-1)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "暗視60フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "0 (10 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "リノプロス",
+    "name_en": "Rhenoplos",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13 (天然の鎧)",
+    "hit_points": {
+      "average": 13,
+      "dice": "2d8 + 4"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "12 (+1)",
+      "constitution": "14 (+2)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "角 (Horn)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "シャムオス",
+    "name_en": "Shamos",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ズワロポス",
+    "name_en": "Slagtoth",
+    "size_type_alignment": "大型の獣、無属性",
+    "armor_class": "12 (天然の鎧)",
+    "hit_points": {
+      "average": 26,
+      "dice": "3d10 + 9"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "8 (-1)",
+      "constitution": "16 (+3)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/2 (100 XP)",
+    "actions": [
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+5、リーチ10フィート、単一ターゲット。ヒット: 10 (2d6 + 3) の殴打ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ウロコトル",
+    "name_en": "Uroktor",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d8 + 2"
+    },
+    "speed": "20フィート、巣穴30フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "14 (+2)",
+      "constitution": "12 (+1)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "振動感知60フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ランポス",
+    "name_en": "Velociprey",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ウィングドレイク",
+    "name_en": "Wingdrake",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 13,
+      "dice": "2d8 + 4"
+    },
+    "speed": "10フィート、飛行50フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "14 (+2)",
+      "constitution": "14 (+2)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "爪 (Talons)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の斬撃ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "フロギィ",
+    "name_en": "Wroggi",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "5 (-3)"
+    },
+    "damage_resistances": "毒",
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ボワボワ",
+    "name_en": "Boaboa",
+    "size_type_alignment": "小型のヒューマノイド、無属性",
+    "armor_class": "13 (ハイドアーマー)",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d6 + 4"
+    },
+    "speed": "25フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "14 (+2)",
+      "intelligence": "8 (-1)",
+      "wisdom": "12 (+1)",
+      "charisma": "8 (-1)"
+    },
+    "senses": "受動知覚11",
+    "languages": "共通語",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "槍 (Spear)",
+        "description": "近接または遠隔武器攻撃: ヒット+4、リーチ5フィートまたは射程20/60フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "アイルー",
+    "name_en": "Felyne",
+    "size_type_alignment": "小型のヒューマノイド、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "8 (-1)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "10 (+0)",
+      "wisdom": "12 (+1)",
+      "charisma": "10 (+0)"
+    },
+    "skills": "隠密+4",
+    "senses": "受動知覚11",
+    "languages": "共通語",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "爪 (Claws)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の斬撃ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ガジャブー",
+    "name_en": "Gajalaka",
+    "size_type_alignment": "小型のヒューマノイド、無属性",
+    "armor_class": "14 (天然の鎧)",
+    "hit_points": {
+      "average": 13,
+      "dice": "3d6 + 3"
+    },
+    "speed": "25フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "12 (+1)",
+      "intelligence": "10 (+0)",
+      "wisdom": "12 (+1)",
+      "charisma": "8 (-1)"
+    },
+    "senses": "受動知覚11",
+    "languages": "共通語",
+    "challenge_rating": "1/2 (100 XP)",
+    "actions": [
+      {
+        "name": "ナイフ (Knife)",
+        "description": "近接または遠隔武器攻撃: ヒット+4、リーチ5フィートまたは射程20/60フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "テトルー",
+    "name_en": "Grimalkyne",
+    "size_type_alignment": "小型のヒューマノイド、無属性",
+    "armor_class": "13",
+    "hit_points": {
+      "average": 9,
+      "dice": "2d6 + 2"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "8 (-1)",
+      "dexterity": "16 (+3)",
+      "constitution": "12 (+1)",
+      "intelligence": "10 (+0)",
+      "wisdom": "12 (+1)",
+      "charisma": "10 (+0)"
+    },
+    "skills": "隠密+5",
+    "senses": "受動知覚11",
+    "languages": "共通語",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "ダガー (Dagger)",
+        "description": "近接または遠隔武器攻撃: ヒット+5、リーチ5フィートまたは射程20/60フィート、単一ターゲット。ヒット: 5 (1d4 + 3) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "メラルー",
+    "name_en": "Melynx",
+    "size_type_alignment": "小型のヒューマノイド、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "8 (-1)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "10 (+0)",
+      "wisdom": "12 (+1)",
+      "charisma": "10 (+0)"
+    },
+    "skills": "隠密+4、手先の早業+4",
+    "senses": "受動知覚11",
+    "languages": "共通語",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "クラブ (Club)",
+        "description": "近接武器攻撃: ヒット+1、リーチ5フィート、単一ターゲット。ヒット: 1 (1d4 - 1) の殴打ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "奇面族(チャチャ)",
+    "name_en": "Shakalaka",
+    "size_type_alignment": "小型のヒューマノイド、無属性",
+    "armor_class": "15 (天然の鎧、盾)",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d6 + 4"
+    },
+    "speed": "25フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "12 (+1)",
+      "constitution": "14 (+2)",
+      "intelligence": "8 (-1)",
+      "wisdom": "12 (+1)",
+      "charisma": "8 (-1)"
+    },
+    "senses": "受動知覚11",
+    "languages": "共通語",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "ショートソード (Shortsword)",
+        "description": "近接武器攻撃: ヒット+3、リーチ5フィート、単一ターゲット。ヒット: 4 (1d6 + 1) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "キングチャチャ",
+    "name_en": "King Shakalaka",
+    "size_type_alignment": "小型のヒューマノイド、無属性",
+    "armor_class": "16 (天然の鎧、盾)",
+    "hit_points": {
+      "average": 45,
+      "dice": "7d6 + 21"
+    },
+    "speed": "25フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "12 (+1)",
+      "constitution": "16 (+3)",
+      "intelligence": "10 (+0)",
+      "wisdom": "14 (+2)",
+      "charisma": "10 (+0)"
+    },
+    "senses": "受動知覚12",
+    "languages": "共通語",
+    "challenge_rating": "2 (450 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "キングチャチャは2回の「グレートソード」攻撃を行います。"
+      },
+      {
+        "name": "グレートソード (Greatsword)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 9 (2d6 + 2) の斬撃ダメージ。"
+      }
+    ]
+  }
+]

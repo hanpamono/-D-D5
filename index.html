@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>モンスターデータシート</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>モンスターデータシート</h1>
+        <div class="filters">
+            <div class="filter-group">
+                <label for="species-filter">種族で絞り込み:</label>
+                <select id="species-filter">
+                    <option value="all">すべての種族</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="cr-filter">脅威度で絞り込み:</label>
+                <select id="cr-filter">
+                    <option value="all">すべての脅威度</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <main id="monster-container">
+        <!-- クリーチャーデータがここに表示されます -->
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,662 @@
+[
+  {
+    "name_jp": "アトラル・カ",
+    "name_en": "Ahtal-Ka",
+    "size_type_alignment": "大型の甲虫種、無属性",
+    "armor_class": "20 (外皮)",
+    "hit_points": {
+      "average": 310,
+      "dice": "27d10 + 162"
+    },
+    "speed": "40フィート、登攀40フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "18 (+4)",
+      "constitution": "23 (+6)",
+      "intelligence": "20 (+5)",
+      "wisdom": "18 (+4)",
+      "charisma": "16 (+3)"
+    },
+    "saving_throws": "筋力+12、敏捷力+10、判断力+10",
+    "skills": "知覚+10",
+    "damage_resistances": "雷",
+    "senses": "暗視120フィート、受動知覚20",
+    "languages": "―",
+    "challenge_rating": "25 (75,000 XP)",
+    "special_traits": [
+      {
+        "name": "伝説的抵抗 (Legendary Resistance)",
+        "description": "（3回/日）アトラル・カがセーヴィングスローに失敗した場合、代わりに成功することを選ぶことができます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "アトラル・カは3回の攻撃を行います：1回は「爪」、2回は「糸」。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+12、リーチ10フィート、単一ターゲット。ヒット: 20 (3d8 + 6) の斬撃ダメージ。"
+      },
+      {
+        "name": "糸 (Thread)",
+        "description": "遠隔武器攻撃: ヒット+10、射程60/120フィート、単一ターゲット。ヒット: ターゲットは拘束されます。アクションとして、ターゲットはDC20の筋力チェックを行い、成功すると解放されます。"
+      },
+      {
+        "name": "アトラル・ネセトの構築 (Construct Ahtal-Neset)",
+        "description": "（1回/日）アトラル・カは瓦礫と糸を使ってアトラル・ネセトを構築し始めます。アトラル・ネセトは1d4ラウンド後に完成します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "アトラル・ネセト",
+    "name_en": "Ahtal-Neset",
+    "size_type_alignment": "超巨大な構築物、無属性",
+    "armor_class": "23 (天然の鎧)",
+    "hit_points": {
+      "average": 402,
+      "dice": "23d20 + 161"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "30 (+10)",
+      "dexterity": "6 (-2)",
+      "constitution": "28 (+9)",
+      "intelligence": "1 (-5)",
+      "wisdom": "10 (+0)",
+      "charisma": "1 (-5)"
+    },
+    "damage_immunities": "毒、精神；非魔法攻撃による殴打、刺突、斬撃",
+    "condition_immunities": "魅了、疲労、恐怖、麻痺、石化、毒",
+    "senses": "暗視120フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "27 (105,000 XP)",
+    "special_traits": [
+      {
+        "name": "攻城兵器 (Siege Monster)",
+        "description": "アトラル・ネセトはオブジェクトや建造物に対して2倍のダメージを与えます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "アトラル・ネセトは2回の「スラム」攻撃を行います。"
+      },
+      {
+        "name": "スラム (Slam)",
+        "description": "近接武器攻撃: ヒット+17、リーチ20フィート、単一ターゲット。ヒット: 36 (4d12 + 10) の殴打ダメージ。"
+      },
+      {
+        "name": "瓦礫投げ (Debris Toss)",
+        "description": "遠隔武器攻撃: ヒット+17、射程120/480フィート、単一ターゲット。ヒット: 43 (6d10 + 10) の殴打ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "オルタロス",
+    "name_en": "Altaroth",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 7,
+      "dice": "2d6"
+    },
+    "speed": "20フィート",
+    "ability_scores": {
+      "strength": "8 (-1)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "暗視60フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "0 (10 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ブナハブラ",
+    "name_en": "Bnahabra",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 5,
+      "dice": "2d4"
+    },
+    "speed": "10フィート、飛行40フィート",
+    "ability_scores": {
+      "strength": "6 (-2)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "暗視60フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "0 (10 XP)",
+    "actions": [
+      {
+        "name": "刺し (Sting)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。ターゲットはDC10の耐久力セーヴィングスローを行い、失敗すると1分間麻痺します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "大雷光虫",
+    "name_en": "Great Thunderbug",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "13",
+    "hit_points": {
+      "average": 10,
+      "dice": "3d6"
+    },
+    "speed": "10フィート、飛行50フィート",
+    "ability_scores": {
+      "strength": "8 (-1)",
+      "dexterity": "16 (+3)",
+      "constitution": "10 (+0)",
+      "intelligence": "2 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "damage_immunities": "雷",
+    "senses": "暗視60フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "ショック (Shock)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 5 (1d4 + 3) の雷ダメージ。ターゲットはDC10の耐久力セーヴィングスローを行い、失敗すると1分間麻痺します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "カンタロス",
+    "name_en": "Hornetaur",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "13 (天然の鎧)",
+    "hit_points": {
+      "average": 9,
+      "dice": "2d6 + 2"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "14 (+2)",
+      "constitution": "12 (+1)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "暗視60フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/8 (25 XP)",
+    "actions": [
+      {
+        "name": "角 (Horn)",
+        "description": "近接武器攻撃: ヒット+3、リーチ5フィート、単一ターゲット。ヒット: 4 (1d6 + 1) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "クンチュウ",
+    "name_en": "Konchu",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "15 (天然の鎧)",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d6 + 4"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "10 (+0)",
+      "dexterity": "14 (+2)",
+      "constitution": "14 (+2)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "暗視60フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "体当たり (Ram)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の殴打ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "アルセルタス",
+    "name_en": "Seltas",
+    "size_type_alignment": "中型の甲虫種、無属性",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 45,
+      "dice": "6d8 + 18"
+    },
+    "speed": "30フィート、飛行60フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "14 (+2)",
+      "constitution": "16 (+3)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "暗視60フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "2 (450 XP)",
+    "actions": [
+      {
+        "name": "角 (Horn)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 10 (2d6 + 3) の刺突ダメージ。"
+      },
+      {
+        "name": "麻痺液 (Paralysis Fluid)",
+        "description": "遠隔武器攻撃: ヒット+4、射程30/120フィート、単一ターゲット。ヒット: ターゲットはDC13の耐久力セーヴィングスローを行い、失敗すると1分間麻痺します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ゲネル・セルタス",
+    "name_en": "Seltas Queen",
+    "size_type_alignment": "大型の甲虫種、無属性",
+    "armor_class": "19 (外皮)",
+    "hit_points": {
+      "average": 157,
+      "dice": "15d10 + 75"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "10 (+0)",
+      "constitution": "20 (+5)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "10 (+0)"
+    },
+    "senses": "暗視120フィート、受動知覚12",
+    "languages": "―",
+    "challenge_rating": "10 (5,900 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ゲネル・セルタスは「爪」攻撃2回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+10、リーチ10フィート、単一ターゲット。ヒット: 19 (3d8 + 6) の斬撃ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+10、リーチ15フィート、単一ターゲット。ヒット: 22 (3d10 + 6) の殴打ダメージ。ターゲットはDC18の耐久力セーヴィングスローを行い、失敗すると1分間毒状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ランゴスタ",
+    "name_en": "Vespoid",
+    "size_type_alignment": "小型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 5,
+      "dice": "2d4"
+    },
+    "speed": "10フィート、飛行40フィート",
+    "ability_scores": {
+      "strength": "6 (-2)",
+      "dexterity": "14 (+2)",
+      "constitution": "10 (+0)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "暗視60フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "0 (10 XP)",
+    "actions": [
+      {
+        "name": "刺し (Sting)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 4 (1d4 + 2) の刺突ダメージ。ターゲットはDC10の耐久力セーヴィングスローを行い、失敗すると1分間麻痺します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "女王ランゴスタ",
+    "name_en": "Vespoid Queen",
+    "size_type_alignment": "大型の甲虫種、無属性",
+    "armor_class": "15 (外皮)",
+    "hit_points": {
+      "average": 76,
+      "dice": "9d10 + 27"
+    },
+    "speed": "20フィート、飛行60フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "14 (+2)",
+      "constitution": "16 (+3)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "10 (+0)"
+    },
+    "senses": "暗視120フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "3 (700 XP)",
+    "actions": [
+      {
+        "name": "刺し (Sting)",
+        "description": "近接武器攻撃: ヒット+5、リーチ10フィート、単一ターゲット。ヒット: 10 (2d6 + 3) の刺突ダメージ。ターゲットはDC13の耐久力セーヴィングスローを行い、失敗すると1分間麻痺します。"
+      },
+      {
+        "name": "招集 (Summon Swarm)",
+        "description": "（1回/日）女王ランゴスタは2d6体のランゴスタを召喚します。ランゴスタは120フィート以内の空きスペースに現れ、女王の味方として行動します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ブラントドス",
+    "name_en": "Beotodus",
+    "size_type_alignment": "大型の魚竜、無属性",
+    "armor_class": "15 (外皮)",
+    "hit_points": {
+      "average": 114,
+      "dice": "12d10 + 48"
+    },
+    "speed": "0フィート、巣穴50フィート（雪と氷中のみ）",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "14 (+2)",
+      "constitution": "18 (+4)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "damage_immunities": "氷",
+    "senses": "振動感知120フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "5 (1,800 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+7、リーチ10フィート、単一ターゲット。ヒット: 17 (3d8 + 4) の刺突ダメージ。"
+      },
+      {
+        "name": "アイスランチャー (Ice Launcher)",
+        "description": "遠隔武器攻撃: ヒット+7、射程60/240フィート、単一ターゲット。ヒット: 22 (4d10) の氷ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドスガレオス",
+    "name_en": "Cephadrome",
+    "size_type_alignment": "大型の魚竜、無属性",
+    "armor_class": "14 (外皮)",
+    "hit_points": {
+      "average": 76,
+      "dice": "9d10 + 27"
+    },
+    "speed": "0フィート、巣穴40フィート（砂中のみ）",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "14 (+2)",
+      "constitution": "16 (+3)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "振動感知120フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "3 (700 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 12 (2d8 + 3) の刺突ダメージ。"
+      },
+      {
+        "name": "サンドブラスト (Sandblast)",
+        "description": "（リチャージ 5-6）ドスガレオスは口から砂の爆風を吐き出します。30フィートの円錐状のエリア内の各クリーチャーはDC13の敏捷力セーヴィングスローを行い、失敗すると14 (4d6) の殴打ダメージを受け、1分間盲目状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ガレオス",
+    "name_en": "Cephalos",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d8 + 2"
+    },
+    "speed": "0フィート、巣穴30フィート（砂中のみ）",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "14 (+2)",
+      "constitution": "12 (+1)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "振動感知60フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "デルクス",
+    "name_en": "Delex",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 11,
+      "dice": "2d8 + 2"
+    },
+    "speed": "0フィート、巣穴40フィート（砂中のみ）",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "14 (+2)",
+      "constitution": "12 (+1)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "振動感知60フィート、受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ジュラトドス",
+    "name_en": "Jyuratodus",
+    "size_type_alignment": "大型の魚竜、無属性",
+    "armor_class": "14 (泥の鎧)",
+    "hit_points": {
+      "average": 105,
+      "dice": "11d10 + 44"
+    },
+    "speed": "20フィート、水泳50フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "12 (+1)",
+      "constitution": "18 (+4)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "暗視120フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "4 (1,100 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+6、リーチ5フィート、単一ターゲット。ヒット: 15 (2d10 + 4) の刺突ダメージ。"
+      },
+      {
+        "name": "マッドスピット (Mud Spit)",
+        "description": "遠隔武器攻撃: ヒット+6、射程30/120フィート、単一ターゲット。ヒット: 13 (3d8) の殴打ダメージ。ターゲットはDC14の筋力セーヴィングスローを行い、失敗すると1分間拘束されます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ヴォルガノス",
+    "name_en": "Lavasioth",
+    "size_type_alignment": "大型の魚竜、無属性",
+    "armor_class": "17 (外皮)",
+    "hit_points": {
+      "average": 147,
+      "dice": "14d10 + 70"
+    },
+    "speed": "20フィート、巣穴50フィート（溶岩中のみ）",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "10 (+0)",
+      "constitution": "20 (+5)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "8 (-1)"
+    },
+    "damage_immunities": "火",
+    "senses": "暗視120フィート、振動感知120フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "8 (3,900 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+8、リーチ10フィート、単一ターゲット。ヒット: 18 (2d12 + 5) の刺突ダメージ。"
+      },
+      {
+        "name": "マグマボール (Magma Ball)",
+        "description": "（リチャージ 5-6）ヴォルガノスは口から溶岩の球を吐き出します。120フィート以内のターゲットに遠隔呪文攻撃: ヒット+8。ヒット: 44 (8d10) の火ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ガノトトス",
+    "name_en": "Plesioth",
+    "size_type_alignment": "大型の魚竜、無属性",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 126,
+      "dice": "12d10 + 60"
+    },
+    "speed": "20フィート、水泳60フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "14 (+2)",
+      "constitution": "20 (+5)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "暗視120フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "6 (2,300 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ガノトトスは「噛みつき」1回と「ヒップチェック」1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+7、リーチ10フィート、単一ターゲット。ヒット: 15 (2d10 + 4) の刺突ダメージ。"
+      },
+      {
+        "name": "ヒップチェック (Hipcheck)",
+        "description": "近接武器攻撃: ヒット+7、リーチ5フィート、単一ターゲット。ヒット: 18 (3d8 + 4) の殴打ダメージ。ターゲットはDC15の筋力セーヴィングスローを行い、失敗すると10フィート押しやられ、伏せ状態になります。"
+      },
+      {
+        "name": "ウォータージェット (Water Jet)",
+        "description": "（リチャージ 5-6）ガノトトスは幅5フィート、長さ90フィートの直線状に高圧の水流を放ちます。範囲内の各クリーチャーはDC16の敏捷力セーヴィングスローを行い、失敗すると36 (8d8) の酸ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ガララアジャラ",
+    "name_en": "Najarala",
+    "size_type_alignment": "大型の蛇竜、無属性",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 195,
+      "dice": "17d12 + 85"
+    },
+    "speed": "40フィート、巣穴40フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "16 (+3)",
+      "constitution": "20 (+5)",
+      "intelligence": "8 (-1)",
+      "wisdom": "14 (+2)",
+      "charisma": "10 (+0)"
+    },
+    "senses": "暗視120フィート、振動感知120フィート、受動知覚12",
+    "languages": "―",
+    "challenge_rating": "14 (11,500 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ガララアジャラは「噛みつき」1回と「締めつけ」1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+11、リーチ10フィート、単一ターゲット。ヒット: 19 (2d12 + 6) の刺突ダメージと7 (2d6) の毒ダメージ。"
+      },
+      {
+        "name": "締めつけ (Constrict)",
+        "description": "近接武器攻撃: ヒット+11、リーチ5フィート、単一ターゲット。ヒット: 22 (3d10 + 6) の殴打ダメージ。ターゲットは掴まれ（脱出DC19）、拘束されます。"
+      },
+      {
+        "name": "ソニックバースト (Sonic Burst)",
+        "description": "（リチャージ 5-6）ガララアジャラは周囲の鱗を振動させ、20フィート以内の各クリーチャーにDC18の耐久力セーヴィングスローを強制します。失敗すると33 (6d10) の音波ダメージを受け、気絶します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ガブラス",
+    "name_en": "Remobra",
+    "size_type_alignment": "中型の monstrosity、無属性",
+    "armor_class": "13",
+    "hit_points": {
+      "average": 22,
+      "dice": "4d8 + 4"
+    },
+    "speed": "10フィート、飛行60フィート",
+    "ability_scores": {
+      "strength": "12 (+1)",
+      "dexterity": "16 (+3)",
+      "constitution": "12 (+1)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "暗視60フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/2 (100 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 6 (1d6 + 3) の刺突ダメージ。"
+      },
+      {
+        "name": "毒の球 (Poison Glob)",
+        "description": "遠隔武器攻撃: ヒット+5、射程30/120フィート、単一ターゲット。ヒット: ターゲットはDC11の耐久力セーヴィングスローを行い、失敗すると1分間毒状態になります。"
+      }
+    ]
+  }
+]

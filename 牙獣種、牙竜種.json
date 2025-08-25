@@ -1,0 +1,1198 @@
+[
+  {
+    "name_jp": "アオアシラ",
+    "name_en": "Arzuros",
+    "size_type_alignment": "大型の牙獣、無属性",
+    "armor_class": "13 (外皮)",
+    "hit_points": {
+      "average": 85,
+      "dice": "9d10 + 36"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "10 (+0)",
+      "constitution": "18 (+4)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "7 (-2)"
+    },
+    "skills": "知覚+3",
+    "senses": "受動知覚13",
+    "languages": "―",
+    "challenge_rating": "3 (700 XP)",
+    "special_traits": [
+      {
+        "name": "鋭敏な嗅覚 (Keen Smell)",
+        "description": "アオアシラは嗅覚に依存する判断力（知覚）チェックに有利を得ます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "アオアシラは2回の「爪」攻撃を行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+6、リーチ5フィート、単一ターゲット。ヒット: 11 (2d6 + 4) の斬撃ダメージ。"
+      },
+      {
+        "name": "チャージ (Charge)",
+        "description": "アオアシラがクリーチャーに向かって少なくとも20フィート直進し、同じターンに「爪」攻撃でヒットした場合、そのターゲットは追加で7 (2d6) の斬撃ダメージを受け、DC14の筋力セーヴィングスローに成功しなければならず、失敗すると伏せ状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "紅兜アオアシラ",
+    "name_en": "Bloodsoaked Arzuros",
+    "size_type_alignment": "大型の牙獣、無属性",
+    "armor_class": "15 (外皮)",
+    "hit_points": {
+      "average": 133,
+      "dice": "14d10 + 56"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "12 (+1)",
+      "constitution": "19 (+4)",
+      "intelligence": "4 (-3)",
+      "wisdom": "14 (+2)",
+      "charisma": "8 (-1)"
+    },
+    "skills": "知覚+5",
+    "senses": "受動知覚15",
+    "languages": "―",
+    "challenge_rating": "7 (2,900 XP)",
+    "special_traits": [
+      {
+        "name": "鋭敏な嗅覚 (Keen Smell)",
+        "description": "アオアシラは嗅覚に依存する判断力（知覚）チェックに有利を得ます。"
+      },
+      {
+        "name": "猛チャージ (Relentless Charge)",
+        "description": "アオアシラがチャージの移動中に伏せ状態になった場合、DC10の耐久力セーヴィングスローに成功すればすぐに立ち上がって移動を続けることができます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "アオアシラは3回の「爪」攻撃を行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+8、リーチ5フィート、単一ターゲット。ヒット: 14 (2d8 + 5) の斬撃ダメージ。"
+      },
+      {
+        "name": "チャージ (Charge)",
+        "description": "アオアシラがクリーチャーに向かって少なくとも20フィート直進し、同じターンに「爪」攻撃でヒットした場合、そのターゲットは追加で9 (2d8) の斬撃ダメージを受け、DC16の筋力セーヴィングスローに成功しなければならず、失敗すると伏せ状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ビシュテンゴ",
+    "name_en": "Bishaten",
+    "size_type_alignment": "中型の牙獣、混沌にして中立",
+    "armor_class": "14 (外皮)",
+    "hit_points": {
+      "average": 75,
+      "dice": "10d8 + 30"
+    },
+    "speed": "40フィート、登攀40フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "18 (+4)",
+      "constitution": "16 (+3)",
+      "intelligence": "10 (+0)",
+      "wisdom": "14 (+2)",
+      "charisma": "12 (+1)"
+    },
+    "skills": "軽業+7、手先の早業+7",
+    "senses": "受動知覚12",
+    "languages": "―",
+    "challenge_rating": "4 (1,100 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ビシュテンゴは「尻尾」攻撃1回と「爪」攻撃1回を行うか、「果物投げ」を2回行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+6、リーチ5フィート、単一ターゲット。ヒット: 8 (1d8 + 4) の斬撃ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+6、リーチ5フィート、単一ターゲット。ヒット: 7 (1d6 + 4) の殴打ダメージ。"
+      },
+      {
+        "name": "果物投げ (Fruit Toss)",
+        "description": "遠隔武器攻撃: ヒット+6、射程30/90フィート、単一ターゲット。ヒット: 6 (1d4 + 4) の殴打ダメージ。ターゲットはDC14の耐久力セーヴィングスローを行い、失敗すると1分間毒状態、麻痺、または睡眠状態（ビシュテンゴの選択）になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "緋天狗獣ビシュテンゴ",
+    "name_en": "Blood Orange Bishaten",
+    "size_type_alignment": "中型の牙獣、混沌にして中立",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 112,
+      "dice": "15d8 + 45"
+    },
+    "speed": "40フィート、登攀40フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "20 (+5)",
+      "constitution": "17 (+3)",
+      "intelligence": "12 (+1)",
+      "wisdom": "16 (+3)",
+      "charisma": "14 (+2)"
+    },
+    "skills": "軽業+8、手先の早業+8",
+    "senses": "受動知覚13",
+    "languages": "―",
+    "challenge_rating": "7 (2,900 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ビシュテンゴは「尻尾」攻撃1回と「爪」攻撃1回を行うか、「松ぼっくり投げ」を2回行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+8、リーチ5フィート、単一ターゲット。ヒット: 12 (2d6 + 5) の斬撃ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+8、リーチ5フィート、単一ターゲット。ヒット: 11 (2d4 + 5) の殴打ダメージ。"
+      },
+      {
+        "name": "松ぼっくり投げ (Pinecone Toss)",
+        "description": "遠隔武器攻撃: ヒット+8、射程40/120フィート、単一ターゲット。ヒット: 9 (1d8 + 5) の殴打ダメージ。着弾時、松ぼっくりは爆発し、ターゲットとその5フィート以内の各クリーチャーはDC15の敏捷力セーヴィングスローを行い、失敗すると7 (2d6) の火ダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ブランゴ",
+    "name_en": "Blango",
+    "size_type_alignment": "中型の牙獣、無属性",
+    "armor_class": "13 (外皮)",
+    "hit_points": {
+      "average": 26,
+      "dice": "4d8 + 8"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "14 (+2)",
+      "constitution": "14 (+2)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "skills": "運動+5",
+    "damage_resistances": "氷",
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1 (200 XP)",
+    "special_traits": [
+      {
+        "name": "集団戦術 (Pack Tactics)",
+        "description": "ブランゴは、目標クリーチャーの5フィート以内に、無力状態でない味方が少なくとも1体いれば、そのクリーチャーに対する攻撃ロールに有利を得ます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 8 (1d10 + 3) の斬撃ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ブランゴガ",
+    "name_en": "Blangonga",
+    "size_type_alignment": "大型の牙獣、無属性",
+    "armor_class": "15 (外皮)",
+    "hit_points": {
+      "average": 110,
+      "dice": "13d10 + 39"
+    },
+    "speed": "40フィート、巣穴30フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "16 (+3)",
+      "constitution": "16 (+3)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "8 (-1)"
+    },
+    "skills": "運動+8、知覚+5",
+    "damage_immunities": "氷",
+    "senses": "暗視60フィート、受動知覚15",
+    "languages": "―",
+    "challenge_rating": "5 (1,800 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ブランゴガは2回の「爪」攻撃を行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+8、リーチ5フィート、単一ターゲット。ヒット: 14 (2d8 + 5) の斬撃ダメージ。"
+      },
+      {
+        "name": "アイスブレス (Ice Breath)",
+        "description": "（リチャージ 5-6）ブランゴガは30フィートの円錐状に氷の空気を吐き出します。範囲内の各クリーチャーはDC14の耐久力セーヴィングスローを行い、失敗すると22 (5d8) の氷ダメージを受け、移動速度が半分になります。"
+      },
+      {
+        "name": "招集 (Summon Pack)",
+        "description": "（1回/日）ブランゴガは1d4+1体のブランゴを召喚します。ブランゴは120フィート以内の空きスペースに現れ、ブランゴガの味方として行動します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ブルファンゴ",
+    "name_en": "Bullfango",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "11 (外皮)",
+    "hit_points": {
+      "average": 13,
+      "dice": "2d8 + 4"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "15 (+2)",
+      "dexterity": "10 (+0)",
+      "constitution": "14 (+2)",
+      "intelligence": "2 (-4)",
+      "wisdom": "10 (+0)",
+      "charisma": "4 (-3)"
+    },
+    "senses": "受動知覚10",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "special_traits": [
+      {
+        "name": "突進 (Charge)",
+        "description": "ブルファンゴがクリーチャーに向かって少なくとも20フィート直進し、同じターンに「牙」攻撃でヒットした場合、ターゲットは追加で3 (1d6) の斬撃ダメージを受け、DC12の筋力セーヴィングスローに成功しなければならず、失敗すると伏せ状態になります。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "牙 (Tusk)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の斬撃ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドスファンゴ",
+    "name_en": "Bulldrome",
+    "size_type_alignment": "大型の獣、無属性",
+    "armor_class": "12 (外皮)",
+    "hit_points": {
+      "average": 42,
+      "dice": "5d10 + 15"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "17 (+3)",
+      "dexterity": "10 (+0)",
+      "constitution": "16 (+3)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "2 (450 XP)",
+    "special_traits": [
+      {
+        "name": "突進 (Charge)",
+        "description": "ドスファンゴがクリーチャーに向かって少なくとも20フィート直進し、同じターンに「牙」攻撃でヒットした場合、ターゲットは追加で5 (1d10) の斬撃ダメージを受け、DC13の筋力セーヴィングスローに成功しなければならず、失敗すると伏せ状態になります。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "牙 (Tusk)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 8 (1d10 + 3) の斬撃ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "コンガ",
+    "name_en": "Conga",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 19,
+      "dice": "3d8 + 6"
+    },
+    "speed": "30フィート、登攀30フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "14 (+2)",
+      "constitution": "14 (+2)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "actions": [
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の斬撃ダメージ。"
+      },
+      {
+        "name": "毒ガス (Poison Gas)",
+        "description": "コンガは5フィートの円錐状に毒ガスを放出します。範囲内の各クリーチャーはDC12の耐久力セーヴィングスローを行い、失敗すると1分間毒状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "コンガガ",
+    "name_en": "Congalala",
+    "size_type_alignment": "大型の獣、無属性",
+    "armor_class": "13 (外皮)",
+    "hit_points": {
+      "average": 95,
+      "dice": "10d10 + 40"
+    },
+    "speed": "40フィート、登攀40フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "14 (+2)",
+      "constitution": "18 (+4)",
+      "intelligence": "5 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "7 (-2)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "4 (1,100 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "コンガガは2回の「爪」攻撃を行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+6、リーチ5フィート、単一ターゲット。ヒット: 11 (2d6 + 4) の斬撃ダメージ。"
+      },
+      {
+        "name": "悪臭ガス (Foul Gas)",
+        "description": "（リチャージ 5-6）コンガガは15フィートの円錐状に悪臭ガスを放出します。範囲内の各クリーチャーはDC14の耐久力セーヴィングスローを行い、失敗すると18 (4d8) の毒ダメージを受け、1分間毒状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ガムート",
+    "name_en": "Gammoth",
+    "size_type_alignment": "超巨大な獣、無属性",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 243,
+      "dice": "18d20 + 54"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "28 (+9)",
+      "dexterity": "8 (-1)",
+      "constitution": "25 (+7)",
+      "intelligence": "4 (-3)",
+      "wisdom": "14 (+2)",
+      "charisma": "8 (-1)"
+    },
+    "saving_throws": "筋力+14、耐久力+12",
+    "damage_immunities": "氷",
+    "senses": "受動知覚12",
+    "languages": "―",
+    "challenge_rating": "16 (15,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ガムートは「踏みつけ」1回と「牙」1回を行います。"
+      },
+      {
+        "name": "踏みつけ (Stomp)",
+        "description": "近接武器攻撃: ヒット+14、リーチ10フィート、単一ターゲット。ヒット: 27 (4d8 + 9) の殴打ダメージ。ターゲットがクリーチャーの場合、DC22の筋力セーヴィングスローを行い、失敗すると伏せ状態になります。"
+      },
+      {
+        "name": "牙 (Tusk)",
+        "description": "近接武器攻撃: ヒット+14、リーチ15フィート、単一ターゲット。ヒット: 31 (4d10 + 9) の刺突ダメージ。"
+      },
+      {
+        "name": "スノーボール (Snowball)",
+        "description": "（リチャージ 5-6）ガムートは鼻で雪玉を吸い込み、120フィート以内の地点に発射します。その地点から20フィート半径の球体内にいる各クリーチャーはDC20の敏捷力セーヴィングスローを行い、失敗すると45 (10d8) の氷ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ガランゴルム",
+    "name_en": "Garangolm",
+    "size_type_alignment": "大型の牙獣、秩序にして中立",
+    "armor_class": "17 (外皮)",
+    "hit_points": {
+      "average": 189,
+      "dice": "18d10 + 90"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "24 (+7)",
+      "dexterity": "10 (+0)",
+      "constitution": "20 (+5)",
+      "intelligence": "8 (-1)",
+      "wisdom": "14 (+2)",
+      "charisma": "10 (+0)"
+    },
+    "damage_resistances": "火、水",
+    "senses": "受動知覚12",
+    "languages": "―",
+    "challenge_rating": "11 (7,200 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ガランゴルムは「スラム」攻撃を2回行います。1回は火、もう1回は水のエレメントを帯びます。"
+      },
+      {
+        "name": "スラム (Slam)",
+        "description": "近接武器攻撃: ヒット+11、リーチ10フィート、単一ターゲット。ヒット: 20 (3d8 + 7) の殴打ダメージ。火のエレメントを帯びている場合、追加で7 (2d6) の火ダメージ。水のエレメントを帯びている場合、追加で7 (2d6) の氷ダメージ。"
+      },
+      {
+        "name": "ロケットジャンプ (Rocket Jump)",
+        "description": "（リチャージ 6）ガランゴルムは腕から蒸気を噴射して60フィート空中に飛び上がります。その後、120フィート以内の地点に落下します。その地点から20フィート半径の範囲内の各クリーチャーはDC19の敏捷力セーヴィングスローを行い、失敗すると49 (11d8) の殴打ダメージを受け、伏せ状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ゴシャハギ",
+    "name_en": "Goss Harag",
+    "size_type_alignment": "大型の牙獣、混沌にして悪",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 157,
+      "dice": "15d10 + 75"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "12 (+1)",
+      "constitution": "20 (+5)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "8 (-1)"
+    },
+    "damage_immunities": "氷",
+    "senses": "受動知覚12",
+    "languages": "―",
+    "challenge_rating": "9 (5,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ゴシャハギは「アイスブレード」攻撃を2回行います。"
+      },
+      {
+        "name": "アイスブレード (Ice Blade)",
+        "description": "近接武器攻撃: ヒット+10、リーチ10フィート、単一ターゲット。ヒット: 17 (2d10 + 6) の斬撃ダメージと7 (2d6) の氷ダメージ。"
+      },
+      {
+        "name": "アイスビーム (Ice Beam)",
+        "description": "（リチャージ 5-6）ゴシャハギは腕から幅5フィート、長さ60フィートの直線状に氷のビームを放ちます。範囲内の各クリーチャーはDC17の敏捷力セーヴィングスローを行い、失敗すると45 (10d8) の氷ダメージを受け、移動速度が半分になります。"
+      },
+      {
+        "name": "アイスブレード生成 (Form Ice Blades)",
+        "description": "ボーナスアクションとして、ゴシャハギは腕に氷の刃を生成します。これにより、「アイスブレード」攻撃が可能になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ケチャワチャ",
+    "name_en": "Kecha Wacha",
+    "size_type_alignment": "中型の牙獣、無属性",
+    "armor_class": "13",
+    "hit_points": {
+      "average": 52,
+      "dice": "8d8 + 16"
+    },
+    "speed": "30フィート、登攀30フィート、飛行60フィート（滑空）",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "16 (+3)",
+      "constitution": "14 (+2)",
+      "intelligence": "6 (-2)",
+      "wisdom": "12 (+1)",
+      "charisma": "8 (-1)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "2 (450 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ケチャワチャは「爪」攻撃を2回行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 8 (1d10 + 3) の斬撃ダメージ。"
+      },
+      {
+        "name": "ウォーターグロブ (Water Glob)",
+        "description": "（リチャージ 5-6）ケチャワチャは鼻から水の塊を吐き出します。60フィート以内のターゲットに遠隔呪文攻撃: ヒット+5。ヒット: 14 (4d6) の酸ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ウルクスス",
+    "name_en": "Lagombi",
+    "size_type_alignment": "大型の牙獣、無属性",
+    "armor_class": "14 (外皮)",
+    "hit_points": {
+      "average": 105,
+      "dice": "11d10 + 44"
+    },
+    "speed": "40フィート、巣穴30フィート（雪中のみ）",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "16 (+3)",
+      "constitution": "18 (+4)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "skills": "知覚+4、隠密+6",
+    "damage_immunities": "氷",
+    "senses": "暗視60フィート、受動知覚14",
+    "languages": "―",
+    "challenge_rating": "4 (1,100 XP)",
+    "special_traits": [
+      {
+        "name": "雪中のカモフラージュ (Snow Camouflage)",
+        "description": "ウルクススは雪や氷の地形で隠密チェックに有利を得ます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ウルクススは「爪」攻撃を2回行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+6、リーチ5フィート、単一ターゲット。ヒット: 13 (2d8 + 4) の斬撃ダメージ。"
+      },
+      {
+        "name": "スライディングチャージ (Sliding Charge)",
+        "description": "ウルクススが雪や氷の上を少なくとも20フィート直進し、同じターンに「爪」攻撃でヒットした場合、ターゲットは追加で7 (2d6) の斬撃ダメージを受け、DC14の筋力セーヴィングスローに成功しなければならず、失敗すると伏せ状態になります。"
+      },
+      {
+        "name": "雪玉投げ (Snowball Toss)",
+        "description": "遠隔武器攻撃: ヒット+6、射程60/240フィート、単一ターゲット。ヒット: 18 (4d8) の氷ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ラージャン",
+    "name_en": "Rajang",
+    "size_type_alignment": "大型の牙獣、無属性",
+    "armor_class": "17 (外皮)",
+    "hit_points": {
+      "average": 175,
+      "dice": "14d12 + 84"
+    },
+    "speed": "40フィート、登攀40フィート",
+    "ability_scores": {
+      "strength": "23 (+6)",
+      "dexterity": "12 (+1)",
+      "constitution": "23 (+6)",
+      "intelligence": "12 (+1)",
+      "wisdom": "16 (+3)",
+      "charisma": "10 (+0)"
+    },
+    "saving_throws": "筋力+11、敏捷力+6、判断力+8",
+    "skills": "運動+11、知覚+8",
+    "damage_resistances": "毒",
+    "damage_immunities": "火、雷、死霊",
+    "senses": "受動知覚18",
+    "languages": "―",
+    "challenge_rating": "15 (13,000 XP)",
+    "special_traits": [
+      {
+        "name": "跳躍 (Leap)",
+        "description": "ラージャンの走り幅跳びは最大30フィート、走り高跳びは最大15フィートで、助走は不要です。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ラージャンは2回の「拳」攻撃を行います。"
+      },
+      {
+        "name": "拳 (Fist)",
+        "description": "近接武器攻撃: ヒット+11、リーチ5フィート、単一ターゲット。ヒット: 19 (3d8 + 6) の殴打ダメージ。ラージャンが攻撃直前に少なくとも20フィート直進した場合、ターゲットは追加で13 (3d8) の殴打ダメージを受けます。ターゲットがクリーチャーの場合、DC 19の筋力セーヴィングスローに成功しなければならず、失敗すると伏せ状態になります。"
+      },
+      {
+        "name": "キック (Kick)",
+        "description": "近接武器攻撃: ヒット+11、リーチ10フィート、単一ターゲット。ヒット: 13 (2d6 + 6) の殴打ダメージ。"
+      },
+      {
+        "name": "稲妻のブレス (Lightning Breath)",
+        "description": "（リチャージ 5-6）ラージャンは幅5フィート、長さ90フィートの直線状に稲妻を吐き出します。その線上にいる各クリーチャーはDC 19の敏捷力セーヴィングスローを行わなければならず、失敗すると45 (10d8) の雷ダメージを受け、成功した場合はその半分のダメージを受けます。"
+      },
+      {
+        "name": "メテオ (Meteor)",
+        "description": "（リチャージ 6）ラージャンが移動の一部として少なくとも15フィート跳躍した場合、このアクションを使用してボール状になり、40フィート以内の1体以上のクリーチャーがいるスペースに激突することができます。それらの各クリーチャーはDC 19の筋力または敏捷力セーヴィングスロー（ターゲットの選択）に成功しなければならず、失敗すると16 (3d6 + 6) の殴打ダメージと14 (4d6) の雷ダメージを受け、伏せ状態になります。成功した場合、クリーチャーは半分のダメージのみを受け、伏せ状態にはならず、ラージャンのスペースから5フィート離れたクリーチャーの選択した空きスペースに押し出されます。範囲内に空きスペースがない場合、クリーチャーは代わりにラージャンのスペースで伏せ状態になります。"
+      }
+    ],
+    "legendary_actions": [
+      {
+        "name": "キック",
+        "description": "ラージャンは1回の「キック」攻撃を行います。"
+      },
+      {
+        "name": "移動",
+        "description": "ラージャンは機会攻撃を誘発することなく、その速度まで移動します。"
+      },
+      {
+        "name": "地震 (Seismic Toss)",
+        "description": "（コスト2アクション）ラージャンは天に手を伸ばし、地面に体を叩きつけます。ラージャンから30フィート以内にいる各クリーチャーはDC 19の筋力セーヴィングスローに成功しなければならず、失敗すると伏せ状態になります。セーヴィングスローに5以上失敗した場合、ターゲットは次の自身のターンの終了時まで気絶します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "激昂したラージャン",
+    "name_en": "Furious Rajang",
+    "size_type_alignment": "大型の牙獣、混沌にして悪",
+    "armor_class": "19 (外皮)",
+    "hit_points": {
+      "average": 241,
+      "dice": "18d12 + 124"
+    },
+    "speed": "50フィート、登攀50フィート",
+    "ability_scores": {
+      "strength": "26 (+8)",
+      "dexterity": "14 (+2)",
+      "constitution": "25 (+7)",
+      "intelligence": "14 (+2)",
+      "wisdom": "18 (+4)",
+      "charisma": "12 (+1)"
+    },
+    "saving_throws": "筋力+14、耐久力+13、判断力+10",
+    "skills": "運動+14、知覚+10",
+    "damage_immunities": "雷",
+    "senses": "暗視120フィート、受動知覚20",
+    "languages": "―",
+    "challenge_rating": "20 (25,000 XP)",
+    "special_traits": [
+      {
+        "name": "激怒 (Rage)",
+        "description": "ラージャンがHPの半分以下になると激怒します。激怒中、攻撃ロールに有利を得て、攻撃は追加で7 (2d6) の雷ダメージを与えます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ラージャンは3回の「拳」攻撃を行います。"
+      },
+      {
+        "name": "拳 (Fist)",
+        "description": "近接武器攻撃: ヒット+14、リーチ5フィート、単一ターゲット。ヒット: 21 (3d8 + 8) の殴打ダメージ。"
+      },
+      {
+        "name": "サンダービーム (Thunder Beam)",
+        "description": "（リチャージ 5-6）ラージャンは幅5フィート、長さ120フィートの直線状に稲妻のビームを放ちます。範囲内の各クリーチャーはDC21の敏捷力セーヴィングスローを行い、失敗すると66 (12d10) の雷ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ボルビドン",
+    "name_en": "Volvidon",
+    "size_type_alignment": "中型の牙獣、無属性",
+    "armor_class": "15 (外皮)",
+    "hit_points": {
+      "average": 60,
+      "dice": "8d8 + 24"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "14 (+2)",
+      "constitution": "16 (+3)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "damage_resistances": "火",
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "3 (700 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ボルビドンは「爪」攻撃を2回行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 8 (1d10 + 3) の斬撃ダメージ。"
+      },
+      {
+        "name": "悪臭ガス (Foul Gas)",
+        "description": "（リチャージ 6）ボルビドンは15フィートの円錐状に悪臭ガスを放出します。範囲内の各クリーチャーはDC13の耐久力セーヴィングスローを行い、失敗すると1分間毒状態になります。"
+      },
+      {
+        "name": "舌 (Tongue)",
+        "description": "近接武器攻撃: ヒット+5、リーチ15フィート、単一ターゲット。ヒット: 5 (1d4 + 3) の殴打ダメージ。ターゲットはDC13の筋力セーヴィングスローを行い、失敗すると10フィート引き寄せられます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ウルグ",
+    "name_en": "Wulg",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "12",
+    "hit_points": {
+      "average": 13,
+      "dice": "2d8 + 4"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "14 (+2)",
+      "constitution": "14 (+2)",
+      "intelligence": "3 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "skills": "知覚+3",
+    "senses": "受動知覚13",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "special_traits": [
+      {
+        "name": "集団戦術 (Pack Tactics)",
+        "description": "ウルグは、目標クリーチャーの5フィート以内に、無力状態でない味方が少なくとも1体いれば、そのクリーチャーに対する攻撃ロールに有利を得ます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 5 (1d6 + 2) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドドガマル",
+    "name_en": "Dodogama",
+    "size_type_alignment": "大型の牙竜、無属性",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 126,
+      "dice": "12d10 + 60"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "10 (+0)",
+      "constitution": "20 (+5)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "8 (-1)"
+    },
+    "damage_immunities": "火",
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "6 (2,300 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+8、リーチ5フィート、単一ターゲット。ヒット: 18 (2d12 + 5) の刺突ダメージ。"
+      },
+      {
+        "name": "マグマスピット (Magma Spit)",
+        "description": "遠隔武器攻撃: ヒット+8、射程60/240フィート、単一ターゲット。ヒット: 22 (4d10) の火ダメージ。着弾地点の地面は1分間溶岩だまりになります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドスギルオス",
+    "name_en": "Great Girros",
+    "size_type_alignment": "大型の牙竜、無属性",
+    "armor_class": "14 (外皮)",
+    "hit_points": {
+      "average": 75,
+      "dice": "10d10 + 20"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "16 (+3)",
+      "constitution": "14 (+2)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "8 (-1)"
+    },
+    "skills": "知覚+3",
+    "damage_resistances": "雷",
+    "senses": "暗視60フィート、受動知覚13",
+    "languages": "―",
+    "challenge_rating": "3 (700 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 10 (2d6 + 3) の刺突ダメージ。ターゲットはDC12の耐久力セーヴィングスローを行い、失敗すると1分間麻痺します。"
+      },
+      {
+        "name": "招集 (Summon Pack)",
+        "description": "（1回/日）ドスギルオスは2d4体のギルオスを召喚します。ギルオスは120フィート以内の空きスペースに現れ、ドスギルオスの味方として行動します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドスジャグラス",
+    "name_en": "Great Jagras",
+    "size_type_alignment": "大型の牙竜、無属性",
+    "armor_class": "13 (外皮)",
+    "hit_points": {
+      "average": 68,
+      "dice": "8d10 + 24"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "14 (+2)",
+      "constitution": "16 (+3)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "2 (450 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+6、リーチ5フィート、単一ターゲット。ヒット: 13 (2d8 + 4) の刺突ダメージ。"
+      },
+      {
+        "name": "飲み込み (Swallow)",
+        "description": "ドスジャグラスは自身より小さいサイズのクリーチャーを飲み込もうとします。ターゲットはDC14の敏捷力セーヴィングスローを行い、失敗すると飲み込まれます。飲み込まれたクリーチャーは拘束され、各ターンの開始時に5 (1d10) の酸ダメージを受けます。ドスジャグラスが1ターンに10以上のダメージを受けると、飲み込んだクリーチャーを吐き出します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ルナガロン",
+    "name_en": "Lunagaron",
+    "size_type_alignment": "大型の牙竜、無属性",
+    "armor_class": "17 (外皮)",
+    "hit_points": {
+      "average": 178,
+      "dice": "17d10 + 85"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "18 (+4)",
+      "constitution": "20 (+5)",
+      "intelligence": "10 (+0)",
+      "wisdom": "16 (+3)",
+      "charisma": "12 (+1)"
+    },
+    "skills": "知覚+7",
+    "damage_immunities": "氷",
+    "senses": "暗視120フィート、受動知覚17",
+    "languages": "―",
+    "challenge_rating": "12 (8,400 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ルナガロンは「噛みつき」1回と「爪」2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+10、リーチ5フィート、単一ターゲット。ヒット: 19 (2d12 + 6) の刺突ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+10、リーチ5フィート、単一ターゲット。ヒット: 16 (2d10 + 6) の斬撃ダメージと7 (2d6) の氷ダメージ。"
+      },
+      {
+        "name": "アイスブレス (Ice Breath)",
+        "description": "（リチャージ 5-6）ルナガロンは60フィートの円錐状に氷の空気を吐き出します。範囲内の各クリーチャーはDC17の耐久力セーヴィングスローを行い、失敗すると45 (10d8) の氷ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "マガイマガド",
+    "name_en": "Magnamalo",
+    "size_type_alignment": "大型の牙竜、混沌にして悪",
+    "armor_class": "19 (外皮)",
+    "hit_points": {
+      "average": 210,
+      "dice": "20d10 + 100"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "24 (+7)",
+      "dexterity": "16 (+3)",
+      "constitution": "20 (+5)",
+      "intelligence": "14 (+2)",
+      "wisdom": "16 (+3)",
+      "charisma": "18 (+4)"
+    },
+    "skills": "知覚+8",
+    "damage_resistances": "火、死霊",
+    "senses": "暗視120フィート、受動知覚18",
+    "languages": "―",
+    "challenge_rating": "16 (15,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "マガイマガドは「噛みつき」1回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+12、リーチ5フィート、単一ターゲット。ヒット: 21 (2d12 + 7) の刺突ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+12、リーチ10フィート、単一ターゲット。ヒット: 18 (2d10 + 7) の刺突ダメージと7 (2d6) の火ダメージ。"
+      },
+      {
+        "name": "ヘルファイアブレス (Hellfire Breath)",
+        "description": "（リチャージ 5-6）マガイマガドは60フィートの円錐状に紫色の炎を吐き出します。範囲内の各クリーチャーはDC18の敏捷力セーヴィングスローを行い、失敗すると56 (16d6) の火ダメージと28 (8d6) の死霊ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "怨嗟響めくマガイマガド",
+    "name_en": "Scorned Magnamalo",
+    "size_type_alignment": "大型の牙竜、混沌にして悪",
+    "armor_class": "21 (外皮)",
+    "hit_points": {
+      "average": 283,
+      "dice": "25d10 + 145"
+    },
+    "speed": "60フィート",
+    "ability_scores": {
+      "strength": "26 (+8)",
+      "dexterity": "18 (+4)",
+      "constitution": "22 (+6)",
+      "intelligence": "16 (+3)",
+      "wisdom": "18 (+4)",
+      "charisma": "20 (+5)"
+    },
+    "skills": "知覚+10",
+    "damage_resistances": "火、死霊",
+    "senses": "暗視120フィート、受動知覚20",
+    "languages": "―",
+    "challenge_rating": "20 (25,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "マガイマガドは「噛みつき」1回と「尻尾」攻撃2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+14、リーチ5フィート、単一ターゲット。ヒット: 24 (3d10 + 8) の刺突ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+14、リーチ15フィート、単一ターゲット。ヒット: 21 (3d8 + 8) の刺突ダメージと11 (2d10) の火ダメージ。"
+      },
+      {
+        "name": "ヘルファイアノヴァ (Hellfire Nova)",
+        "description": "（リチャージ 6）マガイマガドは自身を中心とする半径30フィートに爆発的な炎を放ちます。範囲内の各クリーチャーはDC20の敏捷力セーヴィングスローを行い、失敗すると63 (18d6) の火ダメージと31 (9d6) の死霊ダメージを受け、成功した場合は半分のダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "オドガロン",
+    "name_en": "Odogaron",
+    "size_type_alignment": "大型の牙竜、混沌にして悪",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 136,
+      "dice": "16d10 + 48"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "20 (+5)",
+      "constitution": "16 (+3)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "10 (+0)"
+    },
+    "skills": "知覚+6、隠密+9",
+    "senses": "暗視120フィート、受動知覚16",
+    "languages": "―",
+    "challenge_rating": "9 (5,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "オドガロンは「噛みつき」1回と「爪」2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+9、リーチ5フィート、単一ターゲット。ヒット: 16 (2d10 + 5) の刺突ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+9、リーチ5フィート、単一ターゲット。ヒット: 12 (2d6 + 5) の斬撃ダメージ。ヒットした場合、ターゲットはDC15の耐久力セーヴィングスローを行い、失敗すると1分間出血状態になります。出血状態のクリーチャーは各ターンの開始時に5 (1d10) の死霊ダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "オドガロン亜種",
+    "name_en": "Ebony Odogaron",
+    "size_type_alignment": "大型の牙竜、混沌にして悪",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 184,
+      "dice": "21d10 + 69"
+    },
+    "speed": "60フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "22 (+6)",
+      "constitution": "17 (+3)",
+      "intelligence": "8 (-1)",
+      "wisdom": "16 (+3)",
+      "charisma": "12 (+1)"
+    },
+    "skills": "知覚+8、隠密+11",
+    "damage_resistances": "死霊",
+    "senses": "暗視120フィート、受動知覚18",
+    "languages": "―",
+    "challenge_rating": "13 (10,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "オドガロンは「噛みつき」1回と「爪」2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+11、リーチ5フィート、単一ターゲット。ヒット: 19 (2d12 + 6) の刺突ダメージと7 (2d6) の死霊ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+11、リーチ5フィート、単一ターゲット。ヒット: 15 (2d8 + 6) の斬撃ダメージ。ヒットした場合、ターゲットはDC16の耐久力セーヴィングスローを行い、失敗すると1分間出血状態になります。出血状態のクリーチャーは各ターンの開始時に7 (2d6) の死霊ダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "トビカガチ",
+    "name_en": "Tobi-Kadachi",
+    "size_type_alignment": "大型の牙竜、無属性",
+    "armor_class": "15 (外皮)",
+    "hit_points": {
+      "average": 110,
+      "dice": "13d10 + 39"
+    },
+    "speed": "40フィート、登攀40フィート、飛行60フィート（滑空）",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "20 (+5)",
+      "constitution": "16 (+3)",
+      "intelligence": "5 (-3)",
+      "wisdom": "14 (+2)",
+      "charisma": "8 (-1)"
+    },
+    "skills": "軽業+8",
+    "damage_immunities": "雷",
+    "senses": "受動知覚12",
+    "languages": "―",
+    "challenge_rating": "5 (1,800 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "トビカガチは「噛みつき」1回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+8、リーチ5フィート、単一ターゲット。ヒット: 12 (2d6 + 5) の刺突ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+8、リーチ10フィート、単一ターゲット。ヒット: 14 (2d8 + 5) の殴打ダメージと7 (2d6) の雷ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "トビカガチ亜種",
+    "name_en": "Viper Tobi-Kadachi",
+    "size_type_alignment": "大型の牙竜、無属性",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 142,
+      "dice": "15d10 + 60"
+    },
+    "speed": "40フィート、登攀40フィート、飛行60フィート（滑空）",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "22 (+6)",
+      "constitution": "18 (+4)",
+      "intelligence": "6 (-2)",
+      "wisdom": "16 (+3)",
+      "charisma": "10 (+0)"
+    },
+    "skills": "軽業+9",
+    "damage_immunities": "毒",
+    "senses": "受動知覚13",
+    "languages": "―",
+    "challenge_rating": "8 (3,900 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "トビカガチは「噛みつき」1回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+9、リーチ5フィート、単一ターゲット。ヒット: 15 (2d8 + 6) の刺突ダメージ。ターゲットはDC16の耐久力セーヴィングスローを行い、失敗すると1分間毒状態になります。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+9、リーチ10フィート、単一ターゲット。ヒット: 17 (2d10 + 6) の刺突ダメージ。ターゲットはDC16の耐久力セーヴィングスローを行い、失敗すると1分間麻痺します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ジンオウガ",
+    "name_en": "Zinogre",
+    "size_type_alignment": "大型の牙竜、無属性",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 195,
+      "dice": "17d10 + 102"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "16 (+3)",
+      "constitution": "22 (+6)",
+      "intelligence": "8 (-1)",
+      "wisdom": "14 (+2)",
+      "charisma": "12 (+1)"
+    },
+    "damage_immunities": "雷",
+    "senses": "暗視120フィート、受動知覚12",
+    "languages": "―",
+    "challenge_rating": "14 (11,500 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ジンオウガは「爪」攻撃2回と「尻尾スラム」1回を行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+11、リーチ5フィート、単一ターゲット。ヒット: 16 (2d10 + 6) の斬撃ダメージ。"
+      },
+      {
+        "name": "尻尾スラム (Tail Slam)",
+        "description": "近接武器攻撃: ヒット+11、リーチ10フィート、単一ターゲット。ヒット: 19 (2d12 + 6) の殴打ダメージと7 (2d6) の雷ダメージ。"
+      },
+      {
+        "name": "サンダーボール (Thunderball)",
+        "description": "（リチャージ 5-6）ジンオウガは2体のクリーチャーに雷の球を発射します。遠隔呪文攻撃: ヒット+11、射程120フィート、単一ターゲット。ヒット: 44 (8d10) の雷ダメージ。"
+      }
+    ]
+  }
+]

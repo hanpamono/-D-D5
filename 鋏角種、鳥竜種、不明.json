@@ -1,0 +1,755 @@
+[
+  {
+    "name_jp": "ネルスキュラ",
+    "name_en": "Nerscylla",
+    "size_type_alignment": "大型の鋏角種、無属性",
+    "armor_class": "16 (外皮)",
+    "hit_points": {
+      "average": 136,
+      "dice": "16d10 + 48"
+    },
+    "speed": "40フィート、登攀40フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "18 (+4)",
+      "constitution": "16 (+3)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "8 (-1)"
+    },
+    "skills": "隠密+8、知覚+6",
+    "damage_immunities": "毒",
+    "senses": "暗視120フィート、振動感知60フィート、受動知覚16",
+    "languages": "―",
+    "challenge_rating": "8 (3,900 XP)",
+    "special_traits": [
+      {
+        "name": "スパイダー・クライム (Spider Climb)",
+        "description": "ネルスキュラは、逆さまの天井を含め、困難な地形を速度を犠牲にすることなく登ることができます。"
+      },
+      {
+        "name": "ウェブウォーカー (Web Walker)",
+        "description": "ネルスキュラはウェブによる移動困難を無視します。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ネルスキュラは「噛みつき」1回と「爪」攻撃2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+8、リーチ5フィート、単一ターゲット。ヒット: 15 (2d10 + 4) の刺突ダメージと7 (2d6) の毒ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+8、リーチ5フィート、単一ターゲット。ヒット: 13 (2d8 + 4) の斬撃ダメージ。"
+      },
+      {
+        "name": "ウェブ (Web)",
+        "description": "遠隔武器攻撃: ヒット+8、射程30/60フィート、単一ターゲット。ヒット: ターゲットはDC16の敏捷力セーヴィングスローを行い、失敗すると拘束されます。アクションとして、拘束されたクリーチャーはDC16の筋力チェックを行い、成功すると解放されます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ヤツカダキ",
+    "name_en": "Rakna-Kadaki",
+    "size_type_alignment": "大型の鋏角種、無属性",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 210,
+      "dice": "20d10 + 100"
+    },
+    "speed": "30フィート、登攀30フィート",
+    "ability_scores": {
+      "strength": "20 (+5)",
+      "dexterity": "16 (+3)",
+      "constitution": "20 (+5)",
+      "intelligence": "10 (+0)",
+      "wisdom": "16 (+3)",
+      "charisma": "12 (+1)"
+    },
+    "damage_immunities": "火",
+    "senses": "暗視120フィート、振動感知60フィート、受動知覚13",
+    "languages": "―",
+    "challenge_rating": "14 (11,500 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ヤツカダキは3回の攻撃を行います：1回は「噛みつき」、2回は「爪」。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+10、リーチ5フィート、単一ターゲット。ヒット: 18 (2d12 + 5) の刺突ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+10、リーチ10フィート、単一ターゲット。ヒット: 16 (2d10 + 5) の斬撃ダメージ。"
+      },
+      {
+        "name": "火炎放射 (Flame Breath)",
+        "description": "（リチャージ 5-6）ヤツカダキは60フィートの円錐状に炎を吐き出します。範囲内の各クリーチャーはDC18の敏捷力セーヴィングスローを行い、失敗すると45 (10d8) の火ダメージを受け、成功した場合は半分のダメージを受けます。"
+      },
+      {
+        "name": "ウェブ拘束 (Web Cocoon)",
+        "description": "ヤツカダキは120フィート以内の1体のクリーチャーをウェブで狙います。ターゲットはDC18の敏捷力セーヴィングスローを行い、失敗すると拘束されます。アクションとして、ターゲットはDC18の筋力チェックを行い、成功すると解放されます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "熾妃蜘蛛ヤツカダキ",
+    "name_en": "Pyre Rakna-Kadaki",
+    "size_type_alignment": "大型の鋏角種、無属性",
+    "armor_class": "20 (外皮)",
+    "hit_points": {
+      "average": 262,
+      "dice": "25d10 + 125"
+    },
+    "speed": "30フィート、登攀30フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "18 (+4)",
+      "constitution": "21 (+5)",
+      "intelligence": "12 (+1)",
+      "wisdom": "18 (+4)",
+      "charisma": "14 (+2)"
+    },
+    "damage_immunities": "火",
+    "senses": "暗視120フィート、振動感知60フィート、受動知覚14",
+    "languages": "―",
+    "challenge_rating": "17 (18,000 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ヤツカダキは3回の攻撃を行います：1回は「噛みつき」、2回は「爪」。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+11、リーチ5フィート、単一ターゲット。ヒット: 22 (3d10 + 6) の刺突ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+11、リーチ10フィート、単一ターゲット。ヒット: 20 (3d8 + 6) の斬撃ダメージ。"
+      },
+      {
+        "name": "爆発性ウェブ (Explosive Webbing)",
+        "description": "（リチャージ 5-6）ヤツカダキは120フィート以内の地点に爆発性のウェブを射出します。その地点から20フィート半径の球体内にいる各クリーチャーはDC19の敏捷力セーヴィングスローを行い、失敗すると49 (14d6) の火ダメージを受け、拘束されます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドスバギィ",
+    "name_en": "Great Baggi",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13 (外皮)",
+    "hit_points": {
+      "average": 39,
+      "dice": "6d8 + 12"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "16 (+3)",
+      "constitution": "14 (+2)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "skills": "知覚+3",
+    "senses": "暗視60フィート、受動知覚13",
+    "languages": "―",
+    "challenge_rating": "1 (200 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 8 (1d10 + 3) の刺突ダメージ。"
+      },
+      {
+        "name": "睡眠液 (Sleep Fluid)",
+        "description": "遠隔武器攻撃: ヒット+5、射程20/60フィート、単一ターゲット。ヒット: ターゲットはDC12の耐久力セーヴィングスローを行い、失敗すると1分間、ダメージを受けるか誰かがアクションを使って揺り起こすまで無意識状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドスゲネポス",
+    "name_en": "Gendrome",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13 (外皮)",
+    "hit_points": {
+      "average": 26,
+      "dice": "4d8 + 8"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "16 (+3)",
+      "constitution": "14 (+2)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "暗視60フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/2 (100 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 6 (1d6 + 3) の刺突ダメージ。ターゲットはDC12の耐久力セーヴィングスローを行い、失敗すると1分間麻痺します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドスギアノス",
+    "name_en": "Giadrome",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13 (外皮)",
+    "hit_points": {
+      "average": 26,
+      "dice": "4d8 + 8"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "16 (+3)",
+      "constitution": "14 (+2)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "damage_immunities": "氷",
+    "senses": "暗視60フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/2 (100 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 6 (1d6 + 3) の刺突ダメージと3 (1d6) の氷ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドスイーオス",
+    "name_en": "Iodrome",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13 (外皮)",
+    "hit_points": {
+      "average": 26,
+      "dice": "4d8 + 8"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "16 (+3)",
+      "constitution": "14 (+2)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "damage_immunities": "毒",
+    "senses": "暗視60フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/2 (100 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 6 (1d6 + 3) の刺突ダメージと3 (1d6) の毒ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "オサイズチ",
+    "name_en": "Great Izuchi",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "14 (外皮)",
+    "hit_points": {
+      "average": 52,
+      "dice": "8d8 + 16"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "18 (+4)",
+      "constitution": "14 (+2)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "8 (-1)"
+    },
+    "skills": "軽業+6",
+    "senses": "受動知覚12",
+    "languages": "―",
+    "challenge_rating": "2 (450 XP)",
+    "special_traits": [
+      {
+        "name": "集団戦術 (Pack Tactics)",
+        "description": "オサイズチは、目標クリーチャーの5フィート以内に、無力状態でない味方が少なくとも1体いれば、そのクリーチャーに対する攻撃ロールに有利を得ます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "オサイズチは「爪」攻撃2回と「尻尾」攻撃1回を行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+6、リーチ5フィート、単一ターゲット。ヒット: 8 (1d8 + 4) の斬撃ダメージ。"
+      },
+      {
+        "name": "尻尾 (Tail)",
+        "description": "近接武器攻撃: ヒット+6、リーチ10フィート、単一ターゲット。ヒット: 11 (2d6 + 4) の斬撃ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドスジャギィ",
+    "name_en": "Great Jaggi",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13 (外皮)",
+    "hit_points": {
+      "average": 39,
+      "dice": "6d8 + 12"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "15 (+2)",
+      "dexterity": "14 (+2)",
+      "constitution": "14 (+2)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1 (200 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+4、リーチ5フィート、単一ターゲット。ヒット: 7 (1d10 + 2) の刺突ダメージ。"
+      },
+      {
+        "name": "招集 (Summon Pack)",
+        "description": "（1回/日）ドスジャギィは1d6体のジャギィと1d4体のジャギィノスを召喚します。これらは120フィート以内の空きスペースに現れ、ドスジャギィの味方として行動します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "クルルヤック",
+    "name_en": "Kulu-Ya-Ku",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13 (岩を持っている間は15)",
+    "hit_points": {
+      "average": 45,
+      "dice": "7d8 + 14"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "16 (+3)",
+      "constitution": "14 (+2)",
+      "intelligence": "8 (-1)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1 (200 XP)",
+    "actions": [
+      {
+        "name": "くちばし (Beak)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 8 (1d10 + 3) の刺突ダメージ。"
+      },
+      {
+        "name": "岩 (Rock)",
+        "description": "近接または遠隔武器攻撃: ヒット+5、リーチ5フィートまたは射程20/60フィート、単一ターゲット。ヒット: 10 (2d6 + 3) の殴打ダメージ。"
+      },
+      {
+        "name": "岩を掘り出す (Dig up Rock)",
+        "description": "ボーナスアクションとして、クルルヤックは岩を掘り出し、ACに+2のボーナスを得ます。岩は「岩」攻撃で投げられるか、クルルヤックが10以上のダメージを受けると壊れます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドスマッカォ",
+    "name_en": "Great Maccao",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "14 (外皮)",
+    "hit_points": {
+      "average": 45,
+      "dice": "6d8 + 18"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "16 (+3)",
+      "dexterity": "18 (+4)",
+      "constitution": "16 (+3)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "skills": "軽業+6",
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1 (200 XP)",
+    "actions": [
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+6、リーチ5フィート、単一ターゲット。ヒット: 8 (1d8 + 4) の斬撃ダメージ。"
+      },
+      {
+        "name": "尻尾ジャンプ (Tail Jump)",
+        "description": "ドスマッカォは尻尾を使って30フィート跳躍し、機会攻撃を誘発しません。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ツィツィヤック",
+    "name_en": "Tzitzi-Ya-Ku",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "14 (外皮)",
+    "hit_points": {
+      "average": 52,
+      "dice": "8d8 + 16"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "18 (+4)",
+      "constitution": "14 (+2)",
+      "intelligence": "6 (-2)",
+      "wisdom": "14 (+2)",
+      "charisma": "8 (-1)"
+    },
+    "senses": "受動知覚12",
+    "languages": "―",
+    "challenge_rating": "2 (450 XP)",
+    "actions": [
+      {
+        "name": "キック (Kick)",
+        "description": "近接武器攻撃: ヒット+6、リーチ5フィート、単一ターゲット。ヒット: 11 (2d6 + 4) の殴打ダメージ。"
+      },
+      {
+        "name": "フラッシュ (Flash)",
+        "description": "（リチャージ 5-6）ツィツィヤックは30フィートの円錐状に光を放ちます。範囲内の各クリーチャーはDC12の耐久力セーヴィングスローを行い、失敗すると1分間盲目状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドスランポス",
+    "name_en": "Velocidrome",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13 (外皮)",
+    "hit_points": {
+      "average": 26,
+      "dice": "4d8 + 8"
+    },
+    "speed": "50フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "16 (+3)",
+      "constitution": "14 (+2)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "暗視60フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/2 (100 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 8 (1d10 + 3) の刺突ダメージ。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ドスフロギィ",
+    "name_en": "Great Wroggi",
+    "size_type_alignment": "中型の獣、無属性",
+    "armor_class": "13 (外皮)",
+    "hit_points": {
+      "average": 39,
+      "dice": "6d8 + 12"
+    },
+    "speed": "40フィート",
+    "ability_scores": {
+      "strength": "14 (+2)",
+      "dexterity": "16 (+3)",
+      "constitution": "14 (+2)",
+      "intelligence": "4 (-3)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "damage_immunities": "毒",
+    "senses": "受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1 (200 XP)",
+    "actions": [
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+5、リーチ5フィート、単一ターゲット。ヒット: 8 (1d10 + 3) の刺突ダメージ。"
+      },
+      {
+        "name": "毒霧 (Poison Spit)",
+        "description": "遠隔武器攻撃: ヒット+5、射程30/120フィート、単一ターゲット。ヒット: ターゲットはDC12の耐久力セーヴィングスローを行い、失敗すると1分間毒状態になります。"
+      }
+    ]
+  },
+  {
+    "name_jp": "ゴア・マガラ",
+    "name_en": "Gore Magala",
+    "size_type_alignment": "大型の竜、無属性",
+    "armor_class": "18 (外皮)",
+    "hit_points": {
+      "average": 207,
+      "dice": "18d10 + 108"
+    },
+    "speed": "40フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "18 (+4)",
+      "constitution": "22 (+6)",
+      "intelligence": "10 (+0)",
+      "wisdom": "16 (+3)",
+      "charisma": "14 (+2)"
+    },
+    "damage_resistances": "死霊",
+    "senses": "盲視120フィート、受動知覚13",
+    "languages": "―",
+    "challenge_rating": "15 (13,000 XP)",
+    "special_traits": [
+      {
+        "name": "狂竜ウイルス (Frenzy Virus)",
+        "description": "ゴア・マガラの攻撃でダメージを受けたクリーチャーは狂竜ウイルスに感染します。感染したクリーチャーは、各ターンの開始時にDC18の耐久力セーヴィングスローを行い、3回失敗すると1時間、狂乱状態になります。狂乱状態のクリーチャーは、自身のターンに最も近いクリーチャーを攻撃します。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ゴア・マガラは「噛みつき」1回と「爪」2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+11、リーチ10フィート、単一ターゲット。ヒット: 19 (2d12 + 6) の刺突ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+11、リーチ5フィート、単一ターゲット。ヒット: 16 (2d10 + 6) の斬撃ダメージ。"
+      },
+      {
+        "name": "狂竜ブレス (Frenzy Breath)",
+        "description": "（リチャージ 5-6）ゴア・マガラは60フィートの円錐状にウイルスの雲を吐き出します。範囲内の各クリーチャーはDC19の耐久力セーヴィングスローを行い、失敗すると45 (10d8) の死霊ダメージを受け、狂竜ウイルスに感染します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "渾沌に呻くゴア・マガラ",
+    "name_en": "Chaotic Gore Magala",
+    "size_type_alignment": "大型の竜、混沌にして悪",
+    "armor_class": "20 (外皮)",
+    "hit_points": {
+      "average": 262,
+      "dice": "21d10 + 147"
+    },
+    "speed": "40フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "24 (+7)",
+      "dexterity": "20 (+5)",
+      "constitution": "24 (+7)",
+      "intelligence": "12 (+1)",
+      "wisdom": "18 (+4)",
+      "charisma": "16 (+3)"
+    },
+    "damage_resistances": "死霊",
+    "senses": "盲視60フィート、暗視120フィート、受動知覚14",
+    "languages": "竜語",
+    "challenge_rating": "19 (22,000 XP)",
+    "special_traits": [
+      {
+        "name": "狂竜ウイルス (Frenzy Virus)",
+        "description": "ゴア・マガラの攻撃でダメージを受けたクリーチャーは狂竜ウイルスに感染します。感染したクリーチャーは、各ターンの開始時にDC20の耐久力セーヴィングスローを行い、3回失敗すると1時間、狂乱状態になります。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "ゴア・マガラは「噛みつき」1回と「爪」2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+13、リーチ10フィート、単一ターゲット。ヒット: 23 (3d10 + 7) の刺突ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+13、リーチ5フィート、単一ターゲット。ヒット: 20 (3d8 + 7) の斬撃ダメージ。"
+      },
+      {
+        "name": "狂竜ブレス (Frenzy Breath)",
+        "description": "（リチャージ 5-6）ゴア・マガラは90フィートの円錐状にウイルスの雲を吐き出します。範囲内の各クリーチャーはDC20の耐久力セーヴィングスローを行い、失敗すると54 (12d8) の死霊ダメージを受け、狂竜ウイルスに感染します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "シャガルマガラ",
+    "name_en": "Shagaru Magala",
+    "size_type_alignment": "大型の竜、混沌にして悪",
+    "armor_class": "21 (外皮)",
+    "hit_points": {
+      "average": 310,
+      "dice": "24d10 + 178"
+    },
+    "speed": "40フィート、飛行80フィート",
+    "ability_scores": {
+      "strength": "26 (+8)",
+      "dexterity": "22 (+6)",
+      "constitution": "25 (+7)",
+      "intelligence": "14 (+2)",
+      "wisdom": "20 (+5)",
+      "charisma": "18 (+4)"
+    },
+    "damage_immunities": "死霊",
+    "senses": "暗視240フィート、受動知覚15",
+    "languages": "竜語",
+    "challenge_rating": "23 (50,000 XP)",
+    "special_traits": [
+      {
+        "name": "狂竜ウイルス (Frenzy Virus)",
+        "description": "シャガルマガラの30フィート以内でターンを開始するクリーチャーは狂竜ウイルスに感染します。感染したクリーチャーは、各ターンの開始時にDC21の耐久力セーヴィングスローを行い、3回失敗すると1時間、狂乱状態になります。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "シャガルマガラは「噛みつき」1回と「爪」2回を行います。"
+      },
+      {
+        "name": "噛みつき (Bite)",
+        "description": "近接武器攻撃: ヒット+15、リーチ10フィート、単一ターゲット。ヒット: 26 (3d12 + 8) の刺突ダメージ。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+15、リーチ5フィート、単一ターゲット。ヒット: 22 (3d8 + 8) の斬撃ダメージ。"
+      },
+      {
+        "name": "狂竜爆発 (Frenzy Eruption)",
+        "description": "（リチャージ 5-6）シャガルマガラは地面を叩きつけ、30フィート以内の複数の地点からウイルスの柱を噴出させます。範囲内の各クリーチャーはDC21の敏捷力セーヴィングスローを行い、失敗すると63 (14d8) の死霊ダメージを受けます。"
+      }
+    ]
+  },
+  {
+    "name_jp": "レーシェン",
+    "name_en": "Leshen",
+    "size_type_alignment": "大型の fey、中立にして悪",
+    "armor_class": "16 (樹皮)",
+    "hit_points": {
+      "average": 138,
+      "dice": "16d10 + 50"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "18 (+4)",
+      "dexterity": "12 (+1)",
+      "constitution": "16 (+3)",
+      "intelligence": "14 (+2)",
+      "wisdom": "18 (+4)",
+      "charisma": "16 (+3)"
+    },
+    "damage_resistances": "殴打、刺突",
+    "damage_vulnerabilities": "火",
+    "senses": "暗視120フィート、受動知覚14",
+    "languages": "シルヴァン語",
+    "challenge_rating": "8 (3,900 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "レーシェンは「爪」攻撃を2回行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+7、リーチ10フィート、単一ターゲット。ヒット: 15 (2d10 + 4) の斬撃ダメージ。"
+      },
+      {
+        "name": "根の罠 (Root Snare)",
+        "description": "（リチャージ 5-6）レーシェンは60フィート以内の1体のクリーチャーをターゲットにします。ターゲットはDC15の筋力セーヴィングスローを行い、失敗すると1分間拘束されます。"
+      },
+      {
+        "name": "鳥の召喚 (Summon Crows)",
+        "description": "（1回/日）レーシェンは1d4体のカラスの群れを召喚します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "エンシェント・レーシェン",
+    "name_en": "Ancient Leshen",
+    "size_type_alignment": "大型の fey、中立にして悪",
+    "armor_class": "18 (樹皮)",
+    "hit_points": {
+      "average": 207,
+      "dice": "22d10 + 86"
+    },
+    "speed": "30フィート",
+    "ability_scores": {
+      "strength": "22 (+6)",
+      "dexterity": "14 (+2)",
+      "constitution": "18 (+4)",
+      "intelligence": "16 (+3)",
+      "wisdom": "20 (+5)",
+      "charisma": "18 (+4)"
+    },
+    "damage_resistances": "殴打、刺突",
+    "damage_vulnerabilities": "火",
+    "senses": "暗視120フィート、受動知覚15",
+    "languages": "シルヴァン語",
+    "challenge_rating": "14 (11,500 XP)",
+    "actions": [
+      {
+        "name": "マルチアタック (Multiattack)",
+        "description": "レーシェンは「爪」攻撃を3回行います。"
+      },
+      {
+        "name": "爪 (Claw)",
+        "description": "近接武器攻撃: ヒット+11、リーチ15フィート、単一ターゲット。ヒット: 20 (3d8 + 6) の斬撃ダメージ。"
+      },
+      {
+        "name": "根の爆発 (Root Burst)",
+        "description": "（リチャージ 5-6）レーシェンは60フィート以内の地点をターゲットにします。その地点から20フィート半径の範囲内の各クリーチャーはDC18の筋力セーヴィングスローを行い、失敗すると33 (6d10) の殴打ダメージを受け、拘束されます。"
+      },
+      {
+        "name": "ジャグラスの召喚 (Summon Jagras)",
+        "description": "（1回/日）レーシェンは2d6体のジャグラスを召喚します。"
+      }
+    ]
+  },
+  {
+    "name_jp": "キュリア",
+    "name_en": "Qurio",
+    "size_type_alignment": "微小な獣、無属性",
+    "armor_class": "14",
+    "hit_points": {
+      "average": 10,
+      "dice": "4d4"
+    },
+    "speed": "10フィート、飛行40フィート",
+    "ability_scores": {
+      "strength": "4 (-3)",
+      "dexterity": "18 (+4)",
+      "constitution": "10 (+0)",
+      "intelligence": "2 (-4)",
+      "wisdom": "12 (+1)",
+      "charisma": "6 (-2)"
+    },
+    "senses": "暗視60フィート、受動知覚11",
+    "languages": "―",
+    "challenge_rating": "1/4 (50 XP)",
+    "special_traits": [
+      {
+        "name": "群れ (Swarm)",
+        "description": "キュリアは他のキュリアと同じスペースを占有できます。キュリアは伏せ状態になることへの完全耐性を持ちます。"
+      }
+    ],
+    "actions": [
+      {
+        "name": "吸血 (Blood Drain)",
+        "description": "近接武器攻撃: ヒット+6、リーチ5フィート、クリーチャー1体。ヒット: 7 (2d4 + 2) の刺突ダメージ。ターゲットの最大HPがこのダメージ分だけ減少します。ターゲットがこの攻撃で死亡した場合、1d4体のキュリアの群れに変わります。"
+      }
+    ]
+  }
+]
