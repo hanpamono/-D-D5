@@ -131,10 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
             processedMonsters.sort((a, b) => crToNumber(b.challenge_rating) - crToNumber(a.challenge_rating));
         }
 
-        displayMonsters(processedMonsters, false);
+        displayMonsters(processedMonsters);
     }
 
-    function displayMonsters(monsters) {
+    function displayMonsters(monsters, isSingleView = false) {
         monsterContainer.innerHTML = '';
         if (monsters.length === 0) {
             monsterContainer.innerHTML = '<p style="text-align:center;">該当するモンスターが見つかりませんでした。</p>';
@@ -145,8 +145,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const monsterCard = document.createElement('div');
             monsterCard.className = 'stat-block';
             const ac = getArmorClassValue(monster.armor_class);
+            
+            const monsterNameHTML = isSingleView
+                ? `<h2>${monster.name_jp} (${monster.name_en})</h2>`
+                : `<h2><a href="?monster=${encodeURIComponent(monster.name_jp)}">${monster.name_jp} (${monster.name_en})</a></h2>`;
+
             monsterCard.innerHTML = `
-                <h2><a href="?monster=${encodeURIComponent(monster.name_jp)}">${monster.name_jp} (${monster.name_en})</a></h2>
+                ${monsterNameHTML}
                 <p class="size-type">${monster.size_type_alignment}</p>
                 <div class="separator"></div>
                 <p><strong>アーマークラス:</strong> ${ac.display}</p>
@@ -264,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 initiative: dexMod,
                 externalUrl: window.location.href,
                 status: [{ label: "HP", value: monster.hit_points.average, max: monster.hit_points.average }, { label: "AC", value: ac.value, max: ac.value }],
-                params: Object.entries(monster.ability_scores).map(([key, value]) => ({ label: { 'strength': '筋力' }[key] || ['dexterity', '敏捷力'][key] || ['constitution', '耐久力'][key] || ['intelligence', '知力'][key] || ['wisdom', '判断力'][key] || ['charisma', '魅力'][key], value })),
+                params: Object.values(monster.ability_scores).map(value => ({ label: "", value })), // Simplified as params are not directly shown in memo
                 palette: ""
             }
         };
