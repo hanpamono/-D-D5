@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Display Functions ---
     function displaySingleMonster(monster) {
-        currentMonster = monster;
+        currentMonster = monster; // Set the current monster
         filtersContainer.style.display = 'none';
         navigationControls.innerHTML = `
             <button class="nav-button" id="back-to-list">一覧に戻る</button>
@@ -105,44 +105,50 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayMonsters(monsters, isSingleView = false) {
         monsterContainer.innerHTML = '';
         monsterContainer.className = isSingleView ? 'single-monster-view' : '';
+
         if (monsters.length === 0) {
             monsterContainer.innerHTML = '<p style="text-align:center;">該当するモンスターが見つかりませんでした。</p>';
             return;
         }
         monsters.forEach(monster => {
-            const monsterCard = document.createElement('div');
-            monsterCard.className = 'stat-block';
-            const ac = getArmorClassValue(monster.armor_class);
-            const monsterNameHTML = isSingleView
-                ? `<h2>${monster.name_jp} (${monster.name_en})</h2>`
-                : `<h2><a href="?monster=${encodeURIComponent(monster.name_jp)}">${monster.name_jp} (${monster.name_en})</a></h2>`;
-            monsterCard.innerHTML = `
-                ${monsterNameHTML}
-                <p class="size-type">${monster.size_type_alignment}</p><div class="separator"></div>
-                ${renderSimpleP('アーマークラス', ac.display)}
-                ${renderSimpleP('ヒットポイント', `${monster.hit_points.average} (${monster.hit_points.dice})`)}
-                ${renderSimpleP('移動速度', monster.speed)}<div class="separator"></div>
-                <ul class="ability-scores">
-                    <li><h4>筋力</h4><p>${monster.ability_scores.strength}</p></li><li><h4>敏捷力</h4><p>${monster.ability_scores.dexterity}</p></li><li><h4>耐久力</h4><p>${monster.ability_scores.constitution}</p></li>
-                    <li><h4>知力</h4><p>${monster.ability_scores.intelligence}</p></li><li><h4>判断力</h4><p>${monster.ability_scores.wisdom}</p></li><li><h4>魅力</h4><p>${monster.ability_scores.charisma}</p></li>
-                </ul><div class="separator"></div>
-                ${renderSimpleP('セーヴィングスロー', monster.saving_throws)}
-                ${renderSimpleP('技能', monster.skills)}
-                ${renderSimpleP('ダメージ脆弱性', monster.damage_vulnerabilities)}
-                ${renderSimpleP('ダメージ抵抗', monster.damage_resistances)}
-                ${renderSimpleP('ダメージ完全耐性', monster.damage_immunities)}
-                ${renderSimpleP('状態異常完全耐性', monster.condition_immunities)}
-                ${renderSimpleP('感覚', monster.senses)}
-                ${renderSimpleP('言語', monster.languages)}
-                ${renderSimpleP('脅威度', monster.challenge_rating)}
-                ${renderSection('特殊能力', monster.special_traits)}
-                ${renderSection('アクション', monster.actions)}
-                ${renderSection('ボーナスアクション', monster.bonus_actions)}
-                ${renderSection('リアクション', monster.reactions)}
-                ${renderSection('伝説的アクション', monster.legendary_actions)}
-                ${renderSection('巣穴のアクション', monster.lair_actions)}
-            `;
-            monsterContainer.appendChild(monsterCard);
+            try {
+                const monsterCard = document.createElement('div');
+                monsterCard.className = 'stat-block';
+                const ac = getArmorClassValue(monster.armor_class);
+                const monsterNameHTML = isSingleView
+                    ? `<h2>${monster.name_jp} (${monster.name_en})</h2>`
+                    : `<h2><a href="?monster=${encodeURIComponent(monster.name_jp)}">${monster.name_jp} (${monster.name_en})</a></h2>`;
+
+                monsterCard.innerHTML = `
+                    ${monsterNameHTML}
+                    <p class="size-type">${monster.size_type_alignment}</p><div class="separator"></div>
+                    ${renderSimpleP('アーマークラス', ac.display)}
+                    ${renderSimpleP('ヒットポイント', `${monster.hit_points.average} (${monster.hit_points.dice})`)}
+                    ${renderSimpleP('移動速度', monster.speed)}<div class="separator"></div>
+                    <ul class="ability-scores">
+                        <li><h4>筋力</h4><p>${monster.ability_scores.strength}</p></li><li><h4>敏捷力</h4><p>${monster.ability_scores.dexterity}</p></li><li><h4>耐久力</h4><p>${monster.ability_scores.constitution}</p></li>
+                        <li><h4>知力</h4><p>${monster.ability_scores.intelligence}</p></li><li><h4>判断力</h4><p>${monster.ability_scores.wisdom}</p></li><li><h4>魅力</h4><p>${monster.ability_scores.charisma}</p></li>
+                    </ul><div class="separator"></div>
+                    ${renderSimpleP('セーヴィングスロー', monster.saving_throws)}
+                    ${renderSimpleP('技能', monster.skills)}
+                    ${renderSimpleP('ダメージ脆弱性', monster.damage_vulnerabilities)}
+                    ${renderSimpleP('ダメージ抵抗', monster.damage_resistances)}
+                    ${renderSimpleP('ダメージ完全耐性', monster.damage_immunities)}
+                    ${renderSimpleP('状態異常完全耐性', monster.condition_immunities)}
+                    ${renderSimpleP('感覚', monster.senses)}
+                    ${renderSimpleP('言語', monster.languages)}
+                    ${renderSimpleP('脅威度', monster.challenge_rating)}
+                    ${renderSection('特殊能力', monster.special_traits)}
+                    ${renderSection('アクション', monster.actions)}
+                    ${renderSection('ボーナスアクション', monster.bonus_actions)}
+                    ${renderSection('リアクション', monster.reactions)}
+                    ${renderSection('伝説的アクション', monster.legendary_actions)}
+                    ${renderSection('巣穴のアクション', monster.lair_actions)}
+                `;
+                monsterContainer.appendChild(monsterCard);
+            } catch(e) {
+                console.error(`Error rendering monster: ${monster.name_jp}`, e);
+            }
         });
     }
     
@@ -234,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Generated Palette:", cocofoliaData.data.palette);
             console.log("Full JSON Object:", cocofoliaData);
             
-            if (!cocofoliaData.data.palette || cocofoliaData.data.palette.trim() === "") {
+            if (!monster.commands || typeof monster.commands !== 'string' || monster.commands.trim() === "") {
                 alert("警告: チャットパレットのデータ(commands)がJSONファイルから読み込めていません。");
             }
 
