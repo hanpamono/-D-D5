@@ -494,7 +494,7 @@
     ]
   },
   {
-    "name_jp": "混沌のギギネブラ",
+    "name_jp": "ギギネブラ亜種",
     "name_en": "Chaotic Gigginox",
     "size_type_alignment": "大型の monstrosity、混沌にして悪",
     "armor_class": "18 (外皮)",
@@ -823,7 +823,7 @@
     ]
   },
   {
-    "name_jp": "月迅竜ナルガクルガ",
+    "name_jp": "ナルガクルガ希少種",
     "name_en": "Lucent Nargacuga",
     "size_type_alignment": "大型の竜、無属性",
     "armor_class": "20 (外皮)",

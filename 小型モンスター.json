@@ -1,6 +1,6 @@
 [
   {
-    "name_jp": "アンテカ",
+    "name_jp": "ガウシカ",
     "name_en": "Anteka",
     "size_type_alignment": "中型の獣、無属性",
     "armor_class": "11",
@@ -112,7 +112,7 @@
     ]
   },
   {
-    "name_jp": "ボギィ",
+    "name_jp": "オルギィ",
     "name_en": "Boggi",
     "size_type_alignment": "小型の獣、無属性",
     "armor_class": "12",
@@ -140,7 +140,7 @@
     ]
   },
   {
-    "name_jp": "ボンバドギ",
+    "name_jp": "ブンブジナ",
     "name_en": "Bombadgy",
     "size_type_alignment": "小型の獣、無属性",
     "armor_class": "12",
@@ -258,7 +258,7 @@
     ]
   },
   {
-    "name_jp": "ガジャウ",
+    "name_jp": "咬魚",
     "name_en": "Gajau",
     "size_type_alignment": "中型の獣、無属性",
     "armor_class": "12",
@@ -427,7 +427,7 @@
     ]
   },
   {
-    "name_jp": "ゴウコト",
+    "name_jp": "メルクー",
     "name_en": "Gowngoat",
     "size_type_alignment": "中型の獣、無属性",
     "armor_class": "11",
@@ -652,7 +652,7 @@
     ]
   },
   {
-    "name_jp": "リモケロス",
+    "name_jp": "リモセトス",
     "name_en": "Larinoth",
     "size_type_alignment": "大型の獣、無属性",
     "armor_class": "12 (天然の鎧)",
@@ -764,7 +764,7 @@
     ]
   },
   {
-    "name_jp": "メーフィ",
+    "name_jp": "ムーファ",
     "name_en": "Moofah",
     "size_type_alignment": "中型の獣、無属性",
     "armor_class": "10",
@@ -1217,7 +1217,7 @@
     ]
   },
   {
-    "name_jp": "奇面族(チャチャ)",
+    "name_jp": "チャチャブー",
     "name_en": "Shakalaka",
     "size_type_alignment": "小型のヒューマノイド、無属性",
     "armor_class": "15 (天然の鎧、盾)",
@@ -1245,7 +1245,7 @@
     ]
   },
   {
-    "name_jp": "キングチャチャ",
+    "name_jp": "キングチャチャブー",
     "name_en": "King Shakalaka",
     "size_type_alignment": "小型のヒューマノイド、無属性",
     "armor_class": "16 (天然の鎧、盾)",

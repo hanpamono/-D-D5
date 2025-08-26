@@ -131,7 +131,7 @@
     ]
   },
   {
-    "name_jp": "緋天狗獣ビシュテンゴ",
+    "name_jp": "ビシュテンゴ亜種",
     "name_en": "Blood Orange Bishaten",
     "size_type_alignment": "中型の牙獣、混沌にして中立",
     "armor_class": "16 (外皮)",
@@ -208,7 +208,7 @@
     ]
   },
   {
-    "name_jp": "ブランゴガ",
+    "name_jp": "ドドブランゴ",
     "name_en": "Blangonga",
     "size_type_alignment": "大型の牙獣、無属性",
     "armor_class": "15 (外皮)",
@@ -350,7 +350,7 @@
     ]
   },
   {
-    "name_jp": "コンガガ",
+    "name_jp": "ババコンガ",
     "name_en": "Congalala",
     "size_type_alignment": "大型の獣、無属性",
     "armor_class": "13 (外皮)",
@@ -703,7 +703,7 @@
     ]
   },
   {
-    "name_jp": "ボルビドン",
+    "name_jp": "ラングロトラ",
     "name_en": "Volvidon",
     "size_type_alignment": "中型の牙獣、無属性",
     "armor_class": "15 (外皮)",

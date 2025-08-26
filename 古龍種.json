@@ -73,7 +73,7 @@
   },
   {
     "name_jp": "アマツマガツチ",
-    "name_en": "Amatsumagatsuchi (Amatsu)",
+    "name_en": "Amatsu",
     "size_type_alignment": "超巨大な竜、無属性",
     "armor_class": "20 (外皮)",
     "hit_points": {
@@ -628,7 +628,7 @@
     ]
   },
   {
-    "name_jp": "ミラボレアス",
+    "name_jp": "黒龍ミラボレアス",
     "name_en": "Fatalis",
     "size_type_alignment": "超巨大な竜、混沌にして悪",
     "armor_class": "22 (外皮)",
@@ -1840,7 +1840,7 @@
     ]
   },
   {
-    "name_jp": "雷神龍ナルハタタヒメ",
+    "name_jp": "ナルハタタヒメ",
     "name_en": "Thunder Serpent Narwa",
     "size_type_alignment": "超巨大な竜、無属性",
     "armor_class": "20 (外皮)",
@@ -2146,7 +2146,7 @@
     ]
   },
   {
-    "name_jp": "風神龍イブシマキヒコ",
+    "name_jp": "イブシマキヒコ",
     "name_en": "Wind Serpent Ibushi",
     "size_type_alignment": "超巨大な竜、無属性",
     "armor_class": "19 (外皮)",

@@ -112,7 +112,7 @@
     ]
   },
   {
-    "name_jp": "ザミーテ",
+    "name_jp": "スクアギル",
     "name_en": "Zamite",
     "size_type_alignment": "中型の両生種、無属性",
     "armor_class": "13 (外皮)",
@@ -156,7 +156,7 @@
     ]
   },
   {
-    "name_jp": "ザムトリオス",
+    "name_jp": "ザボアザギル",
     "name_en": "Zamtrios",
     "size_type_alignment": "巨大な両生種、無属性",
     "armor_class": "15 (外皮)",
@@ -530,7 +530,7 @@
     ]
   },
   {
-    "name_jp": "水妖鳥プケプケ",
+    "name_jp": "プケプケ亜種",
     "name_en": "Coral Pukei-Pukei",
     "size_type_alignment": "大型の鳥竜、無属性",
     "armor_class": "16 (外皮)",
@@ -754,7 +754,7 @@
     ]
   },
   {
-    "name_jp": "青イャンクック",
+    "name_jp": "イャンクック亜種",
     "name_en": "Blue Yian Kut-Ku",
     "size_type_alignment": "大型の鳥竜、無属性",
     "armor_class": "14 (外皮)",
@@ -860,7 +860,7 @@
     ]
   },
   {
-    "name_jp": "雷顎竜アンジャナフ",
+    "name_jp": "アンジャナフ亜種",
     "name_en": "Fulgur Anjanath",
     "size_type_alignment": "巨大な獣竜、無属性",
     "armor_class": "17 (外皮)",
@@ -1416,7 +1416,7 @@
     ]
   },
   {
-    "name_jp": "硫斬竜ディノバルド",
+    "name_jp": "ディノバルド亜種",
     "name_en": "Acidic Glavenus",
     "size_type_alignment": "巨大な獣竜、無属性",
     "armor_class": "18 (外皮)",
