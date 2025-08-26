@@ -14,7 +14,6 @@
     --link-color: var(--dnd-red);
     --input-bg: white;
     --input-border: #ccc;
-    --encounter-bg: #eaddc7;
 }
 
 body {
@@ -39,7 +38,6 @@ body.dark-mode {
     --link-color: #ff8a80;
     --input-bg: #3a3a3a;
     --input-border: #666;
-    --encounter-bg: #222;
 }
 body.dark-mode .stat-block h2 a {
     color: var(--link-color);
@@ -58,7 +56,7 @@ body.dark-mode .stat-block h2 a {
     color: var(--text-color);
     cursor: pointer;
     font-size: 1.2em;
-    z-index: 1001; /* Builderより手前に */
+    z-index: 1001;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -146,17 +144,15 @@ h1 {
     padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     border-radius: 5px;
-    position: relative; /* ボタンの位置基準用 */
 }
 
-/* ▼▼▼ 公式風スタイル ▼▼▼ */
 .stat-block h2 {
     font-family: var(--font-serif);
-    font-weight: 900; /* より太く */
+    font-weight: 900;
     color: var(--dnd-red);
     font-size: 1.8em;
     margin: 0 0 5px 0;
-    border-bottom: 2px solid var(--dnd-red); /* 太く */
+    border-bottom: 2px solid var(--dnd-red);
     padding-bottom: 5px;
 }
 .stat-block a { color: var(--link-color); text-decoration: none; }
@@ -215,10 +211,6 @@ h3 {
 .trait-item p { text-indent: 1em; margin: 0; }
 .trait-item strong { font-weight: 700; font-style: italic; color: var(--text-color); }
 
-/* ▲▲▲ 公式風スタイル ▲▲▲ */
-
-
-/* ▼▼▼ チャットパレット関連 ▼▼▼ */
 .chat-palette-section {
     margin-top: 20px;
     text-align: center;
@@ -243,138 +235,3 @@ h3 {
 #copy-palette-button {
     margin-top: 10px;
 }
-/* ▲▲▲ チャットパレット関連 ▲▲▲ */
-
-
-/* ▼▼▼ エンカウンタービルダー関連 ▼▼▼ */
-#encounter-builder {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 300px;
-    max-height: 80vh;
-    background-color: var(--encounter-bg);
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease-in-out;
-}
-
-#encounter-builder.minimized {
-    transform: translateY(calc(100% - 40px));
-}
-
-#builder-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 15px;
-    background-color: var(--dnd-red);
-    color: white;
-    cursor: pointer;
-    border-radius: 5px 5px 0 0;
-}
-#builder-header h3 {
-    margin: 0;
-    font-size: 1.2em;
-    color: white;
-    border: none;
-}
-#toggle-builder {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.2em;
-    cursor: pointer;
-}
-
-#builder-content {
-    padding: 10px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-#party-settings {
-    display: flex;
-    gap: 10px;
-    justify-content: space-around;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-color);
-}
-.party-input { display: flex; align-items: center; gap: 5px; }
-.party-input label { font-size: 0.9em; }
-.party-input input {
-    width: 50px;
-    padding: 3px;
-    background-color: var(--input-bg);
-    color: var(--text-color);
-    border: 1px solid var(--input-border);
-    border-radius: 3px;
-}
-
-#encounter-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
-}
-#encounter-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    border-bottom: 1px dashed var(--input-border);
-    font-size: 0.9em;
-}
-#encounter-list li:last-child {
-    border-bottom: none;
-}
-.monster-name {
-    flex-grow: 1;
-}
-.monster-controls button {
-    background: none;
-    border: 1px solid var(--dnd-red);
-    color: var(--dnd-red);
-    cursor: pointer;
-    border-radius: 50%;
-    width: 22px;
-    height: 22px;
-    line-height: 1;
-    margin-left: 5px;
-}
-
-#encounter-summary {
-    border-top: 1px solid var(--border-color);
-    padding-top: 10px;
-    font-weight: bold;
-}
-#encounter-summary p { margin: 5px 0; }
-
-#clear-encounter {
-    width: 100%;
-    padding: 8px;
-    font-size: 0.9em;
-}
-
-.add-to-encounter-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: var(--dnd-red);
-    color: white;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    padding: 3px 8px;
-    cursor: pointer;
-    font-size: 0.8em;
-}
-.add-to-encounter-btn:hover {
-    opacity: 0.8;
-}
-/* ▲▲▲ エンカウンタービルダー関連 ▲▲▲ */

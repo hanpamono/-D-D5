@@ -49,35 +49,6 @@
         <!-- クリーチャーデータがここに表示されます -->
     </main>
     
-    <!-- ▼▼▼ エンカウンタービルダーのパネルを追加 ▼▼▼ -->
-    <div id="encounter-builder">
-        <div id="builder-header">
-            <h3>エンカウンタービルダー</h3>
-            <button id="toggle-builder">最小化</button>
-        </div>
-        <div id="builder-content">
-            <div id="party-settings">
-                <div class="party-input">
-                    <label for="player-count">人数:</label>
-                    <input type="number" id="player-count" value="4" min="1">
-                </div>
-                <div class="party-input">
-                    <label for="player-level">平均LV:</label>
-                    <input type="number" id="player-level" value="1" min="1">
-                </div>
-            </div>
-            <ul id="encounter-list">
-                <!-- 選択したモンスターがここに追加されます -->
-            </ul>
-            <div id="encounter-summary">
-                <p>合計XP: <span id="total-xp">0</span></p>
-                <p>難易度: <span id="difficulty">-</span></p>
-            </div>
-            <button id="clear-encounter" class="nav-button">クリア</button>
-        </div>
-    </div>
-    <!-- ▲▲▲ エンカウンタービルダーのパネルを追加 ▲▲▲ -->
-
     <script src="script.js"></script>
 </body>
 </html>

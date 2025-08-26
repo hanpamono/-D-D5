@@ -9,22 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortOrder = document.getElementById('sort-order');
     const navigationControls = document.getElementById('navigation-controls');
     const filtersContainer = document.querySelector('.filters');
-    // --- Encounter Builder Elements ---
-    const encounterBuilder = document.getElementById('encounter-builder');
-    const toggleBuilderBtn = document.getElementById('toggle-builder');
-    const playerCountInput = document.getElementById('player-count');
-    const playerLevelInput = document.getElementById('player-level');
-    const encounterList = document.getElementById('encounter-list');
-    const totalXpSpan = document.getElementById('total-xp');
-    const difficultySpan = document.getElementById('difficulty');
-    const clearEncounterBtn = document.getElementById('clear-encounter');
-
 
     // --- State Variables ---
     let allMonsters = [];
     let currentMonster = null;
-    let filteredMonsterNames = []; 
-    let encounter = [];
+    let filteredMonsterNames = []; // フィルタリング・ソート後のモンスター名リスト
 
     // --- Dark Mode Logic ---
     function applyTheme(theme) {
@@ -62,11 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => { target.textContent = 'チャットパレットをコピー'; }, 2000);
             });
         }
-
-        if (target.classList.contains('add-to-encounter-btn')) {
-            const monsterName = target.dataset.monsterName;
-            addMonsterToEncounter(monsterName);
-        }
     });
 
     // --- Main Data Loading ---
@@ -81,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     Promise.all(fetchPromises)
         .then(dataArrays => {
             allMonsters = dataArrays.flat();
-            allMonsters.forEach(m => { m.xp = parseInt((m.challenge_rating || '0').split('(')[1]) || 0; });
             const params = new URLSearchParams(window.location.search);
             const monsterName = params.get('monster');
 
@@ -92,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 initializeListView();
             }
-            initializeEncounterBuilder();
         })
         .catch(error => {
             console.error('Error loading monster data:', error);
@@ -118,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function displaySingleMonster(monster) {
         currentMonster = monster;
         filtersContainer.style.display = 'none';
-        encounterBuilder.style.display = 'none'; // 詳細ページではビルダーを隠す
         
         const params = new URLSearchParams(window.location.search);
         const currentIndex = parseInt(params.get('index'), 10);
@@ -167,11 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const ac = getArmorClassValue(monster.armor_class);
                 const linkIndex = filteredMonsterNames.indexOf(monster.name_jp);
                 
-                let monsterNameHTML = `<h2>${monster.name_jp} (${monster.name_en || ''})</h2>`;
-                if (!isSingleView) {
-                     monsterNameHTML = `<h2><a href="?monster=${encodeURIComponent(monster.name_jp)}&index=${linkIndex}">${monster.name_jp} (${monster.name_en || ''})</a></h2>
-                                        <button class="add-to-encounter-btn" data-monster-name="${monster.name_jp}">追加</button>`;
-                }
+                const monsterNameHTML = isSingleView
+                    ? `<h2>${monster.name_jp} (${monster.name_en || ''})</h2>`
+                    : `<h2><a href="?monster=${encodeURIComponent(monster.name_jp)}&index=${linkIndex}">${monster.name_jp} (${monster.name_en || ''})</a></h2>`;
 
                 let innerHTML = `
                     ${monsterNameHTML}
@@ -195,11 +174,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 innerHTML += `
+                    ${renderSimpleP('セーヴィングスロー', monster.saving_throws)}
+                    ${renderSimpleP('技能', monster.skills)}
+                    ${renderSimpleP('ダメージ脆弱性', monster.damage_vulnerabilities)}
+                    ${renderSimpleP('ダメージ抵抗', monster.damage_resistances)}
+                    ${renderSimpleP('ダメージ完全耐性', monster.damage_immunities)}
+                    ${renderSimpleP('状態異常完全耐性', monster.condition_immunities)}
+                    ${renderSimpleP('感覚', monster.senses)}
+                    ${renderSimpleP('言語', monster.languages)}
+                    ${renderSimpleP('脅威度', monster.challenge_rating)}
                     ${renderSection('特殊能力', monster.special_traits)}
                     ${renderSection('アクション', monster.actions)}
                     ${renderSection('ボーナスアクション', monster.bonus_actions)}
                     ${renderSection('リアクション', monster.reactions)}
                     ${renderSection('伝説的アクション', monster.legendary_actions)}
+                    ${renderSection('巣穴のアクション', monster.lair_actions)}
                 `;
                 
                 monsterCard.innerHTML = innerHTML;
@@ -233,7 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Filter and Sort Logic ---
     function filterAndSortMonsters() {
-        // ... (previous filter/sort logic remains the same)
         let processedMonsters = [...allMonsters];
         const searchTerm = searchBar.value.toLowerCase();
         if (searchTerm) {
@@ -294,7 +282,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const crToNumber = cr => {
         if (!cr) return -1;
         const crString = cr.split(' ')[0];
-        return crString.includes('/') ? eval(crString) : parseInt(crString, 10);
+        // '1/2' のような分数を評価するためにevalを使用
+        try {
+            return eval(crString);
+        } catch {
+            return parseInt(crString, 10) || 0;
+        }
     };
     const getArmorClassValue = ac => {
         let display = 'N/A', value = 10;
@@ -310,102 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return { display, value };
     };
 
-    // --- Encounter Builder Logic ---
-    const xpThresholds = [ // DMG p.82
-        [0, 25, 50, 75, 100], [50, 100, 150, 200], [75, 150, 225, 400], [125, 250, 375, 500], [250, 500, 750, 1100], [300, 600, 900, 1400], [350, 750, 1100, 1700], [450, 900, 1400, 2100], [550, 1100, 1600, 2400], [600, 1200, 1900, 2800], [800, 1600, 2400, 3600], [1000, 2000, 3000, 4500], [1100, 2200, 3400, 5100], [1250, 2500, 3800, 5700], [1400, 2800, 4300, 6400], [1600, 3200, 4800, 7200], [2000, 3900, 5900, 8800], [2100, 4200, 6300, 9500], [2400, 4900, 7300, 10900], [2800, 5700, 8500, 12700]
-    ];
-    const multipliers = [0, 1, 1.5, 2, 2.5, 3, 4, 5]; // 0: 0, 1: 1, 2: 2, 3-6: 3, ...
-
-    function getXpMultiplier(monsterCount) {
-        if (monsterCount === 0) return 0;
-        if (monsterCount === 1) return 1;
-        if (monsterCount === 2) return 1.5;
-        if (monsterCount >= 3 && monsterCount <= 6) return 2;
-        if (monsterCount >= 7 && monsterCount <= 10) return 2.5;
-        if (monsterCount >= 11 && monsterCount <= 14) return 3;
-        return 4;
-    }
-
-    function calculateDifficulty() {
-        const playerCount = parseInt(playerCountInput.value) || 1;
-        const playerLevel = parseInt(playerLevelInput.value) -1 || 0;
-        
-        const monsterCounts = encounter.reduce((acc, name) => { acc[name] = (acc[name] || 0) + 1; return acc; }, {});
-        const totalMonsters = encounter.length;
-        
-        const totalXP = encounter.reduce((sum, name) => sum + (allMonsters.find(m => m.name_jp === name)?.xp || 0), 0);
-        const adjustedXP = totalXP * getXpMultiplier(totalMonsters);
-
-        totalXpSpan.textContent = `${totalXP} (調整後: ${adjustedXP})`;
-        
-        if (totalMonsters === 0) {
-            difficultySpan.textContent = '-';
-            return;
-        }
-
-        const thresholds = xpThresholds[playerLevel].map(xp => xp * playerCount);
-        if (adjustedXP < thresholds[1]) difficultySpan.textContent = '簡単';
-        else if (adjustedXP < thresholds[2]) difficultySpan.textContent = '普通';
-        else if (adjustedXP < thresholds[3]) difficultySpan.textContent = '難しい';
-        else difficultySpan.textContent = '死の危険';
-    }
-
-    function renderEncounterList() {
-        encounterList.innerHTML = '';
-        const monsterCounts = encounter.reduce((acc, name) => { acc[name] = (acc[name] || 0) + 1; return acc; }, {});
-        
-        Object.entries(monsterCounts).forEach(([name, count]) => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <span class="monster-name">${name} (x${count})</span>
-                <div class="monster-controls">
-                    <button data-name="${name}" class="remove-one">-</button>
-                    <button data-name="${name}" class="add-one">+</button>
-                </div>
-            `;
-            encounterList.appendChild(li);
-        });
-        calculateDifficulty();
-        sessionStorage.setItem('encounter', JSON.stringify(encounter));
-    }
-
-    function addMonsterToEncounter(monsterName) {
-        encounter.push(monsterName);
-        renderEncounterList();
-    }
-
-    function initializeEncounterBuilder() {
-        encounter = JSON.parse(sessionStorage.getItem('encounter') || '[]');
-        playerCountInput.value = sessionStorage.getItem('playerCount') || 4;
-        playerLevelInput.value = sessionStorage.getItem('playerLevel') || 1;
-        
-        toggleBuilderBtn.addEventListener('click', () => encounterBuilder.classList.toggle('minimized'));
-        playerCountInput.addEventListener('input', () => {
-            sessionStorage.setItem('playerCount', playerCountInput.value);
-            calculateDifficulty();
-        });
-        playerLevelInput.addEventListener('input', () => {
-            sessionStorage.setItem('playerLevel', playerLevelInput.value);
-            calculateDifficulty();
-        });
-        clearEncounterBtn.addEventListener('click', () => {
-            encounter = [];
-            renderEncounterList();
-        });
-        encounterList.addEventListener('click', e => {
-            const monsterName = e.target.dataset.name;
-            if (!monsterName) return;
-            if (e.target.classList.contains('add-one')) {
-                addMonsterToEncounter(monsterName);
-            } else if (e.target.classList.contains('remove-one')) {
-                const index = encounter.lastIndexOf(monsterName);
-                if (index > -1) encounter.splice(index, 1);
-                renderEncounterList();
-            }
-        });
-        renderEncounterList();
-    }
-    
     // --- Cocofolia Data Generation ---
     function copyUrlToClipboard() {
         navigator.clipboard.writeText(window.location.href).then(() => alert('URLをクリップボードにコピーしました！'));
@@ -436,4 +333,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
     }
-});
+});```
