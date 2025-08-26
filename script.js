@@ -243,45 +243,53 @@ document.addEventListener('DOMContentLoaded', () => {
         return Math.floor((score - 10) / 2);
     }
     
-    // --- Cocofolia Data Generation (Memo-focused, Corrected) ---
+    // --- Cocofolia Data Generation (Layout Improved) ---
     function generateCocofoliaJson(monster) {
         const ac = getArmorClassValue(monster.armor_class);
         const dexMod = getAbilityModifier(monster.ability_scores.dexterity);
         
         const memoLines = [];
 
-        // Add sections to memo if they exist in the monster data
-        const addSection = (title, content) => {
-            if (content && content.length > 0) {
-                memoLines.push(`\n【${title}】`);
-                if (Array.isArray(content)) {
-                    content.forEach(item => {
-                        memoLines.push(`・${item.name}: ${item.description}`);
-                    });
-                } else {
-                    memoLines.push(content);
-                }
-            }
-        };
+        // Line 1: Size and Type
+        memoLines.push(monster.size_type_alignment || '情報なし');
 
-        addSection('大きさと種族', monster.size_type_alignment);
-        addSection('移動速度', monster.speed);
+        // Line 2: Speed
+        if (monster.speed) {
+            memoLines.push(`【移動速度】${monster.speed}`);
+        }
+        memoLines.push(''); // Blank line
 
-        memoLines.push(`\n【能力値】`);
-        memoLines.push(`筋力: ${monster.ability_scores.strength}`);
-        memoLines.push(`敏捷力: ${monster.ability_scores.dexterity}`);
-        memoLines.push(`耐久力: ${monster.ability_scores.constitution}`);
-        memoLines.push(`知力: ${monster.ability_scores.intelligence}`);
-        memoLines.push(`判断力: ${monster.ability_scores.wisdom}`);
-        memoLines.push(`魅力: ${monster.ability_scores.charisma}`);
+        // Line 3 & 4: Ability Scores
+        const abilities = monster.ability_scores;
+        memoLines.push(`筋力: ${abilities.strength}　敏捷力: ${abilities.dexterity}　耐久力: ${abilities.constitution}`);
+        memoLines.push(`知力: ${abilities.intelligence}　判断力: ${abilities.wisdom}　魅力: ${abilities.charisma}`);
+        memoLines.push(''); // Blank line
 
-        addSection('セーヴィングスロー', monster.saving_throws);
-        addSection('技能', monster.skills);
-        addSection('ダメージ抵抗', monster.damage_resistances);
-        addSection('ダメージ完全耐性', monster.damage_immunities);
-        addSection('状態異常完全耐性', monster.condition_immunities);
-        addSection('感覚', monster.senses);
-        addSection('特殊能力', monster.special_traits);
+        // Saves and Skills
+        if (monster.saving_throws || monster.skills) {
+            memoLines.push('【セーヴィングスロー】');
+            if (monster.saving_throws) memoLines.push(monster.saving_throws);
+            if (monster.skills) memoLines.push(monster.skills);
+            memoLines.push(''); // Blank line
+        }
+
+        // Resistances and Immunities
+        if (monster.damage_resistances) memoLines.push(`【ダメージ抵抗】\n${monster.damage_resistances}\n`);
+        if (monster.damage_immunities) memoLines.push(`【ダメージ完全耐性】\n${monster.damage_immunities}\n`);
+        if (monster.condition_immunities) memoLines.push(`【状態異常完全耐性】\n${monster.condition_immunities}\n`);
+        
+        // Senses (without title)
+        if (monster.senses) {
+            memoLines.push(`${monster.senses}\n`);
+        }
+
+        // Special Traits
+        if (monster.special_traits && monster.special_traits.length > 0) {
+            memoLines.push('【特殊能力】');
+            monster.special_traits.forEach(trait => {
+                memoLines.push(`・${trait.name}: ${trait.description}`);
+            });
+        }
 
         const data = {
             kind: "character",
@@ -302,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     { label: "判断力", value: monster.ability_scores.wisdom },
                     { label: "魅力", value: monster.ability_scores.charisma }
                 ],
-                palette: "" // Intentionally blank as requested
+                palette: ""
             }
         };
         return data;
