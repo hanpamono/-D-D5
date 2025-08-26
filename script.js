@@ -1,31 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Dark Mode Logic ---
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    // --- Element Variables ---
     const body = document.body;
-
-    // Function to apply the theme
-    function applyTheme(theme) {
-        if (theme === 'dark') {
-            body.classList.add('dark-mode');
-            darkModeToggle.textContent = '☀️';
-        } else {
-            body.classList.remove('dark-mode');
-            darkModeToggle.textContent = '🌙';
-        }
-    }
-
-    // On page load, check for saved theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    applyTheme(savedTheme);
-
-    darkModeToggle.addEventListener('click', () => {
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        localStorage.setItem('theme', newTheme);
-        applyTheme(newTheme);
-    });
-    // --- End Dark Mode Logic ---
-
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
     const monsterContainer = document.getElementById('monster-container');
     const searchBar = document.getElementById('search-bar');
     const speciesFilter = document.getElementById('species-filter');
@@ -34,21 +10,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const navigationControls = document.getElementById('navigation-controls');
     const filtersContainer = document.querySelector('.filters');
 
+    // --- State Variables ---
     let allMonsters = [];
+    let currentMonster = null; // To hold the monster for the single view
 
+    // --- Dark Mode Logic ---
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            body.classList.add('dark-mode');
+            darkModeToggle.textContent = ☀️';
+        } else {
+            body.classList.remove('dark-mode');
+            darkModeToggle.textContent = '🌙';
+        }
+    }
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+    darkModeToggle.addEventListener('click', () => {
+        const newTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+        localStorage.setItem('theme', newTheme);
+        applyTheme(newTheme);
+    });
+
+    // --- Event Delegation for Navigation Controls ---
+    navigationControls.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target.id === 'back-to-list') {
+            window.location.href = window.location.pathname;
+        } else if (target.id === 'copy-url') {
+            copyUrlToClipboard();
+        } else if (target.id === 'cocofolia-button') {
+            if (currentMonster) {
+                copyCocofoliaData(currentMonster);
+            }
+        }
+    });
+
+    // --- Main Data Loading ---
     const jsonFiles = [
         '両生種、鳥竜種、獣竜種.json', '牙獣種、牙竜種.json', '甲殻種.json',
         '飛竜種、海竜種.json', '甲虫種、魚竜種、蛇竜種.json',
         '鋏角種、鳥竜種、不明.json', '古龍種.json', '小型モンスター.json'
     ];
-    
     const timestamp = `?t=${new Date().getTime()}`;
-    const fetchPromises = jsonFiles.map(file => 
-        fetch(file + timestamp).then(res => {
-            if (!res.ok) throw new Error(`Failed to load ${file}`);
-            return res.json();
-        })
-    );
+    const fetchPromises = jsonFiles.map(file => fetch(file + timestamp).then(res => res.ok ? res.json() : Promise.reject(`Failed to load ${file}`)));
 
     Promise.all(fetchPromises)
         .then(dataArrays => {
@@ -69,51 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             monsterContainer.innerHTML = `<p style="color: red;">モンスターデータの読み込みに失敗しました。ファイル名やJSONの形式が正しいか確認してください。</p>`;
         });
 
-    function displaySingleMonster(monster) {
-        filtersContainer.style.display = 'none';
-        monsterContainer.className = 'single-monster-view';
-        
-        navigationControls.innerHTML = `
-            <button class="nav-button" id="back-to-list">一覧に戻る</button>
-            <button class="nav-button" id="copy-url">共有用URLをコピー</button>
-            <button class="nav-button" id="cocofolia-button">ココフォリア用データをコピー</button>
-        `;
-        
-        document.getElementById('back-to-list').addEventListener('click', () => window.location.href = window.location.pathname);
-        document.getElementById('copy-url').addEventListener('click', () => copyUrlToClipboard());
-        document.getElementById('cocofolia-button').addEventListener('click', () => copyCocofoliaData(monster));
-
-        displayMonsters([monster]);
-    }
-    
-    function copyUrlToClipboard() {
-        navigator.clipboard.writeText(window.location.href).then(() => alert('URLをクリップボードにコピーしました！'));
-    }
-    
-    function copyCocofoliaData(monster) {
-        try {
-            const cocofoliaData = generateCocofoliaJson(monster);
-            
-            // For debugging: Let's log what we are trying to copy
-            console.log("--- Generating Cocofolia Data ---");
-            console.log("Monster Source:", monster);
-            console.log("Generated Palette:", cocofoliaData.data.palette);
-            console.log("Full JSON:", cocofoliaData);
-            
-            if (!monster.commands || typeof monster.commands !== 'string' || monster.commands.trim() === "") {
-                alert("エラー: このモンスターのチャットパレットデータ(commands)がJSONファイルから読み込めていません。\n\n考えられる原因:\n1. このモンスターのJSONデータに`commands`キーが存在しない。\n2. ブラウザのキャッシュが古い。（Ctrl+F5で更新してください）");
-                return;
-            }
-
-            navigator.clipboard.writeText(JSON.stringify(cocofoliaData, null, 2)).then(() => {
-                alert('ココフォリア用のデータをコピーしました。\nココフォリアの画面上でペーストするとコマが作成されます。');
-            });
-        } catch (e) {
-            console.error("Failed to generate or copy Cocofolia data:", e);
-            alert("ココフォリア用データの生成またはコピーに失敗しました。F12キーでコンソールを開き、エラー内容を確認してください。");
-        }
-    }
-
+    // --- View Initializers ---
     function initializeListView() {
         populateFilters(allMonsters);
         searchBar.addEventListener('input', filterAndSortMonsters);
@@ -123,50 +84,22 @@ document.addEventListener('DOMContentLoaded', () => {
         filterAndSortMonsters();
     }
 
-    function displayNotFound() {
+    // --- Display Functions ---
+    function displaySingleMonster(monster) {
+        currentMonster = monster; // Set the current monster
         filtersContainer.style.display = 'none';
-        navigationControls.innerHTML = `<button class="nav-button" onclick="window.location.href = window.location.pathname;">一覧に戻る</button>`;
-        monsterContainer.innerHTML = '<p>指定されたモンスターが見つかりませんでした。</p>';
-    }
-    
-    function populateFilters(monsters) {
-        const species = new Set();
-        const challengeRatings = new Set();
-        monsters.forEach(monster => {
-            const monsterSpecies = extractSpecies(monster.size_type_alignment);
-            if(monsterSpecies) species.add(monsterSpecies);
-            if(monster.challenge_rating) challengeRatings.add(monster.challenge_rating.split(' ')[0]);
-        });
-        Array.from(species).sort().forEach(s => speciesFilter.appendChild(new Option(s, s)));
-        Array.from(challengeRatings).sort((a, b) => crToNumber(a) - crToNumber(b)).forEach(cr => crFilter.appendChild(new Option(cr, cr)));
+        navigationControls.innerHTML = `
+            <button class="nav-button" id="back-to-list">一覧に戻る</button>
+            <button class="nav-button" id="copy-url">共有用URLをコピー</button>
+            <button class="nav-button" id="cocofolia-button">ココフォリア用データをコピー</button>
+        `;
+        displayMonsters([monster], true);
     }
 
-    function filterAndSortMonsters() {
-        let processedMonsters = [...allMonsters];
-        const searchTerm = searchBar.value.toLowerCase();
-        if (searchTerm) {
-            processedMonsters = processedMonsters.filter(m =>
-                m.name_jp.toLowerCase().includes(searchTerm) ||
-                (m.name_en && m.name_en.toLowerCase().includes(searchTerm))
-            );
-        }
-        const selectedSpecies = speciesFilter.value;
-        if (selectedSpecies !== 'all') {
-            processedMonsters = processedMonsters.filter(m => extractSpecies(m.size_type_alignment) === selectedSpecies);
-        }
-        const selectedCR = crFilter.value;
-        if (selectedCR !== 'all') {
-            processedMonsters = processedMonsters.filter(m => m.challenge_rating && m.challenge_rating.startsWith(selectedCR));
-        }
-        const sortBy = sortOrder.value;
-        if (sortBy === 'name_asc') {
-            processedMonsters.sort((a, b) => a.name_jp.localeCompare(b.name_jp, 'ja'));
-        } else if (sortBy === 'cr_asc') {
-            processedMonsters.sort((a, b) => crToNumber(a.challenge_rating) - crToNumber(b.challenge_rating));
-        } else if (sortBy === 'cr_desc') {
-            processedMonsters.sort((a, b) => crToNumber(b.challenge_rating) - crToNumber(a.challenge_rating));
-        }
-        displayMonsters(processedMonsters);
+    function displayNotFound() {
+        filtersContainer.style.display = 'none';
+        navigationControls.innerHTML = `<button class="nav-button" id="back-to-list">一覧に戻る</button>`;
+        monsterContainer.innerHTML = '<p>指定されたモンスターが見つかりませんでした。</p>';
     }
 
     function displayMonsters(monsters, isSingleView = false) {
@@ -177,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
             monsterContainer.innerHTML = '<p style="text-align:center;">該当するモンスターが見つかりませんでした。</p>';
             return;
         }
+
         monsters.forEach(monster => {
             const monsterCard = document.createElement('div');
             monsterCard.className = 'stat-block';
@@ -189,9 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${monsterNameHTML}
                 <p class="size-type">${monster.size_type_alignment}</p>
                 <div class="separator"></div>
-                <p><strong>アーマークラス:</strong> ${ac.display}</p>
-                <p><strong>ヒットポイント:</strong> ${monster.hit_points.average} (${monster.hit_points.dice})</p>
-                <p><strong>移動速度:</strong> ${monster.speed}</p>
+                ${renderSimpleP('アーマークラス', ac.display)}
+                ${renderSimpleP('ヒットポイント', `${monster.hit_points.average} (${monster.hit_points.dice})`)}
+                ${renderSimpleP('移動速度', monster.speed)}
                 <div class="separator"></div>
                 <ul class="ability-scores">
                     <li><h4>筋力</h4><p>${monster.ability_scores.strength}</p></li>
@@ -236,7 +170,49 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
     }
+
+    // --- Filter and Sort Logic ---
+    function filterAndSortMonsters() {
+        let processedMonsters = [...allMonsters];
+        const searchTerm = searchBar.value.toLowerCase();
+        if (searchTerm) {
+            processedMonsters = processedMonsters.filter(m =>
+                m.name_jp.toLowerCase().includes(searchTerm) ||
+                (m.name_en && m.name_en.toLowerCase().includes(searchTerm))
+            );
+        }
+        const selectedSpecies = speciesFilter.value;
+        if (selectedSpecies !== 'all') {
+            processedMonsters = processedMonsters.filter(m => extractSpecies(m.size_type_alignment) === selectedSpecies);
+        }
+        const selectedCR = crFilter.value;
+        if (selectedCR !== 'all') {
+            processedMonsters = processedMonsters.filter(m => m.challenge_rating && m.challenge_rating.startsWith(selectedCR));
+        }
+        const sortBy = sortOrder.value;
+        if (sortBy === 'name_asc') {
+            processedMonsters.sort((a, b) => a.name_jp.localeCompare(b.name_jp, 'ja'));
+        } else if (sortBy === 'cr_asc') {
+            processedMonsters.sort((a, b) => crToNumber(a.challenge_rating) - crToNumber(b.challenge_rating));
+        } else if (sortBy === 'cr_desc') {
+            processedMonsters.sort((a, b) => crToNumber(b.challenge_rating) - crToNumber(a.challenge_rating));
+        }
+        displayMonsters(processedMonsters);
+    }
     
+    function populateFilters(monsters) {
+        const species = new Set();
+        const challengeRatings = new Set();
+        monsters.forEach(monster => {
+            const monsterSpecies = extractSpecies(monster.size_type_alignment);
+            if(monsterSpecies) species.add(monsterSpecies);
+            if(monster.challenge_rating) challengeRatings.add(monster.challenge_rating.split(' ')[0]);
+        });
+        Array.from(species).sort().forEach(s => speciesFilter.appendChild(new Option(s, s)));
+        Array.from(challengeRatings).sort((a, b) => crToNumber(a) - crToNumber(b)).forEach(cr => crFilter.appendChild(new Option(cr, cr)));
+    }
+    
+    // --- Helper Functions ---
     const extractSpecies = sizeType => (sizeType?.split('の')[1] || '').split('、')[0].trim();
     const crToNumber = cr => {
         if (!cr) return -1;
@@ -258,6 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const getAbilityModifier = scoreString => Math.floor(((parseInt(scoreString?.match(/-?\d+/)?.[0]) || 10) - 10) / 2);
 
+    // --- Cocofolia Data Generation ---
     function generateCocofoliaJson(monster) {
         const ac = getArmorClassValue(monster.armor_class);
         const dexMod = getAbilityModifier(monster.ability_scores.dexterity);
