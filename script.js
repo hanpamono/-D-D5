@@ -36,9 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
         '鋏角種、鳥竜種、不明.json', '古龍種.json', '小型モンスター.json'
     ];
 
-    // *** MODIFICATION: Add a timestamp to prevent caching of JSON files ***
+    // *** MODIFICATION: Add a timestamp to every file request to prevent caching ***
     const timestamp = `?t=${new Date().getTime()}`;
-    const fetchPromises = jsonFiles.map(file => fetch(file + timestamp).then(res => res.json()));
+    const fetchPromises = jsonFiles.map(file => 
+        fetch(file + timestamp).then(res => {
+            if (!res.ok) throw new Error(`Failed to load ${file}`);
+            return res.json();
+        })
+    );
 
     Promise.all(fetchPromises)
         .then(dataArrays => {
@@ -57,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Error loading monster data:', error);
-            monsterContainer.innerHTML = '<p>モンスターデータの読み込みに失敗しました。</p>';
+            monsterContainer.innerHTML = `<p>モンスターデータの読み込みに失敗しました。ファイル名やパスが正しいか確認してください。</p>`;
         });
 
     function displaySingleMonster(monster) {
@@ -81,8 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.copyCocofoliaData = monster => {
         try {
-            if (!monster.commands) {
-                alert("エラー: このモンスターのJSONデータに 'commands' が見つかりません。\nJSONファイルが最新版か確認してください。");
+            // Add a specific check for the 'commands' key
+            if (!monster.commands || typeof monster.commands !== 'string' || monster.commands.trim() === "") {
+                alert("エラー: このモンスターのチャットパレットデータ(commands)が見つかりません。\n\n該当のJSONファイルが更新され、正しくアップロードされているか確認してください。");
                 return;
             }
             const cocofoliaData = generateCocofoliaJson(monster);
@@ -131,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function filterAndSortMonsters() {
         let processedMonsters = [...allMonsters];
 
-        // 1. Search Filter
         const searchTerm = searchBar.value.toLowerCase();
         if (searchTerm) {
             processedMonsters = processedMonsters.filter(m =>
@@ -140,7 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
             );
         }
 
-        // 2. Dropdown Filters
         const selectedSpecies = speciesFilter.value;
         if (selectedSpecies !== 'all') {
             processedMonsters = processedMonsters.filter(m => extractSpecies(m.size_type_alignment) === selectedSpecies);
@@ -150,7 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
             processedMonsters = processedMonsters.filter(m => m.challenge_rating && m.challenge_rating.startsWith(selectedCR));
         }
 
-        // 3. Sort
         const sortBy = sortOrder.value;
         if (sortBy === 'name_asc') {
             processedMonsters.sort((a, b) => a.name_jp.localeCompare(b.name_jp, 'ja'));
@@ -300,7 +303,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 initiative: dexMod,
                 externalUrl: window.location.href,
                 status: [{ label: "HP", value: monster.hit_points.average, max: monster.hit_points.average }, { label: "AC", value: ac.value, max: ac.value }],
-                params: Object.entries(abilities).map(([key, value]) => ({ label: key, value: value })),
+                params: [
+                    { label: "筋力", value: abilities.strength },
+                    { label: "敏捷力", value: abilities.dexterity },
+                    { label: "耐久力", value: abilities.constitution },
+                    { label: "知力", value: abilities.intelligence },
+                    { label: "判断力", value: abilities.wisdom },
+                    { label: "魅力", value: abilities.charisma }
+                ],
                 palette: palette
             }
         };
