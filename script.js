@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
     // --- Element Variables ---
     const body = document.body;
@@ -90,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displaySingleMonster(monster) {
         currentMonster = monster;
         filtersContainer.style.display = 'none';
+        // ▼▼▼ ボタンのクラス指定のタイポを修正 ▼▼▼
         navigationControls.innerHTML = `
             <button class="nav-button" id="back-to-list">一覧に戻る</button>
             <button class="nav-button" id="copy-url">共有用URLをコピー</button>
@@ -115,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         monsters.forEach(monster => {
             try {
+                // モンスターのスタッツブロックを作成
                 const monsterCard = document.createElement('div');
                 monsterCard.className = 'stat-block';
                 const ac = getArmorClassValue(monster.armor_class);
@@ -160,23 +160,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${renderSection('伝説的アクション', monster.legendary_actions)}
                     ${renderSection('巣穴のアクション', monster.lair_actions)}
                 `;
-
-                // ▼▼▼ 変更箇所 ▼▼▼
-                // シングル表示かつチャットパレットデータが存在する場合に表示エリアを追加
-                if (isSingleView && monster.commands) {
-                    innerHTML += `
-                        <div class="chat-palette-section">
-                             <div class="separator"></div>
-                             <h3>チャットパレット</h3>
-                             <p>以下のテキストをコピーして、ココフォリアのチャットパレットに貼り付けてください。</p>
-                             <textarea readonly class="chat-palette-textarea">${monster.commands.trim()}</textarea>
-                        </div>
-                    `;
-                }
-                // ▲▲▲ 変更箇所 ▲▲▲
                 
                 monsterCard.innerHTML = innerHTML;
                 monsterContainer.appendChild(monsterCard);
+
+                // ▼▼▼ 変更箇所 ▼▼▼
+                // シングル表示かつチャットパレットデータが存在する場合、独立した要素として追加
+                if (isSingleView && monster.commands) {
+                    const chatPaletteSection = document.createElement('div');
+                    chatPaletteSection.className = 'stat-block chat-palette-section'; // stat-blockクラスも適用してデザインを統一
+                    chatPaletteSection.innerHTML = `
+                         <h3>チャットパレット</h3>
+                         <p>以下のテキストをコピーして、ココフォリアのチャットパレットに貼り付けてください。</p>
+                         <textarea readonly class="chat-palette-textarea">${monster.commands.trim()}</textarea>
+                    `;
+                    monsterContainer.appendChild(chatPaletteSection);
+                }
+                // ▲▲▲ 変更箇所 ▲▲▲
 
             } catch(e) {
                 console.error(`Error rendering monster: ${monster.name_jp}`, e);
