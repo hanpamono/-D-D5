@@ -86,10 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Display Functions ---
     function displaySingleMonster(monster) {
-        currentMonster = monster; // Set the current monster
+        currentMonster = monster;
         filtersContainer.style.display = 'none';
         navigationControls.innerHTML = `
-            <button class="nav-button" id="back-to-list">一覧に戻る</button>
+            <button class.nav-button" id="back-to-list">一覧に戻る</button>
             <button class="nav-button" id="copy-url">共有用URLをコピー</button>
             <button class="nav-button" id="cocofolia-button">ココフォリア用データをコピー</button>
         `;
@@ -110,25 +110,38 @@ document.addEventListener('DOMContentLoaded', () => {
             monsterContainer.innerHTML = '<p style="text-align:center;">該当するモンスターが見つかりませんでした。</p>';
             return;
         }
+
         monsters.forEach(monster => {
             try {
                 const monsterCard = document.createElement('div');
                 monsterCard.className = 'stat-block';
                 const ac = getArmorClassValue(monster.armor_class);
                 const monsterNameHTML = isSingleView
-                    ? `<h2>${monster.name_jp} (${monster.name_en})</h2>`
-                    : `<h2><a href="?monster=${encodeURIComponent(monster.name_jp)}">${monster.name_jp} (${monster.name_en})</a></h2>`;
+                    ? `<h2>${monster.name_jp} (${monster.name_en || ''})</h2>`
+                    : `<h2><a href="?monster=${encodeURIComponent(monster.name_jp)}">${monster.name_jp} (${monster.name_en || ''})</a></h2>`;
 
-                monsterCard.innerHTML = `
+                let innerHTML = `
                     ${monsterNameHTML}
-                    <p class="size-type">${monster.size_type_alignment}</p><div class="separator"></div>
+                    <p class="size-type">${monster.size_type_alignment || ''}</p>
+                    <div class="separator"></div>
                     ${renderSimpleP('アーマークラス', ac.display)}
                     ${renderSimpleP('ヒットポイント', `${monster.hit_points.average} (${monster.hit_points.dice})`)}
-                    ${renderSimpleP('移動速度', monster.speed)}<div class="separator"></div>
-                    <ul class="ability-scores">
-                        <li><h4>筋力</h4><p>${monster.ability_scores.strength}</p></li><li><h4>敏捷力</h4><p>${monster.ability_scores.dexterity}</p></li><li><h4>耐久力</h4><p>${monster.ability_scores.constitution}</p></li>
-                        <li><h4>知力</h4><p>${monster.ability_scores.intelligence}</p></li><li><h4>判断力</h4><p>${monster.ability_scores.wisdom}</p></li><li><h4>魅力</h4><p>${monster.ability_scores.charisma}</p></li>
-                    </ul><div class="separator"></div>
+                    ${renderSimpleP('移動速度', monster.speed)}
+                    <div class="separator"></div>
+                `;
+
+                if (monster.ability_scores) {
+                    innerHTML += `<ul class="ability-scores">
+                        <li><h4>筋力</h4><p>${monster.ability_scores.strength || 'N/A'}</p></li>
+                        <li><h4>敏捷力</h4><p>${monster.ability_scores.dexterity || 'N/A'}</p></li>
+                        <li><h4>耐久力</h4><p>${monster.ability_scores.constitution || 'N/A'}</p></li>
+                        <li><h4>知力</h4><p>${monster.ability_scores.intelligence || 'N/A'}</p></li>
+                        <li><h4>判断力</h4><p>${monster.ability_scores.wisdom || 'N/A'}</p></li>
+                        <li><h4>魅力</h4><p>${monster.ability_scores.charisma || 'N/A'}</p></li>
+                    </ul><div class="separator"></div>`;
+                }
+
+                innerHTML += `
                     ${renderSimpleP('セーヴィングスロー', monster.saving_throws)}
                     ${renderSimpleP('技能', monster.skills)}
                     ${renderSimpleP('ダメージ脆弱性', monster.damage_vulnerabilities)}
@@ -145,9 +158,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${renderSection('伝説的アクション', monster.legendary_actions)}
                     ${renderSection('巣穴のアクション', monster.lair_actions)}
                 `;
+                
+                monsterCard.innerHTML = innerHTML;
                 monsterContainer.appendChild(monsterCard);
+
             } catch(e) {
                 console.error(`Error rendering monster: ${monster.name_jp}`, e);
+                 const errorDiv = document.createElement('div');
+                 errorDiv.innerHTML = `<p style="color: red;">モンスター「${monster.name_jp}」のデータ表示中にエラーが発生しました。</p>`;
+                 monsterContainer.appendChild(errorDiv);
             }
         });
     }
@@ -209,22 +228,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const crToNumber = cr => {
         if (!cr) return -1;
         const crString = cr.split(' ')[0];
-        return crString.includes('/') ? parseInt(crString.split('/')[0]) / parseInt(crString.split('/')[1]) : parseInt(crString);
+        return crString.includes('/') ? parseFloat(crString.split('/')[0]) / parseFloat(crString.split('/')[1]) : parseInt(crString, 10);
     };
     const getArmorClassValue = ac => {
         let display = 'N/A', value = 10;
         if (ac) {
             if (typeof ac === 'object' && ac.value) {
                 display = `${ac.value} (${ac.type})`;
-                value = parseInt(ac.value) || 10;
+                value = parseInt(ac.value, 10) || 10;
             } else {
                 display = ac.toString();
-                value = parseInt(display.match(/\d+/)?.[0]) || 10;
+                value = parseInt(display.match(/\d+/)?.[0], 10) || 10;
             }
         }
         return { display, value };
     };
-    const getAbilityModifier = scoreString => Math.floor(((parseInt(scoreString?.match(/-?\d+/)?.[0]) || 10) - 10) / 2);
+    const getAbilityModifier = scoreString => Math.floor(((parseInt(scoreString?.match(/-?\d+/)?.[0], 10) || 10) - 10) / 2);
 
     // --- Cocofolia Data Generation ---
     function copyUrlToClipboard() {
