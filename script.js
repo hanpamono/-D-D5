@@ -42,14 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
         
         navigationControls.innerHTML = `
             <button class="nav-button" onclick="window.location.href = window.location.pathname;">一覧に戻る</button>
-            <button class="nav-button copy-button">共有用URLをコピー</button>
+            <button class="nav-button copy-url-button">共有用URLをコピー</button>
+            <button class="nav-button cocofolia-button">ココフォリア用データをコピー</button>
         `;
 
-        document.querySelector('.copy-button').addEventListener('click', () => {
+        document.querySelector('.copy-url-button').addEventListener('click', () => {
             navigator.clipboard.writeText(window.location.href).then(() => {
                 alert('URLをクリップボードにコピーしました！');
-            }, () => {
-                alert('URLのコピーに失敗しました。');
+            });
+        });
+        
+        document.querySelector('.cocofolia-button').addEventListener('click', () => {
+            const cocofoliaData = generateCocofoliaJson(monster);
+            navigator.clipboard.writeText(JSON.stringify(cocofoliaData)).then(() => {
+                alert('ココフォリア用のデータをコピーしました。\nココフォリアの画面上でペーストするとコマが作成されます。');
             });
         });
 
@@ -122,10 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const monsterCard = document.createElement('div');
             monsterCard.className = 'stat-block';
 
-            let armorClass = monster.armor_class || 'N/A';
-            if (typeof monster.armor_class === 'object') {
-                armorClass = `${monster.armor_class.value} (${monster.armor_class.type})`;
-            }
+            let armorClass = getArmorClassValue(monster.armor_class);
 
             const monsterNameHTML = isSingleView
                 ? `<h2>${monster.name_jp} (${monster.name_en})</h2>`
@@ -184,7 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
     }
-
+    
+    // --- Helper Functions ---
     function extractSpecies(sizeType) {
         if (!sizeType) return null;
         const parts = sizeType.split('の');
@@ -202,5 +206,56 @@ document.addEventListener('DOMContentLoaded', () => {
             return parseInt(parts[0], 10) / parseInt(parts[1], 10);
         }
         return parseInt(crString, 10);
+    }
+    
+    function getArmorClassValue(ac) {
+        if (!ac) return 'N/A';
+        if (typeof ac === 'object' && ac.value) {
+            return `${ac.value} (${ac.type})`;
+        }
+        return ac;
+    }
+
+    // --- NEW: Cocofolia Data Generation ---
+    function generateCocofoliaJson(monster) {
+        const initiative = parseInt(monster.ability_scores.dexterity.match(/-?\d+/)[0], 10);
+        const ac = getArmorClassValue(monster.armor_class).toString().match(/\d+/)[0] || 10;
+        
+        const memo = `
+${monster.name_en}
+${monster.size_type_alignment}
+移動速度: ${monster.speed}
+脅威度: ${monster.challenge_rating}
+--------------------
+筋:${monster.ability_scores.strength}
+敏:${monster.ability_scores.dexterity}
+耐:${monster.ability_scores.constitution}
+知:${monster.ability_scores.intelligence}
+判:${monster.ability_scores.wisdom}
+魅:${monster.ability_scores.charisma}
+        `.trim();
+
+        const data = {
+            kind: "character",
+            data: {
+                name: monster.name_jp,
+                memo: memo,
+                initiative: initiative,
+                externalUrl: window.location.href,
+                status: [
+                    { label: "HP", value: monster.hit_points.average, max: monster.hit_points.average },
+                    { label: "AC", value: ac, max: ac }
+                ],
+                params: [
+                    { label: "筋力", value: monster.ability_scores.strength },
+                    { label: "敏捷力", value: monster.ability_scores.dexterity },
+                    { label: "耐久力", value: monster.ability_scores.constitution },
+                    { label: "知力", value: monster.ability_scores.intelligence },
+                    { label: "判断力", value: monster.ability_scores.wisdom },
+                    { label: "魅力", value: monster.ability_scores.charisma }
+                ]
+            }
+        };
+        return data;
     }
 });
