@@ -73,9 +73,17 @@ h1 {
 #navigation-controls {
     margin-bottom: 20px;
     height: 35px;
+    /* ▼▼▼ 改善点 ▼▼▼ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    /* ▲▲▲ 改善点 ▲▲▲ */
 }
 
-.nav-button {
+/* ▼▼▼ nav-buttonをアンカータグにも適用できるよう変更 ▼▼▼ */
+.nav-button, a.nav-button {
     background-color: var(--dnd-red);
     color: white;
     border: 1px solid var(--border-color);
@@ -86,10 +94,14 @@ h1 {
     font-family: var(--font-serif);
     margin: 0 5px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+    text-decoration: none; /* アンカータグの下線を消す */
+    display: inline-block; /* paddingなどを正しく適用 */
 }
-.nav-button:hover {
+.nav-button:hover, a.nav-button:hover {
     opacity: 0.8;
 }
+/* ▲▲▲ 改善点 ▲▲▲ */
+
 
 .filters {
     display: flex;
@@ -146,6 +158,15 @@ h1 {
     border-bottom: 1px solid var(--dnd-red);
     padding-bottom: 5px;
 }
+
+.stat-block a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+.stat-block a:hover {
+    text-decoration: underline;
+}
+
 
 .stat-block .size-type {
     font-family: var(--font-sans);
@@ -226,9 +247,9 @@ body.dark-mode .stat-block strong {
     color: var(--text-color);
 }
 
-/* ▼▼▼ 追加/変更箇所 ▼▼▼ */
 .chat-palette-section {
     margin-top: 20px;
+    text-align: center; /* ボタンを中央寄せにする */
 }
 
 .chat-palette-section h3 {
@@ -242,7 +263,7 @@ body.dark-mode .stat-block strong {
 }
 
 .chat-palette-textarea {
-    box-sizing: border-box; /* paddingとborderをwidthに含める */
+    box-sizing: border-box; 
     width: 100%;
     height: 300px;
     margin-top: 10px;
@@ -256,5 +277,10 @@ body.dark-mode .stat-block strong {
     line-height: 1.5;
     resize: vertical;
     white-space: pre;
+    text-align: left; /* テキストエリアの中身は左寄せ */
 }
-/* ▲▲▲ 追加/変更箇所 ▲▲▲ */
+
+/* ▼▼▼ コピーボタン用のスタイル ▼▼▼ */
+#copy-palette-button {
+    margin-top: 10px;
+}```

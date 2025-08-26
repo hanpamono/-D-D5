@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- State Variables ---
     let allMonsters = [];
     let currentMonster = null;
+    let filteredMonsterNames = []; // フィルタリング・ソート後のモンスター名リスト
 
     // --- Dark Mode Logic ---
     function applyTheme(theme) {
@@ -32,17 +33,29 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme(newTheme);
     });
 
-    // --- Event Delegation for Navigation Controls ---
-    navigationControls.addEventListener('click', (event) => {
+    // --- Event Delegation for Navigation & Copying ---
+    document.addEventListener('click', (event) => {
         const target = event.target;
-        if (target.id === 'back-to-list') {
-            window.location.href = window.location.pathname;
-        } else if (target.id === 'copy-url') {
-            copyUrlToClipboard();
-        } else if (target.id === 'cocofolia-button') {
-            if (currentMonster) {
-                copyCocofoliaData(currentMonster);
+        // Navigation Controls
+        if (target.closest('#navigation-controls')) {
+            if (target.id === 'back-to-list') {
+                window.location.href = window.location.pathname;
+            } else if (target.id === 'copy-url') {
+                copyUrlToClipboard();
+            } else if (target.id === 'cocofolia-button') {
+                if (currentMonster) {
+                    copyCocofoliaData(currentMonster);
+                }
             }
+        }
+        // Chat Palette Copy Button
+        if (target.id === 'copy-palette-button') {
+            const paletteText = document.querySelector('.chat-palette-textarea').value;
+            navigator.clipboard.writeText(paletteText).then(() => {
+                alert('チャットパレットをクリップボードにコピーしました！');
+                target.textContent = 'コピー完了！';
+                setTimeout(() => { target.textContent = 'チャットパレットをコピー'; }, 2000);
+            });
         }
     });
 
@@ -77,7 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- View Initializers ---
     function initializeListView() {
         populateFilters(allMonsters);
-        searchBar.addEventListener('input', filterAndSortMonsters);
+        loadFilterState(); // ★改善点：フィルター状態を読み込む
+        let debounceTimer;
+        searchBar.addEventListener('input', () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(filterAndSortMonsters, 300); // ★改善点：デバウンス処理
+        });
         speciesFilter.addEventListener('change', filterAndSortMonsters);
         crFilter.addEventListener('change', filterAndSortMonsters);
         sortOrder.addEventListener('change', filterAndSortMonsters);
@@ -88,12 +106,31 @@ document.addEventListener('DOMContentLoaded', () => {
     function displaySingleMonster(monster) {
         currentMonster = monster;
         filtersContainer.style.display = 'none';
-        // ▼▼▼ ボタンのクラス指定のタイポを修正 ▼▼▼
-        navigationControls.innerHTML = `
+        
+        const params = new URLSearchParams(window.location.search);
+        const currentIndex = parseInt(params.get('index'), 10);
+        const monsterList = JSON.parse(sessionStorage.getItem('filteredMonsterNames') || '[]');
+
+        let navHTML = '';
+        // ★改善点：「前へ」ボタン
+        if (currentIndex > 0) {
+            const prevMonsterName = monsterList[currentIndex - 1];
+            navHTML += `<a href="?monster=${encodeURIComponent(prevMonsterName)}&index=${currentIndex - 1}" class="nav-button">前へ</a>`;
+        }
+        
+        navHTML += `
             <button class="nav-button" id="back-to-list">一覧に戻る</button>
             <button class="nav-button" id="copy-url">共有用URLをコピー</button>
             <button class="nav-button" id="cocofolia-button">ココフォリア用データをコピー</button>
         `;
+        
+        // ★改善点：「次へ」ボタン
+        if (currentIndex < monsterList.length - 1) {
+            const nextMonsterName = monsterList[currentIndex + 1];
+            navHTML += `<a href="?monster=${encodeURIComponent(nextMonsterName)}&index=${currentIndex + 1}" class="nav-button">次へ</a>`;
+        }
+
+        navigationControls.innerHTML = navHTML;
         displayMonsters([monster], true);
     }
 
@@ -107,20 +144,22 @@ document.addEventListener('DOMContentLoaded', () => {
         monsterContainer.innerHTML = '';
         monsterContainer.className = isSingleView ? 'single-monster-view' : '';
 
-        if (monsters.length === 0) {
+        if (monsters.length === 0 && !isSingleView) {
             monsterContainer.innerHTML = '<p style="text-align:center;">該当するモンスターが見つかりませんでした。</p>';
             return;
         }
 
-        monsters.forEach(monster => {
+        monsters.forEach((monster, index) => {
             try {
-                // モンスターのスタッツブロックを作成
                 const monsterCard = document.createElement('div');
                 monsterCard.className = 'stat-block';
                 const ac = getArmorClassValue(monster.armor_class);
+                
+                // ★改善点：詳細ページへのリンクにインデックスを追加
+                const linkIndex = filteredMonsterNames.indexOf(monster.name_jp);
                 const monsterNameHTML = isSingleView
                     ? `<h2>${monster.name_jp} (${monster.name_en || ''})</h2>`
-                    : `<h2><a href="?monster=${encodeURIComponent(monster.name_jp)}">${monster.name_jp} (${monster.name_en || ''})</a></h2>`;
+                    : `<h2><a href="?monster=${encodeURIComponent(monster.name_jp)}&index=${linkIndex}">${monster.name_jp} (${monster.name_en || ''})</a></h2>`;
 
                 let innerHTML = `
                     ${monsterNameHTML}
@@ -164,19 +203,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 monsterCard.innerHTML = innerHTML;
                 monsterContainer.appendChild(monsterCard);
 
-                // ▼▼▼ 変更箇所 ▼▼▼
-                // シングル表示かつチャットパレットデータが存在する場合、独立した要素として追加
+                // ★改善点：チャットパレット表示エリアとコピーボタン
                 if (isSingleView && monster.commands) {
                     const chatPaletteSection = document.createElement('div');
-                    chatPaletteSection.className = 'stat-block chat-palette-section'; // stat-blockクラスも適用してデザインを統一
+                    chatPaletteSection.className = 'stat-block chat-palette-section';
                     chatPaletteSection.innerHTML = `
                          <h3>チャットパレット</h3>
                          <p>以下のテキストをコピーして、ココフォリアのチャットパレットに貼り付けてください。</p>
                          <textarea readonly class="chat-palette-textarea">${monster.commands.trim()}</textarea>
+                         <button id="copy-palette-button" class="nav-button">チャットパレットをコピー</button>
                     `;
                     monsterContainer.appendChild(chatPaletteSection);
                 }
-                // ▲▲▲ 変更箇所 ▲▲▲
 
             } catch(e) {
                 console.error(`Error rendering monster: ${monster.name_jp}`, e);
@@ -224,6 +262,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (sortBy === 'cr_desc') {
             processedMonsters.sort((a, b) => crToNumber(b.challenge_rating) - crToNumber(a.challenge_rating));
         }
+        
+        // ★改善点：フィルター後のリストを保存
+        filteredMonsterNames = processedMonsters.map(m => m.name_jp);
+        sessionStorage.setItem('filteredMonsterNames', JSON.stringify(filteredMonsterNames));
+        
+        saveFilterState(); // ★改善点：フィルター状態を保存
         displayMonsters(processedMonsters);
     }
     
@@ -239,6 +283,28 @@ document.addEventListener('DOMContentLoaded', () => {
         Array.from(challengeRatings).sort((a, b) => crToNumber(a) - crToNumber(b)).forEach(cr => crFilter.appendChild(new Option(cr, cr)));
     }
     
+    // --- Filter State Persistence --- ★改善点
+    function saveFilterState() {
+        const filterState = {
+            search: searchBar.value,
+            species: speciesFilter.value,
+            cr: crFilter.value,
+            sort: sortOrder.value
+        };
+        sessionStorage.setItem('monsterFilterState', JSON.stringify(filterState));
+    }
+
+    function loadFilterState() {
+        const savedState = sessionStorage.getItem('monsterFilterState');
+        if (savedState) {
+            const filterState = JSON.parse(savedState);
+            searchBar.value = filterState.search || '';
+            speciesFilter.value = filterState.species || 'all';
+            crFilter.value = filterState.cr || 'all';
+            sortOrder.value = filterState.sort || 'default';
+        }
+    }
+
     // --- Helper Functions ---
     const extractSpecies = sizeType => (sizeType?.split('の')[1] || '').split('、')[0].trim();
     const crToNumber = cr => {
@@ -269,16 +335,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function copyCocofoliaData(monster) {
         try {
             const cocofoliaData = generateCocofoliaJson(monster);
-            
-            console.log("--- Generating Cocofolia Data ---");
-            console.log("Source Monster Data:", monster);
-            console.log("Generated Palette:", cocofoliaData.data.palette);
-            console.log("Full JSON Object:", cocofoliaData);
-            
-            if (!monster.commands || typeof monster.commands !== 'string' || monster.commands.trim() === "") {
-                alert("警告: チャットパレットのデータ(commands)がJSONファイルから読み込めていません。");
-            }
-
             navigator.clipboard.writeText(JSON.stringify(cocofoliaData, null, 2)).then(() => {
                 alert('ココフォリア用のデータをコピーしました。\nココフォリアの画面上でペーストするとコマが作成されます。');
             });
