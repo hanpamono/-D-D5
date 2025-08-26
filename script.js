@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // --- End Dark Mode Logic ---
 
-
     const monsterContainer = document.getElementById('monster-container');
     const searchBar = document.getElementById('search-bar');
     const speciesFilter = document.getElementById('species-filter');
@@ -37,7 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
         '鋏角種、鳥竜種、不明.json', '古龍種.json', '小型モンスター.json'
     ];
 
-    Promise.all(jsonFiles.map(file => fetch(file).then(res => res.json())))
+    // *** MODIFICATION: Add a timestamp to prevent caching of JSON files ***
+    const timestamp = `?t=${new Date().getTime()}`;
+    const fetchPromises = jsonFiles.map(file => fetch(file + timestamp).then(res => res.json()));
+
+    Promise.all(fetchPromises)
         .then(dataArrays => {
             allMonsters = dataArrays.flat();
             
@@ -78,6 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.copyCocofoliaData = monster => {
         try {
+            if (!monster.commands) {
+                alert("エラー: このモンスターのJSONデータに 'commands' が見つかりません。\nJSONファイルが最新版か確認してください。");
+                return;
+            }
             const cocofoliaData = generateCocofoliaJson(monster);
             navigator.clipboard.writeText(JSON.stringify(cocofoliaData, null, 2)).then(() => {
                 alert('ココフォリア用のデータをコピーしました。\nココフォリアの画面上でペーストするとコマが作成されます。');
@@ -129,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (searchTerm) {
             processedMonsters = processedMonsters.filter(m =>
                 m.name_jp.toLowerCase().includes(searchTerm) ||
-                m.name_en.toLowerCase().includes(searchTerm)
+                (m.name_en && m.name_en.toLowerCase().includes(searchTerm))
             );
         }
 
@@ -251,8 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateCocofoliaJson(monster) {
         const ac = getArmorClassValue(monster.armor_class);
         const dexMod = getAbilityModifier(monster.ability_scores.dexterity);
-        const memoLines = [];
         
+        const memoLines = [];
         memoLines.push(monster.size_type_alignment || '情報なし');
         if (monster.speed) memoLines.push(`【移動速度】${monster.speed}`);
         memoLines.push('');
@@ -283,7 +290,6 @@ document.addEventListener('DOMContentLoaded', () => {
             monster.special_traits.forEach(t => memoLines.push(`・${t.name}: ${t.description}`));
         }
 
-        // Use the "commands" key from JSON directly for the palette
         const palette = monster.commands || "";
 
         return {
@@ -294,10 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 initiative: dexMod,
                 externalUrl: window.location.href,
                 status: [{ label: "HP", value: monster.hit_points.average, max: monster.hit_points.average }, { label: "AC", value: ac.value, max: ac.value }],
-                params: Object.entries(abilities).map(([key, value]) => {
-                    const label_map = { 'strength': '筋力', 'dexterity': '敏捷力', 'constitution': '耐久力', 'intelligence': '知力', 'wisdom': '判断力', 'charisma': '魅力' };
-                    return { label: label_map[key] || key, value: value };
-                }),
+                params: Object.entries(abilities).map(([key, value]) => ({ label: key, value: value })),
                 palette: palette
             }
         };
