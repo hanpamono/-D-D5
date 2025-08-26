@@ -42,32 +42,37 @@ document.addEventListener('DOMContentLoaded', () => {
         
         navigationControls.innerHTML = `
             <button class="nav-button" onclick="window.location.href = window.location.pathname;">一覧に戻る</button>
-            <button class="nav-button copy-url-button">共有用URLをコピー</button>
-            <button class="nav-button cocofolia-button">ココフォリア用データをコピー</button>
+            <button class="nav-button" onclick="copyUrlToClipboard()">共有用URLをコピー</button>
+            <button class="nav-button" id="cocofolia-button">ココフォリア用データをコピー</button>
         `;
-
-        document.querySelector('.copy-url-button').addEventListener('click', () => {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('URLをクリップボードにコピーしました！');
-            });
-        });
         
-        document.querySelector('.cocofolia-button').addEventListener('click', () => {
-            try {
-                const cocofoliaData = generateCocofoliaJson(monster);
-                navigator.clipboard.writeText(JSON.stringify(cocofoliaData, null, 2)).then(() => {
-                    alert('ココフォリア用のデータをコピーしました。\nココフォリアの画面上でペーストするとコマが作成されます。');
-                }, () => {
-                    alert('コピーに失敗しました。');
-                });
-            } catch (e) {
-                console.error("Failed to generate Cocofolia data:", e);
-                alert("ココフォリア用データの生成に失敗しました。コンソールを確認してください。");
-            }
+        document.getElementById('cocofolia-button').addEventListener('click', () => {
+            copyCocofoliaData(monster);
         });
 
         displayMonsters([monster], true);
     }
+    
+    window.copyUrlToClipboard = function() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('URLをクリップボードにコピーしました！');
+        });
+    };
+    
+    window.copyCocofoliaData = function(monster) {
+        try {
+            const cocofoliaData = generateCocofoliaJson(monster);
+            navigator.clipboard.writeText(JSON.stringify(cocofoliaData, null, 2)).then(() => {
+                alert('ココフォリア用のデータをコピーしました。\nココフォリアの画面上でペーストするとコマが作成されます。');
+            }, () => {
+                alert('コピーに失敗しました。');
+            });
+        } catch (e) {
+            console.error("Failed to generate Cocofolia data:", e);
+            alert("ココフォリア用データの生成に失敗しました。詳細はブラウザのコンソールを確認してください。");
+        }
+    };
+
 
     function initializeListView() {
         populateFilters(allMonsters);
@@ -220,81 +225,72 @@ document.addEventListener('DOMContentLoaded', () => {
         if (ac) {
             if (typeof ac === 'object' && ac.value) {
                 display = `${ac.value} (${ac.type})`;
-                value = parseInt(ac.value, 10);
+                value = parseInt(ac.value, 10) || 10;
             } else if (typeof ac === 'string' || typeof ac === 'number') {
                 display = ac.toString();
                 const matchedValue = display.match(/\d+/);
-                if (matchedValue) {
-                    value = parseInt(matchedValue[0], 10);
-                }
+                if (matchedValue) value = parseInt(matchedValue[0], 10);
             }
         }
         return { display, value };
     }
     
     function getAbilityModifier(scoreString) {
-        const score = parseInt(scoreString.match(/-?\d+/)[0], 10);
+        if (!scoreString) return 0;
+        const scoreMatch = scoreString.match(/-?\d+/);
+        if (!scoreMatch) return 0;
+        const score = parseInt(scoreMatch[0], 10);
         return Math.floor((score - 10) / 2);
     }
     
     // --- Cocofolia Data Generation ---
-    function parseDescriptionForChatPalette(action) {
+    function parseDescriptionForPalette(action) {
         const desc = action.description;
-        let palette = [];
-    
+        let paletteEntries = [];
         const rechargeMatch = desc.match(/（リチャージ\s*(\d+-\d+)）/);
         const rechargePrefix = rechargeMatch ? `[${rechargeMatch[1]}] ` : '';
-    
-        // Attack Roll
+
         const attackMatch = desc.match(/(近接|遠隔)武器攻撃:\s*ヒット\+(\d+)/);
         if (attackMatch) {
             const hitBonus = attackMatch[2];
-            palette.push(`${rechargePrefix}1d20+${hitBonus} ${action.name} 命中判定`);
-    
+            paletteEntries.push(`${rechargePrefix}1d20+${hitBonus} ${action.name} 命中判定`);
+
             const damagePart = desc.split('ヒット:')[1] || '';
-            const damageMatches = [...damagePart.matchAll(/(\d+\s?\(\d+d\d+(\s?[\+\-]\s?\d+)?\))\s*の\s*(\S+ダメージ)/g)];
-            if (damageMatches.length > 0) {
-                 damageMatches.forEach(match => {
-                    const dice = match[1].match(/\((.*?)\)/)[1].replace(/\s/g, '');
-                    const type = match[3];
-                    palette.push(`${dice} ${type}`);
-                });
-            }
-           
-            const otherEffects = damagePart.split('。');
-            if (otherEffects.length > 1 && otherEffects[1].trim()) {
-                 palette.push(otherEffects[1].trim());
-            }
-            return palette.join('\n');
+            const damageMatches = [...damagePart.matchAll(/(\d+d\d+(\s*[\+\-]\s*\d+)?)\s*の\s*(\S+ダメージ)/g)];
+            const damageInParenMatches = [...damagePart.matchAll(/\((\d+d\d+(\s*[\+\-]\s*\d+)?)\)\s*の\s*(\S+ダメージ)/g)];
+            const combinedMatches = [...damageMatches, ...damageInParenMatches];
+
+            combinedMatches.forEach(match => {
+                const dice = match[1].replace(/\s/g, '');
+                const type = match[3] || match[2];
+                paletteEntries.push(`${dice} ${type}`);
+            });
+            
+            return paletteEntries.join('\n');
         }
-    
-        // Saving Throw
+
         const saveMatch = desc.match(/DC\s*(\d+)\s*の\s*(\S+力)セーヴィングスロー/);
         if (saveMatch) {
             const dc = saveMatch[1];
             const ability = saveMatch[2];
-            palette.push(`${rechargePrefix}${action.name} (DC${dc} ${ability}セーヴ)`);
-    
-            const damagePart = desc.split('。')[1] || desc;
-            const damageMatches = [...damagePart.matchAll(/(\d+\s?\(\d+d\d+\))\s*の\s*(\S+ダメージ)/g)];
-             if (damageMatches.length > 0) {
-                 damageMatches.forEach(match => {
-                    const dice = match[1].match(/\((.*?)\)/)[1].replace(/\s/g, '');
-                    const type = match[3];
-                    palette.push(`${dice} ${type}`);
-                });
-                if (damagePart.includes('成功した場合はその半分のダメージ')) {
-                    palette.push('(セーヴ成功でダメージ半減)');
-                }
+            let entry = `${rechargePrefix}${action.name} (DC${dc} ${ability}セーヴ)`;
+            
+            const damageMatches = [...desc.matchAll(/(\d+\s?\(\d+d\d+(\s?[\+\-]\s?\d+)?\))\s*の\s*(\S+ダメージ)/g)];
+            if (damageMatches.length > 0) {
+                 const dice = damageMatches[0][1].match(/\((.*?)\)/)[1].replace(/\s/g, '');
+                 const type = damageMatches[0][3];
+                 entry += `\n${dice} ${type}`;
+                 if (desc.includes('成功した場合はその半分のダメージ')) {
+                    entry += ` (成功で半減)`;
+                 }
             }
-            const otherEffects = desc.split('。');
-            if (otherEffects.length > 1 && otherEffects[1].trim()) {
-                palette.push(otherEffects[1].trim().replace(/失敗すると|成功した場合はその半分のダメージ/g, ''));
+            const effect = desc.split('。')[1] || '';
+            if (effect.trim()) {
+                entry += `\n効果: ${effect.trim()}`;
             }
-            return palette.join('\n');
+            return entry;
         }
-    
-        // Generic Action
+
         return `${rechargePrefix}${action.name}\n${desc}`;
     }
 
@@ -310,17 +306,12 @@ AC: ${ac.display} / HP: ${monster.hit_points.average} (${monster.hit_points.dice
 脅威度: ${monster.challenge_rating}
 --------------------
 `.trim();
-        if (monster.saving_throws) {
-            memo += `\nセーヴィングスロー: ${monster.saving_throws}`;
-        }
-        if (monster.skills) {
-            memo += `\n技能: ${monster.skills}`;
-        }
-        memo += `
---------------------
-        `.trim();
+        if (monster.saving_throws) memo += `\nセーヴィングスロー: ${monster.saving_throws}`;
+        if (monster.skills) memo += `\n技能: ${monster.skills}`;
+        memo += `\n--------------------`;
 
-        const paletteSections = {
+        let palette = "";
+        const sections = {
             "特殊能力": monster.special_traits,
             "アクション": monster.actions,
             "ボーナスアクション": monster.bonus_actions,
@@ -328,14 +319,13 @@ AC: ${ac.display} / HP: ${monster.hit_points.average} (${monster.hit_points.dice
             "伝説的アクション": monster.legendary_actions,
             "巣穴のアクション": monster.lair_actions
         };
-        
-        let palette = "";
-        for (const [title, items] of Object.entries(paletteSections)) {
+
+        for (const [title, items] of Object.entries(sections)) {
             if (items && Array.isArray(items) && items.length > 0) {
                 palette += `//--- ${title} ---\n`;
                 items.forEach(item => {
                     if (title === "アクション") {
-                        palette += parseDescriptionForChatPalette(item) + '\n\n';
+                        palette += parseDescriptionForPalette(item) + '\n\n';
                     } else {
                         palette += `${item.name}\n${item.description}\n\n`;
                     }
@@ -347,7 +337,7 @@ AC: ${ac.display} / HP: ${monster.hit_points.average} (${monster.hit_points.dice
             kind: "character",
             data: {
                 name: monster.name_jp,
-                memo: memo,
+                memo: memo.trim(),
                 initiative: dexMod,
                 externalUrl: window.location.href,
                 status: [
