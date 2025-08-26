@@ -51,10 +51,32 @@ h1 {
 .filters {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 20px;
     flex-wrap: wrap;
+    align-items: center;
 }
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#search-bar {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
 
 #monster-container {
     display: grid;
