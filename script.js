@@ -243,50 +243,51 @@ document.addEventListener('DOMContentLoaded', () => {
         return Math.floor((score - 10) / 2);
     }
     
-    // --- NEW: Cocofolia Data Generation (Memo-focused) ---
+    // --- Cocofolia Data Generation (Memo-focused, Corrected) ---
     function generateCocofoliaJson(monster) {
         const ac = getArmorClassValue(monster.armor_class);
         const dexMod = getAbilityModifier(monster.ability_scores.dexterity);
-
-        // Build the detailed memo string
-        let memo = `【大きさと種族】\n${monster.size_type_alignment || '情報なし'}\n\n`;
-        memo += `【移動速度】\n${monster.speed || '情報なし'}\n\n`;
-        memo += `【能力値】\n`;
-        memo += `筋力: ${monster.ability_scores.strength}\n`;
-        memo += `敏捷力: ${monster.ability_scores.dexterity}\n`;
-        memo += `耐久力: ${monster.ability_scores.constitution}\n`;
-        memo += `知力: ${monster.ability_scores.intelligence}\n`;
-        memo += `判断力: ${monster.ability_scores.wisdom}\n`;
-        memo += `魅力: ${monster.ability_scores.charisma}`;
-
-        if (monster.saving_throws) {
-            memo += `\n\n【セーヴィングスロー】\n${monster.saving_throws}`;
-        }
-        if (monster.skills) {
-            memo += `\n\n【技能】\n${monster.skills}`;
-        }
-        if (monster.damage_resistances) {
-            memo += `\n\n【ダメージ抵抗】\n${monster.damage_resistances}`;
-        }
-        if (monster.damage_immunities) {
-            memo += `\n\n【ダメージ完全耐性】\n${monster.damage_immunities}`;
-        }
-        if (monster.senses) {
-            memo += `\n\n【感覚】\n${monster.senses}`;
-        }
-
-        if (monster.special_traits && Array.isArray(monster.special_traits) && monster.special_traits.length > 0) {
-            memo += `\n\n【特殊能力】`;
-            monster.special_traits.forEach(trait => {
-                memo += `\n・${trait.name}: ${trait.description}`;
-            });
-        }
         
+        const memoLines = [];
+
+        // Add sections to memo if they exist in the monster data
+        const addSection = (title, content) => {
+            if (content && content.length > 0) {
+                memoLines.push(`\n【${title}】`);
+                if (Array.isArray(content)) {
+                    content.forEach(item => {
+                        memoLines.push(`・${item.name}: ${item.description}`);
+                    });
+                } else {
+                    memoLines.push(content);
+                }
+            }
+        };
+
+        addSection('大きさと種族', monster.size_type_alignment);
+        addSection('移動速度', monster.speed);
+
+        memoLines.push(`\n【能力値】`);
+        memoLines.push(`筋力: ${monster.ability_scores.strength}`);
+        memoLines.push(`敏捷力: ${monster.ability_scores.dexterity}`);
+        memoLines.push(`耐久力: ${monster.ability_scores.constitution}`);
+        memoLines.push(`知力: ${monster.ability_scores.intelligence}`);
+        memoLines.push(`判断力: ${monster.ability_scores.wisdom}`);
+        memoLines.push(`魅力: ${monster.ability_scores.charisma}`);
+
+        addSection('セーヴィングスロー', monster.saving_throws);
+        addSection('技能', monster.skills);
+        addSection('ダメージ抵抗', monster.damage_resistances);
+        addSection('ダメージ完全耐性', monster.damage_immunities);
+        addSection('状態異常完全耐性', monster.condition_immunities);
+        addSection('感覚', monster.senses);
+        addSection('特殊能力', monster.special_traits);
+
         const data = {
             kind: "character",
             data: {
                 name: monster.name_jp,
-                memo: memo.trim(),
+                memo: memoLines.join('\n').trim(),
                 initiative: dexMod,
                 externalUrl: window.location.href,
                 status: [
@@ -301,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     { label: "判断力", value: monster.ability_scores.wisdom },
                     { label: "魅力", value: monster.ability_scores.charisma }
                 ],
-                palette: "" // Palette is now intentionally left blank
+                palette: "" // Intentionally blank as requested
             }
         };
         return data;
