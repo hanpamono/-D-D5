@@ -243,96 +243,45 @@ document.addEventListener('DOMContentLoaded', () => {
         return Math.floor((score - 10) / 2);
     }
     
-    // --- Cocofolia Data Generation ---
-    function parseDescriptionForPalette(action) {
-        const desc = action.description;
-        let paletteEntries = [];
-        const rechargeMatch = desc.match(/（リチャージ\s*(\d+-\d+)）/);
-        const rechargePrefix = rechargeMatch ? `[${rechargeMatch[1]}] ` : '';
-
-        const attackMatch = desc.match(/(近接|遠隔)武器攻撃:\s*ヒット\+(\d+)/);
-        if (attackMatch) {
-            const hitBonus = attackMatch[2];
-            paletteEntries.push(`${rechargePrefix}1d20+${hitBonus} ${action.name} 命中判定`);
-
-            const damagePart = desc.split('ヒット:')[1] || '';
-            const damageMatches = [...damagePart.matchAll(/(\d+d\d+(\s*[\+\-]\s*\d+)?)\s*の\s*(\S+ダメージ)/g)];
-            const damageInParenMatches = [...damagePart.matchAll(/\((\d+d\d+(\s*[\+\-]\s*\d+)?)\)\s*の\s*(\S+ダメージ)/g)];
-            const combinedMatches = [...damageMatches, ...damageInParenMatches];
-
-            combinedMatches.forEach(match => {
-                const dice = match[1].replace(/\s/g, '');
-                const type = match[3] || match[2];
-                paletteEntries.push(`${dice} ${type}`);
-            });
-            
-            return paletteEntries.join('\n');
-        }
-
-        const saveMatch = desc.match(/DC\s*(\d+)\s*の\s*(\S+力)セーヴィングスロー/);
-        if (saveMatch) {
-            const dc = saveMatch[1];
-            const ability = saveMatch[2];
-            let entry = `${rechargePrefix}${action.name} (DC${dc} ${ability}セーヴ)`;
-            
-            const damageMatches = [...desc.matchAll(/(\d+\s?\(\d+d\d+(\s?[\+\-]\s?\d+)?\))\s*の\s*(\S+ダメージ)/g)];
-            if (damageMatches.length > 0) {
-                 const dice = damageMatches[0][1].match(/\((.*?)\)/)[1].replace(/\s/g, '');
-                 const type = damageMatches[0][3];
-                 entry += `\n${dice} ${type}`;
-                 if (desc.includes('成功した場合はその半分のダメージ')) {
-                    entry += ` (成功で半減)`;
-                 }
-            }
-            const effect = desc.split('。')[1] || '';
-            if (effect.trim()) {
-                entry += `\n効果: ${effect.trim()}`;
-            }
-            return entry;
-        }
-
-        return `${rechargePrefix}${action.name}\n${desc}`;
-    }
-
+    // --- NEW: Cocofolia Data Generation (Memo-focused) ---
     function generateCocofoliaJson(monster) {
         const ac = getArmorClassValue(monster.armor_class);
         const dexMod = getAbilityModifier(monster.ability_scores.dexterity);
 
-        let memo = `
-${monster.name_en}
-${monster.size_type_alignment}
-AC: ${ac.display} / HP: ${monster.hit_points.average} (${monster.hit_points.dice})
-移動速度: ${monster.speed}
-脅威度: ${monster.challenge_rating}
---------------------
-`.trim();
-        if (monster.saving_throws) memo += `\nセーヴィングスロー: ${monster.saving_throws}`;
-        if (monster.skills) memo += `\n技能: ${monster.skills}`;
-        memo += `\n--------------------`;
+        // Build the detailed memo string
+        let memo = `【大きさと種族】\n${monster.size_type_alignment || '情報なし'}\n\n`;
+        memo += `【移動速度】\n${monster.speed || '情報なし'}\n\n`;
+        memo += `【能力値】\n`;
+        memo += `筋力: ${monster.ability_scores.strength}\n`;
+        memo += `敏捷力: ${monster.ability_scores.dexterity}\n`;
+        memo += `耐久力: ${monster.ability_scores.constitution}\n`;
+        memo += `知力: ${monster.ability_scores.intelligence}\n`;
+        memo += `判断力: ${monster.ability_scores.wisdom}\n`;
+        memo += `魅力: ${monster.ability_scores.charisma}`;
 
-        let palette = "";
-        const sections = {
-            "特殊能力": monster.special_traits,
-            "アクション": monster.actions,
-            "ボーナスアクション": monster.bonus_actions,
-            "リアクション": monster.reactions,
-            "伝説的アクション": monster.legendary_actions,
-            "巣穴のアクション": monster.lair_actions
-        };
-
-        for (const [title, items] of Object.entries(sections)) {
-            if (items && Array.isArray(items) && items.length > 0) {
-                palette += `//--- ${title} ---\n`;
-                items.forEach(item => {
-                    if (title === "アクション") {
-                        palette += parseDescriptionForPalette(item) + '\n\n';
-                    } else {
-                        palette += `${item.name}\n${item.description}\n\n`;
-                    }
-                });
-            }
+        if (monster.saving_throws) {
+            memo += `\n\n【セーヴィングスロー】\n${monster.saving_throws}`;
+        }
+        if (monster.skills) {
+            memo += `\n\n【技能】\n${monster.skills}`;
+        }
+        if (monster.damage_resistances) {
+            memo += `\n\n【ダメージ抵抗】\n${monster.damage_resistances}`;
+        }
+        if (monster.damage_immunities) {
+            memo += `\n\n【ダメージ完全耐性】\n${monster.damage_immunities}`;
+        }
+        if (monster.senses) {
+            memo += `\n\n【感覚】\n${monster.senses}`;
         }
 
+        if (monster.special_traits && Array.isArray(monster.special_traits) && monster.special_traits.length > 0) {
+            memo += `\n\n【特殊能力】`;
+            monster.special_traits.forEach(trait => {
+                memo += `\n・${trait.name}: ${trait.description}`;
+            });
+        }
+        
         const data = {
             kind: "character",
             data: {
@@ -352,7 +301,7 @@ AC: ${ac.display} / HP: ${monster.hit_points.average} (${monster.hit_points.dice
                     { label: "判断力", value: monster.ability_scores.wisdom },
                     { label: "魅力", value: monster.ability_scores.charisma }
                 ],
-                palette: palette.trim()
+                palette: "" // Palette is now intentionally left blank
             }
         };
         return data;
