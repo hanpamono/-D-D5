@@ -313,7 +313,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 externalUrl: window.location.href,
                 status: [{ label: "HP", value: monster.hit_points.average, max: monster.hit_points.average }, { label: "AC", value: ac.value, max: ac.value }],
                 params: Object.entries(abilities).map(([key, value]) => ({ label: key, value: value })),
+                // ▼▼▼ 修正箇所 ▼▼▼
                 palette: monster.commands || ""
+                // ▲▲▲ 修正箇所 ▲▲▲
             }
         };
     }
