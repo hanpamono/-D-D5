@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '鋏角種、鳥竜種、不明.json', '古龍種.json', '小型モンスター.json'
     ];
 
-    // *** MODIFICATION: Add a timestamp to every file request to prevent caching ***
+    // Add a timestamp to every file request to prevent caching
     const timestamp = `?t=${new Date().getTime()}`;
     const fetchPromises = jsonFiles.map(file => 
         fetch(file + timestamp).then(res => {
@@ -86,12 +86,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.copyCocofoliaData = monster => {
         try {
-            // Add a specific check for the 'commands' key
-            if (!monster.commands || typeof monster.commands !== 'string' || monster.commands.trim() === "") {
-                alert("エラー: このモンスターのチャットパレットデータ(commands)が見つかりません。\n\n該当のJSONファイルが更新され、正しくアップロードされているか確認してください。");
-                return;
-            }
             const cocofoliaData = generateCocofoliaJson(monster);
+
+            // *** DEBUGGING: Log the generated data to the console ***
+            console.log("--- 生成されたココフォリア用データ ---");
+            console.log(cocofoliaData);
+            // *** END DEBUGGING ***
+
+            if (!cocofoliaData.data.palette || cocofoliaData.data.palette.trim() === "") {
+                 alert("エラー: チャットパレットのデータ(commands)がJSONファイルから読み込めていません。\n\n1. F12キーでコンソールを開いてください。\n2. 「ネットワーク(Network)」タブで「キャッシュを無効化(Disable cache)」にチェックを入れてください。\n3. Ctrl+F5でページを強制再読み込みしてください。");
+            }
+
             navigator.clipboard.writeText(JSON.stringify(cocofoliaData, null, 2)).then(() => {
                 alert('ココフォリア用のデータをコピーしました。\nココフォリアの画面上でペーストするとコマが作成されます。');
             });
@@ -103,13 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function initializeListView() {
         populateFilters(allMonsters);
-        
         searchBar.addEventListener('input', filterAndSortMonsters);
         speciesFilter.addEventListener('change', filterAndSortMonsters);
         crFilter.addEventListener('change', filterAndSortMonsters);
         sortOrder.addEventListener('change', filterAndSortMonsters);
-
-        filterAndSortMonsters(); // Initial display
+        filterAndSortMonsters();
     }
 
     function displayNotFound() {
@@ -126,17 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if(monsterSpecies) species.add(monsterSpecies);
             if(monster.challenge_rating) challengeRatings.add(monster.challenge_rating.split(' ')[0]);
         });
-        Array.from(species).sort().forEach(s => {
-            speciesFilter.appendChild(new Option(s, s));
-        });
-        Array.from(challengeRatings).sort((a, b) => crToNumber(a) - crToNumber(b)).forEach(cr => {
-            crFilter.appendChild(new Option(cr, cr));
-        });
+        Array.from(species).sort().forEach(s => speciesFilter.appendChild(new Option(s, s)));
+        Array.from(challengeRatings).sort((a, b) => crToNumber(a) - crToNumber(b)).forEach(cr => crFilter.appendChild(new Option(cr, cr)));
     }
 
     function filterAndSortMonsters() {
         let processedMonsters = [...allMonsters];
-
         const searchTerm = searchBar.value.toLowerCase();
         if (searchTerm) {
             processedMonsters = processedMonsters.filter(m =>
@@ -144,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 (m.name_en && m.name_en.toLowerCase().includes(searchTerm))
             );
         }
-
         const selectedSpecies = speciesFilter.value;
         if (selectedSpecies !== 'all') {
             processedMonsters = processedMonsters.filter(m => extractSpecies(m.size_type_alignment) === selectedSpecies);
@@ -153,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (selectedCR !== 'all') {
             processedMonsters = processedMonsters.filter(m => m.challenge_rating && m.challenge_rating.startsWith(selectedCR));
         }
-
         const sortBy = sortOrder.value;
         if (sortBy === 'name_asc') {
             processedMonsters.sort((a, b) => a.name_jp.localeCompare(b.name_jp, 'ja'));
@@ -162,7 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (sortBy === 'cr_desc') {
             processedMonsters.sort((a, b) => crToNumber(b.challenge_rating) - crToNumber(a.challenge_rating));
         }
-
         displayMonsters(processedMonsters);
     }
 
@@ -172,12 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
             monsterContainer.innerHTML = '<p style="text-align:center;">該当するモンスターが見つかりませんでした。</p>';
             return;
         }
-
         monsters.forEach(monster => {
             const monsterCard = document.createElement('div');
             monsterCard.className = 'stat-block';
             const ac = getArmorClassValue(monster.armor_class);
-            
             const monsterNameHTML = isSingleView
                 ? `<h2>${monster.name_jp} (${monster.name_en})</h2>`
                 : `<h2><a href="?monster=${encodeURIComponent(monster.name_jp)}">${monster.name_jp} (${monster.name_en})</a></h2>`;
@@ -221,9 +214,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderSection(title, items) {
         if (!items || !Array.isArray(items) || items.length === 0) return '';
-        const sectionClass = title.toLowerCase().replace(/ /g, '-');
         return `
-            <div class="${sectionClass}">
+            <div class="${title.toLowerCase().replace(/ /g, '-')}">
                 <div class="separator"></div>
                 <h3>${title}</h3>
                 ${items.map(item => `
@@ -278,22 +270,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (monster.skills) memoLines.push(monster.skills);
             memoLines.push('');
         }
-
-        const addMemoSection = (title, content) => {
-            if (content) memoLines.push(`【${title}】\n${content}\n`);
-        };
+        const addMemoSection = (title, content) => { if (content) memoLines.push(`【${title}】\n${content}\n`); };
         addMemoSection('ダメージ抵抗', monster.damage_resistances);
         addMemoSection('ダメージ完全耐性', monster.damage_immunities);
         addMemoSection('状態異常完全耐性', monster.condition_immunities);
-        
         if (monster.senses) memoLines.push(`${monster.senses}\n`);
-        
         if (monster.special_traits?.length > 0) {
             memoLines.push('【特殊能力】');
             monster.special_traits.forEach(t => memoLines.push(`・${t.name}: ${t.description}`));
         }
-
-        const palette = monster.commands || "";
 
         return {
             kind: "character",
@@ -303,15 +288,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 initiative: dexMod,
                 externalUrl: window.location.href,
                 status: [{ label: "HP", value: monster.hit_points.average, max: monster.hit_points.average }, { label: "AC", value: ac.value, max: ac.value }],
-                params: [
-                    { label: "筋力", value: abilities.strength },
-                    { label: "敏捷力", value: abilities.dexterity },
-                    { label: "耐久力", value: abilities.constitution },
-                    { label: "知力", value: abilities.intelligence },
-                    { label: "判断力", value: abilities.wisdom },
-                    { label: "魅力", value: abilities.charisma }
-                ],
-                palette: palette
+                params: Object.entries(abilities).map(([key, value]) => ({ label: key, value: value })),
+                palette: monster.commands || ""
             }
         };
     }
