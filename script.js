@@ -1,3 +1,5 @@
+// script.js
+
 document.addEventListener('DOMContentLoaded', () => {
     // --- Element Variables ---
     const body = document.body;
@@ -89,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentMonster = monster;
         filtersContainer.style.display = 'none';
         navigationControls.innerHTML = `
-            <button class.nav-button" id="back-to-list">一覧に戻る</button>
+            <button class="nav-button" id="back-to-list">一覧に戻る</button>
             <button class="nav-button" id="copy-url">共有用URLをコピー</button>
             <button class="nav-button" id="cocofolia-button">ココフォリア用データをコピー</button>
         `;
@@ -158,6 +160,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${renderSection('伝説的アクション', monster.legendary_actions)}
                     ${renderSection('巣穴のアクション', monster.lair_actions)}
                 `;
+
+                // ▼▼▼ 変更箇所 ▼▼▼
+                // シングル表示かつチャットパレットデータが存在する場合に表示エリアを追加
+                if (isSingleView && monster.commands) {
+                    innerHTML += `
+                        <div class="chat-palette-section">
+                             <div class="separator"></div>
+                             <h3>チャットパレット</h3>
+                             <p>以下のテキストをコピーして、ココフォリアのチャットパレットに貼り付けてください。</p>
+                             <textarea readonly class="chat-palette-textarea">${monster.commands.trim()}</textarea>
+                        </div>
+                    `;
+                }
+                // ▲▲▲ 変更箇所 ▲▲▲
                 
                 monsterCard.innerHTML = innerHTML;
                 monsterContainer.appendChild(monsterCard);
@@ -313,9 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 externalUrl: window.location.href,
                 status: [{ label: "HP", value: monster.hit_points.average, max: monster.hit_points.average }, { label: "AC", value: ac.value, max: ac.value }],
                 params: Object.entries(abilities).map(([key, value]) => ({ label: key, value: value })),
-                // ▼▼▼ 修正箇所 ▼▼▼
                 palette: monster.commands || ""
-                // ▲▲▲ 修正箇所 ▲▲▲
             }
         };
     }

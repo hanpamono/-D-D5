@@ -225,3 +225,33 @@ body.dark-mode .stat-block strong {
     font-style: italic;
     color: var(--text-color);
 }
+/* style.css に追記 */
+
+.chat-palette-section {
+    margin-top: 20px;
+}
+
+.chat-palette-section h3 {
+    font-family: var(--font-serif);
+    color: var(--dnd-red);
+    border-bottom: 1px solid var(--dnd-red);
+    padding-bottom: 3px;
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+.chat-palette-textarea {
+    width: 98%;
+    height: 250px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace; /* チャットパレットが見やすいように等幅フォントを指定 */
+    font-size: 0.9em;
+    line-height: 1.4;
+    resize: vertical; /* 縦方向のリサイズを許可 */
+    white-space: pre; /* テキストの改行とスペースを維持 */
+}
