@@ -1,18 +1,16 @@
-/* Google Fonts - Noto Serifのウェイト900を追加 */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&display=swap');
-
 :root {
-    --font-serif: 'Noto Serif JP', serif;
-    --font-sans: 'Noto Sans JP', sans-serif;
-    /* Light Mode Colors */
-    --bg-color: #f3e6d2;
+    --font-serif: 'Libre Baskerville', serif;
+    --font-sans: 'Roboto', sans-serif;
+    
+    /* Light Mode Colors (D&D Official Style) */
+    --bg-color: #F8F5E8; /* 羊皮紙のような背景 */
     --text-color: #3b3b3b;
     --dnd-red: #822000;
-    --stat-block-bg: #fdf1dc;
-    --border-color: #000;
+    --stat-block-bg: transparent; /* 背景画像に馴染ませる */
+    --border-color: #c7b299; /* 少し薄めの境界線 */
     --separator-color: #58180D;
     --link-color: var(--dnd-red);
-    --input-bg: white;
+    --input-bg: #fff;
     --input-border: #ccc;
 }
 
@@ -21,7 +19,7 @@ body {
     background-color: var(--bg-color);
     background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
     color: var(--text-color);
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
     padding: 20px;
     transition: background-color 0.3s, color 0.3s;
@@ -29,15 +27,25 @@ body {
 
 /* --- Dark Mode --- */
 body.dark-mode {
-    --bg-color: #2a2a2a;
+    --bg-color: #1e1e1e;
     --text-color: #d1d1d1;
     --dnd-red: #e57373;
-    --stat-block-bg: #1e1e1e;
+    --stat-block-bg: #2a2a2a;
     --border-color: #555;
     --separator-color: #e57373;
     --link-color: #ff8a80;
     --input-bg: #3a3a3a;
     --input-border: #666;
+}
+body.dark-mode .stat-block {
+    border-image: none; /* ダークモードでは装飾枠を無効化 */
+    border: 2px solid var(--border-color);
+    background: var(--stat-block-bg);
+}
+body.dark-mode .separator {
+    background-image: none;
+    background-color: var(--separator-color);
+    height: 2px;
 }
 body.dark-mode .stat-block h2 a {
     color: var(--link-color);
@@ -52,11 +60,11 @@ body.dark-mode .stat-block h2 a {
     height: 40px;
     border-radius: 50%;
     border: 1px solid var(--border-color);
-    background-color: var(--stat-block-bg);
+    background-color: var(--bg-color);
     color: var(--text-color);
     cursor: pointer;
     font-size: 1.2em;
-    z-index: 1001;
+    z-index: 1000;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -69,7 +77,7 @@ h1 {
     font-family: var(--font-serif);
     font-weight: 700;
     color: var(--dnd-red);
-    font-size: 2.5em;
+    font-size: 3em;
 }
 
 #navigation-controls {
@@ -84,8 +92,8 @@ h1 {
 
 .nav-button, a.nav-button {
     background-color: var(--dnd-red);
-    color: white !important;
-    border: 1px solid var(--border-color);
+    color: white;
+    border: 1px solid #000;
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -95,9 +103,11 @@ h1 {
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
     text-decoration: none;
     display: inline-block;
+    transition: transform 0.1s ease;
 }
 .nav-button:hover, a.nav-button:hover {
-    opacity: 0.8;
+    opacity: 0.9;
+    transform: translateY(-1px);
 }
 
 .filters {
@@ -113,6 +123,7 @@ h1 {
     display: flex;
     align-items: center;
     gap: 8px;
+    font-family: var(--font-serif);
 }
 
 #search-bar, select {
@@ -121,6 +132,7 @@ h1 {
     border: 1px solid var(--input-border);
     background-color: var(--input-bg);
     color: var(--text-color);
+    font-family: var(--font-sans);
 }
 #search-bar {
     width: 250px;
@@ -128,7 +140,7 @@ h1 {
 
 #monster-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
     gap: 20px;
 }
 
@@ -140,81 +152,136 @@ h1 {
 
 .stat-block {
     background: var(--stat-block-bg);
-    border: 2px solid var(--border-color);
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    border-radius: 5px;
+    padding: 1em;
+    border-radius: 0;
+    box-shadow: none;
+    border: 10px solid transparent;
+    border-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><style>path { fill: %23c7b299; /* border-color */ }</style><path d="M0,0 H100 V100 H0 Z M5,5 V95 H95 V5 Z"/></svg>') 10 stretch;
+    border-image-outset: 5px;
 }
 
 .stat-block h2 {
     font-family: var(--font-serif);
-    font-weight: 900;
     color: var(--dnd-red);
-    font-size: 1.8em;
-    margin: 0 0 5px 0;
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0 0 0.3em 0;
     border-bottom: 2px solid var(--dnd-red);
-    padding-bottom: 5px;
+    padding-bottom: 0.2em;
 }
-.stat-block a { color: var(--link-color); text-decoration: none; }
-.stat-block a:hover { text-decoration: underline; }
+
+.stat-block a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+.stat-block a:hover {
+    text-decoration: underline;
+}
 
 .stat-block .size-type {
     font-family: var(--font-sans);
     font-style: italic;
-    color: #666;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 1em;
 }
-body.dark-mode .stat-block .size-type { color: #aaa; }
-
 
 .separator {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="10"><path d="M0 5 L50 0 L100 5 L50 10 Z" fill="%2358180D"/></svg>');
-    background-repeat: repeat-x;
-    background-size: auto 100%;
-    height: 7px;
+    height: 5px;
     border: 0;
-    margin: 10px 0;
+    border-bottom: 1px solid #999;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="5"><path d="M0 2.5 L20 2.5 M20 2.5 Q22.5 0 25 2.5 M25 2.5 L75 2.5 Q77.5 5 80 2.5 M80 2.5 L100 2.5" stroke="%23822000" stroke-width="2" fill="none"/></svg>');
+    background-repeat: repeat-x;
+    background-position: center;
     box-shadow: none;
-}
-body.dark-mode .separator {
-     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="10"><path d="M0 5 L50 0 L100 5 L50 10 Z" fill="%23e57373"/></svg>');
+    margin: 0.8em 0;
 }
 
+.stat-block p {
+    margin: 0 0 0.8em 0;
+    font-family: var(--font-sans);
+}
 
-.stat-block p { margin: 0 0 10px 0; font-family: var(--font-sans); }
-.stat-block strong { font-weight: 700; color: var(--text-color); }
-body.dark-mode .stat-block strong { color: #f0f0f0; }
+.stat-block strong {
+    font-weight: 700;
+    color: #000;
+}
+body.dark-mode .stat-block strong {
+     color: #f0f0f0;
+}
 
 .ability-scores {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    display: flex;
+    justify-content: space-around;
     text-align: center;
-    margin: 15px 0;
     padding: 0;
+    margin: 1.5em 0;
     list-style: none;
-    justify-items: center;
 }
-.ability-scores li { display: flex; flex-direction: column; }
-.ability-scores h4 { font-family: var(--font-serif); font-weight: 700; margin: 0; color: var(--dnd-red); }
-.ability-scores p { margin: 0; font-size: 0.9em; }
+.ability-scores li {
+    display: flex;
+    flex-direction: column;
+}
+.ability-scores h4 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    margin: 0;
+    color: var(--dnd-red);
+    font-size: 1.1em;
+}
+.ability-scores p {
+    margin-top: 0.2em;
+    font-size: 1em;
+}
 
-h3 {
+.actions h3, .special-traits h3, .bonus-actions h3, .legendary-actions h3, .reactions h3, .lair-actions h3 {
     font-family: var(--font-serif);
     color: var(--dnd-red);
     border-bottom: 1px solid var(--dnd-red);
-    padding-bottom: 3px;
-    margin-top: 15px;
-    font-size: 1.4em;
+    padding-bottom: 0.2em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
     font-weight: 700;
+    font-style: italic;
 }
 
-.trait-item { margin: 10px 0; }
-.trait-item p { text-indent: 1em; margin: 0; }
-.trait-item strong { font-weight: 700; font-style: italic; color: var(--text-color); }
+.trait-item {
+    margin: 0.8em 0;
+}
+
+.trait-item p {
+    text-indent: -1em;
+    margin: 0 0 0 1em;
+    line-height: 1.5;
+}
+
+.trait-item strong {
+    font-weight: 700;
+    font-style: italic;
+    color: #000;
+}
+
+body.dark-mode .trait-item strong {
+    color: #f0f0f0;
+}
 
 .chat-palette-section {
     margin-top: 20px;
     text-align: center;
 }
+
+.chat-palette-section h3 {
+    font-family: var(--font-serif);
+    color: var(--dnd-red);
+    border-bottom: 1px solid var(--dnd-red);
+    padding-bottom: 3px;
+    margin-top: 15px;
+    font-size: 1.5em;
+    font-weight: 700;
+    font-style: italic;
+}
+
 .chat-palette-textarea {
     box-sizing: border-box; 
     width: 100%;
@@ -232,6 +299,7 @@ h3 {
     white-space: pre;
     text-align: left;
 }
+
 #copy-palette-button {
     margin-top: 10px;
 }

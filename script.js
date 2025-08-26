@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- State Variables ---
     let allMonsters = [];
     let currentMonster = null;
-    let filteredMonsterNames = []; // フィルタリング・ソート後のモンスター名リスト
+    let filteredMonsterNames = [];
 
     // --- Dark Mode Logic ---
     function applyTheme(theme) {
@@ -36,13 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Event Delegation ---
     document.addEventListener('click', (event) => {
         const target = event.target;
-        
         if (target.closest('#navigation-controls')) {
-            if (target.id === 'back-to-list') window.location.href = window.location.pathname;
-            else if (target.id === 'copy-url') copyUrlToClipboard();
-            else if (target.id === 'cocofolia-button' && currentMonster) copyCocofoliaData(currentMonster);
+            if (target.id === 'back-to-list') {
+                // aタグの場合はデフォルトの動作に任せる
+                if (target.tagName !== 'A') {
+                    window.location.href = window.location.pathname;
+                }
+            } else if (target.id === 'copy-url') {
+                copyUrlToClipboard();
+            } else if (target.id === 'cocofolia-button') {
+                if (currentMonster) {
+                    copyCocofoliaData(currentMonster);
+                }
+            }
         }
-        
         if (target.id === 'copy-palette-button') {
             const paletteText = document.querySelector('.chat-palette-textarea').value;
             navigator.clipboard.writeText(paletteText).then(() => {
@@ -78,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Error loading monster data:', error);
-            monsterContainer.innerHTML = `<p style="color: red;">モンスターデータの読み込みに失敗しました。</p>`;
+            monsterContainer.innerHTML = `<p style="color: red;">モンスターデータの読み込みに失敗しました。ファイル名やJSONの形式が正しいか確認してください。</p>`;
         });
 
     // --- View Initializers ---
@@ -106,23 +113,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const monsterList = JSON.parse(sessionStorage.getItem('filteredMonsterNames') || '[]');
 
         let navHTML = '';
-        if (monsterList.length > 0 && !isNaN(currentIndex)) {
+        if (!isNaN(currentIndex) && monsterList.length > 0) {
             if (currentIndex > 0) {
                 const prevMonsterName = monsterList[currentIndex - 1];
                 navHTML += `<a href="?monster=${encodeURIComponent(prevMonsterName)}&index=${currentIndex - 1}" class="nav-button">前へ</a>`;
             }
+        }
+        
+        navHTML += `
+            <button class="nav-button" id="back-to-list">一覧に戻る</button>
+            <button class="nav-button" id="copy-url">共有用URLをコピー</button>
+            <button class="nav-button" id="cocofolia-button">ココフォリア用データをコピー</button>
+        `;
+        
+        if (!isNaN(currentIndex) && monsterList.length > 0) {
             if (currentIndex < monsterList.length - 1) {
                 const nextMonsterName = monsterList[currentIndex + 1];
                 navHTML += `<a href="?monster=${encodeURIComponent(nextMonsterName)}&index=${currentIndex + 1}" class="nav-button">次へ</a>`;
             }
         }
-        
-        navigationControls.innerHTML = `
-            <button class="nav-button" id="back-to-list">一覧に戻る</button>
-            ${navHTML}
-            <button class="nav-button" id="copy-url">共有用URLをコピー</button>
-            <button class="nav-button" id="cocofolia-button">ココフォリア用データをコピー</button>
-        `;
+
+        navigationControls.innerHTML = navHTML;
         displayMonsters([monster], true);
     }
 
@@ -147,7 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 monsterCard.className = 'stat-block';
                 const ac = getArmorClassValue(monster.armor_class);
                 const linkIndex = filteredMonsterNames.indexOf(monster.name_jp);
-                
                 const monsterNameHTML = isSingleView
                     ? `<h2>${monster.name_jp} (${monster.name_en || ''})</h2>`
                     : `<h2><a href="?monster=${encodeURIComponent(monster.name_jp)}&index=${linkIndex}">${monster.name_jp} (${monster.name_en || ''})</a></h2>`;
@@ -163,13 +173,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
 
                 if (monster.ability_scores) {
+                    const abilities = [
+                        { name: '筋力', short: 'STR', value: monster.ability_scores.strength },
+                        { name: '敏捷力', short: 'DEX', value: monster.ability_scores.dexterity },
+                        { name: '耐久力', short: 'CON', value: monster.ability_scores.constitution },
+                        { name: '知力', short: 'INT', value: monster.ability_scores.intelligence },
+                        { name: '判断力', short: 'WIS', value: monster.ability_scores.wisdom },
+                        { name: '魅力', short: 'CHA', value: monster.ability_scores.charisma }
+                    ];
                     innerHTML += `<ul class="ability-scores">
-                        <li><h4>筋力</h4><p>${monster.ability_scores.strength}</p></li>
-                        <li><h4>敏捷力</h4><p>${monster.ability_scores.dexterity}</p></li>
-                        <li><h4>耐久力</h4><p>${monster.ability_scores.constitution}</p></li>
-                        <li><h4>知力</h4><p>${monster.ability_scores.intelligence}</p></li>
-                        <li><h4>判断力</h4><p>${monster.ability_scores.wisdom}</p></li>
-                        <li><h4>魅力</h4><p>${monster.ability_scores.charisma}</p></li>
+                        ${abilities.map(ability => {
+                            const score = parseInt(ability.value?.match(/-?\d+/)?.[0], 10) || 10;
+                            const modifier = Math.floor((score - 10) / 2);
+                            return `<li><h4>${ability.short}</h4><p>${score} (${modifier >= 0 ? '+' : ''}${modifier})</p></li>`;
+                        }).join('')}
                     </ul><div class="separator"></div>`;
                 }
 
@@ -184,11 +201,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${renderSimpleP('言語', monster.languages)}
                     ${renderSimpleP('脅威度', monster.challenge_rating)}
                     ${renderSection('特殊能力', monster.special_traits)}
-                    ${renderSection('アクション', monster.actions)}
-                    ${renderSection('ボーナスアクション', monster.bonus_actions)}
-                    ${renderSection('リアクション', monster.reactions)}
-                    ${renderSection('伝説的アクション', monster.legendary_actions)}
-                    ${renderSection('巣穴のアクション', monster.lair_actions)}
+                    ${renderSection('アクション', monster.actions, 'Actions')}
+                    ${renderSection('ボーナスアクション', monster.bonus_actions, 'Bonus Actions')}
+                    ${renderSection('リアクション', monster.reactions, 'Reactions')}
+                    ${renderSection('伝説的アクション', monster.legendary_actions, 'Legendary Actions')}
+                    ${renderSection('巣穴のアクション', monster.lair_actions, 'Lair Actions')}
                 `;
                 
                 monsterCard.innerHTML = innerHTML;
@@ -206,17 +223,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     monsterContainer.appendChild(chatPaletteSection);
                 }
 
-            } catch(e) { console.error(`Error rendering monster: ${monster.name_jp}`, e); }
+            } catch(e) {
+                console.error(`Error rendering monster: ${monster.name_jp}`, e);
+                 const errorDiv = document.createElement('div');
+                 errorDiv.innerHTML = `<p style="color: red;">モンスター「${monster.name_jp}」のデータ表示中にエラーが発生しました。</p>`;
+                 monsterContainer.appendChild(errorDiv);
+            }
         });
     }
     
     // --- Render Helpers ---
-    function renderSimpleP(label, content) { return content ? `<p><strong>${label}:</strong> ${content}</p>` : ''; }
-    function renderSection(title, items) {
+    function renderSimpleP(label, content) {
+        return content ? `<p><strong>${label}</strong> ${content}</p>` : '';
+    }
+    function renderSection(title, items, className = '') {
         if (!items || !Array.isArray(items) || items.length === 0) return '';
+        const classAttr = className ? className.toLowerCase().replace(/ /g, '-') : title.toLowerCase().replace(/ /g, '-');
         return `
-            <h3>${title}</h3>
-            ${items.map(item => `<div class="trait-item"><p><strong><em>${item.name}.</em></strong> ${item.description}</p></div>`).join('')}
+            <div class="${classAttr}">
+                <h3>${title}</h3>
+                ${items.map(item => `<div class="trait-item"><p><strong><em>${item.name}.</em></strong> ${item.description}</p></div>`).join('')}
+            </div>
         `;
     }
 
@@ -243,18 +270,24 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (sortBy === 'cr_desc') {
             processedMonsters.sort((a, b) => crToNumber(b.challenge_rating) - crToNumber(a.challenge_rating));
         }
-
+        
         filteredMonsterNames = processedMonsters.map(m => m.name_jp);
         sessionStorage.setItem('filteredMonsterNames', JSON.stringify(filteredMonsterNames));
+        
         saveFilterState();
         displayMonsters(processedMonsters);
     }
     
     function populateFilters(monsters) {
-        const species = new Set(monsters.map(m => extractSpecies(m.size_type_alignment)).filter(Boolean));
-        const challengeRatings = new Set(monsters.map(m => m.challenge_rating?.split(' ')[0]).filter(Boolean));
-        Array.from(species).sort().forEach(s => speciesFilter.add(new Option(s, s)));
-        Array.from(challengeRatings).sort((a, b) => crToNumber(a) - crToNumber(b)).forEach(cr => crFilter.add(new Option(cr, cr)));
+        const species = new Set();
+        const challengeRatings = new Set();
+        monsters.forEach(monster => {
+            const monsterSpecies = extractSpecies(monster.size_type_alignment);
+            if(monsterSpecies) species.add(monsterSpecies);
+            if(monster.challenge_rating) challengeRatings.add(monster.challenge_rating.split(' ')[0]);
+        });
+        Array.from(species).sort().forEach(s => speciesFilter.appendChild(new Option(s, s)));
+        Array.from(challengeRatings).sort((a, b) => crToNumber(a) - crToNumber(b)).forEach(cr => crFilter.appendChild(new Option(cr, cr)));
     }
     
     // --- Filter State Persistence ---
@@ -267,13 +300,15 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         sessionStorage.setItem('monsterFilterState', JSON.stringify(filterState));
     }
+
     function loadFilterState() {
-        const savedState = JSON.parse(sessionStorage.getItem('monsterFilterState'));
+        const savedState = sessionStorage.getItem('monsterFilterState');
         if (savedState) {
-            searchBar.value = savedState.search || '';
-            speciesFilter.value = savedState.species || 'all';
-            crFilter.value = savedState.cr || 'all';
-            sortOrder.value = savedState.sort || 'default';
+            const filterState = JSON.parse(savedState);
+            searchBar.value = filterState.search || '';
+            speciesFilter.value = filterState.species || 'all';
+            crFilter.value = filterState.cr || 'all';
+            sortOrder.value = filterState.sort || 'default';
         }
     }
 
@@ -282,12 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const crToNumber = cr => {
         if (!cr) return -1;
         const crString = cr.split(' ')[0];
-        // '1/2' のような分数を評価するためにevalを使用
-        try {
-            return eval(crString);
-        } catch {
-            return parseInt(crString, 10) || 0;
-        }
+        return crString.includes('/') ? parseFloat(crString.split('/')[0]) / parseFloat(crString.split('/')[1]) : parseInt(crString, 10);
     };
     const getArmorClassValue = ac => {
         let display = 'N/A', value = 10;
@@ -302,33 +332,66 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return { display, value };
     };
+    const getAbilityModifier = scoreString => Math.floor(((parseInt(scoreString?.match(/-?\d+/)?.[0], 10) || 10) - 10) / 2);
 
     // --- Cocofolia Data Generation ---
     function copyUrlToClipboard() {
         navigator.clipboard.writeText(window.location.href).then(() => alert('URLをクリップボードにコピーしました！'));
     }
+
     function copyCocofoliaData(monster) {
         try {
             const cocofoliaData = generateCocofoliaJson(monster);
             navigator.clipboard.writeText(JSON.stringify(cocofoliaData, null, 2)).then(() => {
                 alert('ココフォリア用のデータをコピーしました。\nココフォリアの画面上でペーストするとコマが作成されます。');
             });
-        } catch (e) { console.error("Failed to generate or copy Cocofolia data:", e); }
+        } catch (e) {
+            console.error("Failed to generate or copy Cocofolia data:", e);
+            alert("ココフォリア用データの生成またはコピーに失敗しました。F12キーでコンソールを開き、エラー内容を確認してください。");
+        }
     }
+
     function generateCocofoliaJson(monster) {
         const ac = getArmorClassValue(monster.armor_class);
-        const dexMod = Math.floor((parseInt(monster.ability_scores.dexterity) - 10) / 2);
-        const memo = `${monster.size_type_alignment}\n【移動速度】${monster.speed}`;
+        const dexMod = getAbilityModifier(monster.ability_scores.dexterity);
+        
+        const memoLines = [];
+        memoLines.push(monster.size_type_alignment || '情報なし');
+        if (monster.speed) memoLines.push(`【移動速度】${monster.speed}`);
+        memoLines.push('');
+        
+        const abilities = monster.ability_scores;
+        memoLines.push(`筋力: ${abilities.strength}　敏捷力: ${abilities.dexterity}　耐久力: ${abilities.constitution}`);
+        memoLines.push(`知力: ${abilities.intelligence}　判断力: ${abilities.wisdom}　魅力: ${abilities.charisma}`);
+        memoLines.push('');
+        
+        if (monster.saving_throws || monster.skills) {
+            memoLines.push('【セーヴィングスロー/技能】');
+            if (monster.saving_throws) memoLines.push(monster.saving_throws);
+            if (monster.skills) memoLines.push(monster.skills);
+            memoLines.push('');
+        }
+        const addMemoSection = (title, content) => { if (content) memoLines.push(`【${title}】\n${content}\n`); };
+        addMemoSection('ダメージ抵抗', monster.damage_resistances);
+        addMemoSection('ダメージ完全耐性', monster.damage_immunities);
+        addMemoSection('状態異常完全耐性', monster.condition_immunities);
+        
+        if (monster.senses) memoLines.push(`${monster.senses}\n`);
+        
+        if (monster.special_traits?.length > 0) {
+            memoLines.push('【特殊能力】');
+            monster.special_traits.forEach(t => memoLines.push(`・${t.name}: ${t.description}`));
+        }
 
         return {
             kind: "character",
             data: {
                 name: monster.name_jp,
-                memo,
+                memo: memoLines.join('\n').trim(),
                 initiative: dexMod,
                 externalUrl: window.location.href,
                 status: [{ label: "HP", value: monster.hit_points.average, max: monster.hit_points.average }, { label: "AC", value: ac.value, max: ac.value }],
-                params: Object.entries(monster.ability_scores).map(([key, value]) => ({ label: key.substring(0, 2).toUpperCase(), value })),
+                params: Object.entries(abilities).map(([key, value]) => ({ label: key, value: value })),
                 palette: monster.commands || ""
             }
         };
