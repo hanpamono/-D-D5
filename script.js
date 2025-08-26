@@ -53,12 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         document.querySelector('.cocofolia-button').addEventListener('click', () => {
-            const cocofoliaData = generateCocofoliaJson(monster);
-            navigator.clipboard.writeText(JSON.stringify(cocofoliaData, null, 2)).then(() => {
-                alert('ココフォリア用のデータをコピーしました。\nココフォリアの画面上でペーストするとコマが作成されます。');
-            }, () => {
-                alert('コピーに失敗しました。');
-            });
+            try {
+                const cocofoliaData = generateCocofoliaJson(monster);
+                navigator.clipboard.writeText(JSON.stringify(cocofoliaData, null, 2)).then(() => {
+                    alert('ココフォリア用のデータをコピーしました。\nココフォリアの画面上でペーストするとコマが作成されます。');
+                }, () => {
+                    alert('コピーに失敗しました。');
+                });
+            } catch (e) {
+                console.error("Failed to generate Cocofolia data:", e);
+                alert("ココフォリア用データの生成に失敗しました。コンソールを確認してください。");
+            }
         });
 
         displayMonsters([monster], true);
@@ -129,8 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         monsters.forEach(monster => {
             const monsterCard = document.createElement('div');
             monsterCard.className = 'stat-block';
-
-            let armorClass = getArmorClassValue(monster.armor_class).display;
+            const ac = getArmorClassValue(monster.armor_class);
 
             const monsterNameHTML = isSingleView
                 ? `<h2>${monster.name_jp} (${monster.name_en})</h2>`
@@ -140,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${monsterNameHTML}
                 <p class="size-type">${monster.size_type_alignment}</p>
                 <div class="separator"></div>
-                <p><strong>アーマークラス:</strong> ${armorClass}</p>
+                <p><strong>アーマークラス:</strong> ${ac.display}</p>
                 <p><strong>ヒットポイント:</strong> ${monster.hit_points.average} (${monster.hit_points.dice})</p>
                 <p><strong>移動速度:</strong> ${monster.speed}</p>
                 <div class="separator"></div>
@@ -175,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderSection(title, items) {
-        if (!items || items.length === 0) return '';
+        if (!items || !Array.isArray(items) || items.length === 0) return '';
         const sectionClass = title.toLowerCase().replace(/ /g, '-');
         return `
             <div class="${sectionClass}">
@@ -217,68 +221,91 @@ document.addEventListener('DOMContentLoaded', () => {
             if (typeof ac === 'object' && ac.value) {
                 display = `${ac.value} (${ac.type})`;
                 value = parseInt(ac.value, 10);
-            } else {
-                display = ac;
-                value = parseInt(ac, 10);
+            } else if (typeof ac === 'string' || typeof ac === 'number') {
+                display = ac.toString();
+                const matchedValue = display.match(/\d+/);
+                if (matchedValue) {
+                    value = parseInt(matchedValue[0], 10);
+                }
             }
         }
         return { display, value };
     }
-
+    
+    function getAbilityModifier(scoreString) {
+        const score = parseInt(scoreString.match(/-?\d+/)[0], 10);
+        return Math.floor((score - 10) / 2);
+    }
+    
     // --- Cocofolia Data Generation ---
     function parseDescriptionForChatPalette(action) {
-        let result = [];
         const desc = action.description;
+        let palette = [];
     
-        const rechargeMatch = desc.match(/（リチャージ (\d+-\d+)）/);
-        const rechargePrefix = rechargeMatch ? `[${rechargeMatch[1]}]` : '';
-
+        const rechargeMatch = desc.match(/（リチャージ\s*(\d+-\d+)）/);
+        const rechargePrefix = rechargeMatch ? `[${rechargeMatch[1]}] ` : '';
+    
+        // Attack Roll
         const attackMatch = desc.match(/(近接|遠隔)武器攻撃:\s*ヒット\+(\d+)/);
         if (attackMatch) {
             const hitBonus = attackMatch[2];
-            result.push(`1d20+${hitBonus} ${action.name}`);
+            palette.push(`${rechargePrefix}1d20+${hitBonus} ${action.name} 命中判定`);
     
-            const damageMatches = [...desc.matchAll(/(\d+d\d+(\s?[\+\-]\s?\d+)?)\s*の\s*(\S+ダメージ)/g)];
-            damageMatches.forEach(match => {
-                const dice = match[1].replace(/\s/g, '');
-                const type = match[3];
-                result.push(`${dice} ${type}`);
-            });
-
-            const additionalEffect = desc.split('ヒット:')[1]?.split('。')[1]?.trim();
-            if(additionalEffect) result.push(additionalEffect);
-
-            return result.join('\n');
+            const damagePart = desc.split('ヒット:')[1] || '';
+            const damageMatches = [...damagePart.matchAll(/(\d+\s?\(\d+d\d+(\s?[\+\-]\s?\d+)?\))\s*の\s*(\S+ダメージ)/g)];
+            if (damageMatches.length > 0) {
+                 damageMatches.forEach(match => {
+                    const dice = match[1].match(/\((.*?)\)/)[1].replace(/\s/g, '');
+                    const type = match[3];
+                    palette.push(`${dice} ${type}`);
+                });
+            }
+           
+            const otherEffects = damagePart.split('。');
+            if (otherEffects.length > 1 && otherEffects[1].trim()) {
+                 palette.push(otherEffects[1].trim());
+            }
+            return palette.join('\n');
         }
-        
-        const saveMatch = desc.match(/DC(\d+)\s*の\s*(\S+力)セーヴィングスロー/);
+    
+        // Saving Throw
+        const saveMatch = desc.match(/DC\s*(\d+)\s*の\s*(\S+力)セーヴィングスロー/);
         if (saveMatch) {
             const dc = saveMatch[1];
             const ability = saveMatch[2];
-            result.push(`${rechargePrefix}${action.name} DC${dc} ${ability}セーヴ`);
-            
-            const damageMatches = [...desc.matchAll(/(\d+d\d+(\s?[\+\-]\s?\d+)?)\s*の\s*(\S+ダメージ)/g)];
-            damageMatches.forEach(match => {
-                 const dice = match[1].replace(/\s/g, '');
-                 const type = match[3];
-                 result.push(`${dice} ${type} (セーヴ成功で半減)`);
-            });
-            const effect = desc.split('。')[1]?.trim();
-            if(effect) result.push(effect);
-            return result.join('\n');
+            palette.push(`${rechargePrefix}${action.name} (DC${dc} ${ability}セーヴ)`);
+    
+            const damagePart = desc.split('。')[1] || desc;
+            const damageMatches = [...damagePart.matchAll(/(\d+\s?\(\d+d\d+\))\s*の\s*(\S+ダメージ)/g)];
+             if (damageMatches.length > 0) {
+                 damageMatches.forEach(match => {
+                    const dice = match[1].match(/\((.*?)\)/)[1].replace(/\s/g, '');
+                    const type = match[3];
+                    palette.push(`${dice} ${type}`);
+                });
+                if (damagePart.includes('成功した場合はその半分のダメージ')) {
+                    palette.push('(セーヴ成功でダメージ半減)');
+                }
+            }
+            const otherEffects = desc.split('。');
+            if (otherEffects.length > 1 && otherEffects[1].trim()) {
+                palette.push(otherEffects[1].trim().replace(/失敗すると|成功した場合はその半分のダメージ/g, ''));
+            }
+            return palette.join('\n');
         }
-
-        // Generic action
+    
+        // Generic Action
         return `${rechargePrefix}${action.name}\n${desc}`;
     }
 
     function generateCocofoliaJson(monster) {
-        const initiative = parseInt(monster.ability_scores.dexterity.match(/-?\d+/)[0], 10);
-        const ac = getArmorClassValue(monster.armor_class).value;
-        
+        const ac = getArmorClassValue(monster.armor_class);
+        const dexMod = getAbilityModifier(monster.ability_scores.dexterity);
+
         let memo = `
 ${monster.name_en}
 ${monster.size_type_alignment}
+AC: ${ac.display} / HP: ${monster.hit_points.average} (${monster.hit_points.dice})
 移動速度: ${monster.speed}
 脅威度: ${monster.challenge_rating}
 --------------------
@@ -291,40 +318,29 @@ ${monster.size_type_alignment}
         }
         memo += `
 --------------------
-筋:${monster.ability_scores.strength} 敏:${monster.ability_scores.dexterity} 耐:${monster.ability_scores.constitution}
-知:${monster.ability_scores.intelligence} 判:${monster.ability_scores.wisdom} 魅:${monster.ability_scores.charisma}
-`.trim();
+        `.trim();
 
-        let paletteLines = [];
-        if (monster.special_traits && monster.special_traits.length > 0) {
-            paletteLines.push('//--- 特殊能力 ---');
-            monster.special_traits.forEach(trait => {
-                paletteLines.push(`${trait.name}\n${trait.description}`);
-            });
-        }
-        if (monster.actions && monster.actions.length > 0) {
-            paletteLines.push('\n//--- アクション ---');
-            monster.actions.forEach(action => {
-                paletteLines.push(parseDescriptionForChatPalette(action));
-            });
-        }
-        if (monster.bonus_actions && monster.bonus_actions.length > 0) {
-            paletteLines.push('\n//--- ボーナスアクション ---');
-            monster.bonus_actions.forEach(action => {
-                 paletteLines.push(`${action.name}\n${action.description}`);
-            });
-        }
-        if (monster.reactions && monster.reactions.length > 0) {
-            paletteLines.push('\n//--- リアクション ---');
-            monster.reactions.forEach(action => {
-                 paletteLines.push(`${action.name}\n${action.description}`);
-            });
-        }
-         if (monster.legendary_actions && monster.legendary_actions.length > 0) {
-            paletteLines.push('\n//--- 伝説的アクション ---');
-            monster.legendary_actions.forEach(action => {
-                 paletteLines.push(`${action.name}\n${action.description}`);
-            });
+        const paletteSections = {
+            "特殊能力": monster.special_traits,
+            "アクション": monster.actions,
+            "ボーナスアクション": monster.bonus_actions,
+            "リアクション": monster.reactions,
+            "伝説的アクション": monster.legendary_actions,
+            "巣穴のアクション": monster.lair_actions
+        };
+        
+        let palette = "";
+        for (const [title, items] of Object.entries(paletteSections)) {
+            if (items && Array.isArray(items) && items.length > 0) {
+                palette += `//--- ${title} ---\n`;
+                items.forEach(item => {
+                    if (title === "アクション") {
+                        palette += parseDescriptionForChatPalette(item) + '\n\n';
+                    } else {
+                        palette += `${item.name}\n${item.description}\n\n`;
+                    }
+                });
+            }
         }
 
         const data = {
@@ -332,21 +348,21 @@ ${monster.size_type_alignment}
             data: {
                 name: monster.name_jp,
                 memo: memo,
-                initiative: initiative,
+                initiative: dexMod,
                 externalUrl: window.location.href,
                 status: [
                     { label: "HP", value: monster.hit_points.average, max: monster.hit_points.average },
-                    { label: "AC", value: ac, max: ac }
+                    { label: "AC", value: ac.value, max: ac.value }
                 ],
                 params: [
-                    { label: "筋力", value: monster.ability_scores.strength.match(/\d+/)[0] },
-                    { label: "敏捷力", value: monster.ability_scores.dexterity.match(/\d+/)[0] },
-                    { label: "耐久力", value: monster.ability_scores.constitution.match(/\d+/)[0] },
-                    { label: "知力", value: monster.ability_scores.intelligence.match(/\d+/)[0] },
-                    { label: "判断力", value: monster.ability_scores.wisdom.match(/\d+/)[0] },
-                    { label: "魅力", value: monster.ability_scores.charisma.match(/\d+/)[0] }
+                    { label: "筋力", value: monster.ability_scores.strength },
+                    { label: "敏捷力", value: monster.ability_scores.dexterity },
+                    { label: "耐久力", value: monster.ability_scores.constitution },
+                    { label: "知力", value: monster.ability_scores.intelligence },
+                    { label: "判断力", value: monster.ability_scores.wisdom },
+                    { label: "魅力", value: monster.ability_scores.charisma }
                 ],
-                palette: paletteLines.join('\n\n')
+                palette: palette.trim()
             }
         };
         return data;
