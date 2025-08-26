@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- State Variables ---
     let allMonsters = [];
-    let currentMonster = null; // To hold the monster for the single view
+    let currentMonster = null;
 
     // --- Dark Mode Logic ---
     function applyTheme(theme) {
         if (theme === 'dark') {
             body.classList.add('dark-mode');
-            darkModeToggle.textContent = ☀️';
+            darkModeToggle.textContent = '☀️';
         } else {
             body.classList.remove('dark-mode');
             darkModeToggle.textContent = '🌙';
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Display Functions ---
     function displaySingleMonster(monster) {
-        currentMonster = monster; // Set the current monster
+        currentMonster = monster;
         filtersContainer.style.display = 'none';
         navigationControls.innerHTML = `
             <button class="nav-button" id="back-to-list">一覧に戻る</button>
@@ -105,12 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayMonsters(monsters, isSingleView = false) {
         monsterContainer.innerHTML = '';
         monsterContainer.className = isSingleView ? 'single-monster-view' : '';
-
         if (monsters.length === 0) {
             monsterContainer.innerHTML = '<p style="text-align:center;">該当するモンスターが見つかりませんでした。</p>';
             return;
         }
-
         monsters.forEach(monster => {
             const monsterCard = document.createElement('div');
             monsterCard.className = 'stat-block';
@@ -118,24 +116,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const monsterNameHTML = isSingleView
                 ? `<h2>${monster.name_jp} (${monster.name_en})</h2>`
                 : `<h2><a href="?monster=${encodeURIComponent(monster.name_jp)}">${monster.name_jp} (${monster.name_en})</a></h2>`;
-
             monsterCard.innerHTML = `
                 ${monsterNameHTML}
-                <p class="size-type">${monster.size_type_alignment}</p>
-                <div class="separator"></div>
+                <p class="size-type">${monster.size_type_alignment}</p><div class="separator"></div>
                 ${renderSimpleP('アーマークラス', ac.display)}
                 ${renderSimpleP('ヒットポイント', `${monster.hit_points.average} (${monster.hit_points.dice})`)}
-                ${renderSimpleP('移動速度', monster.speed)}
-                <div class="separator"></div>
+                ${renderSimpleP('移動速度', monster.speed)}<div class="separator"></div>
                 <ul class="ability-scores">
-                    <li><h4>筋力</h4><p>${monster.ability_scores.strength}</p></li>
-                    <li><h4>敏捷力</h4><p>${monster.ability_scores.dexterity}</p></li>
-                    <li><h4>耐久力</h4><p>${monster.ability_scores.constitution}</p></li>
-                    <li><h4>知力</h4><p>${monster.ability_scores.intelligence}</p></li>
-                    <li><h4>判断力</h4><p>${monster.ability_scores.wisdom}</p></li>
-                    <li><h4>魅力</h4><p>${monster.ability_scores.charisma}</p></li>
-                </ul>
-                <div class="separator"></div>
+                    <li><h4>筋力</h4><p>${monster.ability_scores.strength}</p></li><li><h4>敏捷力</h4><p>${monster.ability_scores.dexterity}</p></li><li><h4>耐久力</h4><p>${monster.ability_scores.constitution}</p></li>
+                    <li><h4>知力</h4><p>${monster.ability_scores.intelligence}</p></li><li><h4>判断力</h4><p>${monster.ability_scores.wisdom}</p></li><li><h4>魅力</h4><p>${monster.ability_scores.charisma}</p></li>
+                </ul><div class="separator"></div>
                 ${renderSimpleP('セーヴィングスロー', monster.saving_throws)}
                 ${renderSimpleP('技能', monster.skills)}
                 ${renderSimpleP('ダメージ脆弱性', monster.damage_vulnerabilities)}
@@ -155,17 +145,16 @@ document.addEventListener('DOMContentLoaded', () => {
             monsterContainer.appendChild(monsterCard);
         });
     }
-
+    
+    // --- Render Helpers ---
     function renderSimpleP(label, content) {
         return content ? `<p><strong>${label}:</strong> ${content}</p>` : '';
     }
-
     function renderSection(title, items) {
         if (!items || !Array.isArray(items) || items.length === 0) return '';
         return `
             <div class="${title.toLowerCase().replace(/ /g, '-')}">
-                <div class="separator"></div>
-                <h3>${title}</h3>
+                <div class="separator"></div><h3>${title}</h3>
                 ${items.map(item => `<div class="trait-item"><p><strong><em>${item.name}.</em></strong> ${item.description}</p></div>`).join('')}
             </div>
         `;
@@ -176,10 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let processedMonsters = [...allMonsters];
         const searchTerm = searchBar.value.toLowerCase();
         if (searchTerm) {
-            processedMonsters = processedMonsters.filter(m =>
-                m.name_jp.toLowerCase().includes(searchTerm) ||
-                (m.name_en && m.name_en.toLowerCase().includes(searchTerm))
-            );
+            processedMonsters = processedMonsters.filter(m => m.name_jp.toLowerCase().includes(searchTerm) || (m.name_en && m.name_en.toLowerCase().includes(searchTerm)));
         }
         const selectedSpecies = speciesFilter.value;
         if (selectedSpecies !== 'all') {
@@ -235,6 +221,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const getAbilityModifier = scoreString => Math.floor(((parseInt(scoreString?.match(/-?\d+/)?.[0]) || 10) - 10) / 2);
 
     // --- Cocofolia Data Generation ---
+    function copyUrlToClipboard() {
+        navigator.clipboard.writeText(window.location.href).then(() => alert('URLをクリップボードにコピーしました！'));
+    }
+
+    function copyCocofoliaData(monster) {
+        try {
+            const cocofoliaData = generateCocofoliaJson(monster);
+            
+            console.log("--- Generating Cocofolia Data ---");
+            console.log("Source Monster Data:", monster);
+            console.log("Generated Palette:", cocofoliaData.data.palette);
+            console.log("Full JSON Object:", cocofoliaData);
+            
+            if (!cocofoliaData.data.palette || cocofoliaData.data.palette.trim() === "") {
+                alert("警告: チャットパレットのデータ(commands)がJSONファイルから読み込めていません。");
+            }
+
+            navigator.clipboard.writeText(JSON.stringify(cocofoliaData, null, 2)).then(() => {
+                alert('ココフォリア用のデータをコピーしました。\nココフォリアの画面上でペーストするとコマが作成されます。');
+            });
+        } catch (e) {
+            console.error("Failed to generate or copy Cocofolia data:", e);
+            alert("ココフォリア用データの生成またはコピーに失敗しました。F12キーでコンソールを開き、エラー内容を確認してください。");
+        }
+    }
+
     function generateCocofoliaJson(monster) {
         const ac = getArmorClassValue(monster.armor_class);
         const dexMod = getAbilityModifier(monster.ability_scores.dexterity);
@@ -255,7 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (monster.skills) memoLines.push(monster.skills);
             memoLines.push('');
         }
-
         const addMemoSection = (title, content) => { if (content) memoLines.push(`【${title}】\n${content}\n`); };
         addMemoSection('ダメージ抵抗', monster.damage_resistances);
         addMemoSection('ダメージ完全耐性', monster.damage_immunities);
