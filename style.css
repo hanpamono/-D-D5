@@ -2,17 +2,60 @@
 :root {
     --font-serif: 'Noto Serif JP', serif;
     --font-sans: 'Noto Sans JP', sans-serif;
+    /* Light Mode Colors */
+    --bg-color: #f3e6d2;
+    --text-color: #3b3b3b;
     --dnd-red: #822000;
+    --stat-block-bg: #fdf1dc;
+    --border-color: #000;
+    --separator-color: #58180D;
+    --link-color: var(--dnd-red);
+    --input-bg: white;
+    --input-border: #ccc;
 }
 
 body {
     font-family: var(--font-sans);
-    background-color: #f3e6d2;
+    background-color: var(--bg-color);
     background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
-    color: #3b3b3b;
+    color: var(--text-color);
     line-height: 1.5;
     margin: 0;
     padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Dark Mode --- */
+body.dark-mode {
+    --bg-color: #2a2a2a;
+    --text-color: #d1d1d1;
+    --dnd-red: #e57373;
+    --stat-block-bg: #1e1e1e;
+    --border-color: #555;
+    --separator-color: #e57373;
+    --link-color: #ff8a80;
+    --input-bg: #3a3a3a;
+    --input-border: #666;
+}
+body.dark-mode .stat-block h2 a {
+    color: var(--link-color);
+}
+/* --- End Dark Mode --- */
+
+#dark-mode-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background-color: var(--stat-block-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.2em;
+    z-index: 1000;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 header {
@@ -35,7 +78,7 @@ h1 {
 .nav-button {
     background-color: var(--dnd-red);
     color: white;
-    border: 1px solid #000;
+    border: 1px solid var(--border-color);
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -45,7 +88,7 @@ h1 {
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
 }
 .nav-button:hover {
-    background-color: #a52a2a;
+    opacity: 0.8;
 }
 
 .filters {
@@ -63,20 +106,16 @@ h1 {
     gap: 8px;
 }
 
-#search-bar {
+#search-bar, select {
     padding: 8px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+#search-bar {
     width: 250px;
 }
-
-select {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: white;
-}
-
 
 #monster-container {
     display: grid;
@@ -91,8 +130,8 @@ select {
 }
 
 .stat-block {
-    background: #fdf1dc;
-    border: 2px solid #000;
+    background: var(--stat-block-bg);
+    border: 2px solid var(--border-color);
     padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     border-radius: 5px;
@@ -107,25 +146,16 @@ select {
     border-bottom: 1px solid var(--dnd-red);
     padding-bottom: 5px;
 }
-.stat-block h2 a {
-    text-decoration: none;
-    color: inherit;
-}
-.stat-block h2 a:hover {
-    text-decoration: underline;
-}
-
 
 .stat-block .size-type {
     font-family: var(--font-sans);
     font-style: italic;
-    color: #555;
-    margin-bottom: 10px;
+    color: #888;
 }
 
 .separator {
-    background: #58180D;
-    border: 1px solid #000;
+    background: var(--separator-color);
+    border: 1px solid var(--border-color);
     height: 5px;
     margin: 10px 0;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
@@ -138,8 +168,13 @@ select {
 
 .stat-block strong {
     font-weight: 700;
-    color: #000;
+    color: var(--text-color);
 }
+
+body.dark-mode .stat-block strong {
+     color: #f0f0f0;
+}
+
 
 .ability-scores {
     display: grid;
@@ -188,5 +223,5 @@ select {
 .trait-item strong {
     font-weight: 700;
     font-style: italic;
-    color: #000;
+    color: var(--text-color);
 }

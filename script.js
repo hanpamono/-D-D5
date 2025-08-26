@@ -1,4 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Dark Mode Logic ---
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    // On page load, check for saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        darkModeToggle.textContent = '☀️';
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            darkModeToggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'light');
+            darkModeToggle.textContent = '🌙';
+        }
+    });
+    // --- End Dark Mode Logic ---
+
+
     const monsterContainer = document.getElementById('monster-container');
     const searchBar = document.getElementById('search-bar');
     const speciesFilter = document.getElementById('species-filter');
@@ -269,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 initiative: dexMod,
                 externalUrl: window.location.href,
                 status: [{ label: "HP", value: monster.hit_points.average, max: monster.hit_points.average }, { label: "AC", value: ac.value, max: ac.value }],
-                params: Object.values(monster.ability_scores).map(value => ({ label: "", value })), // Simplified as params are not directly shown in memo
+                params: Object.values(monster.ability_scores).map(value => ({ label: "", value })),
                 palette: ""
             }
         };
