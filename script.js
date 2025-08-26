@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const body = document.body;
 
-    // On page load, check for saved theme
     if (localStorage.getItem('theme') === 'dark') {
         body.classList.add('dark-mode');
         darkModeToggle.textContent = '☀️';
@@ -284,6 +283,9 @@ document.addEventListener('DOMContentLoaded', () => {
             monster.special_traits.forEach(t => memoLines.push(`・${t.name}: ${t.description}`));
         }
 
+        // Use the "commands" key from JSON directly for the palette
+        const palette = monster.commands || "";
+
         return {
             kind: "character",
             data: {
@@ -292,8 +294,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 initiative: dexMod,
                 externalUrl: window.location.href,
                 status: [{ label: "HP", value: monster.hit_points.average, max: monster.hit_points.average }, { label: "AC", value: ac.value, max: ac.value }],
-                params: Object.values(monster.ability_scores).map(value => ({ label: "", value })),
-                palette: ""
+                params: Object.entries(abilities).map(([key, value]) => {
+                    const label_map = { 'strength': '筋力', 'dexterity': '敏捷力', 'constitution': '耐久力', 'intelligence': '知力', 'wisdom': '判断力', 'charisma': '魅力' };
+                    return { label: label_map[key] || key, value: value };
+                }),
+                palette: palette
             }
         };
     }
